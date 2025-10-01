@@ -1,0 +1,26 @@
+# 编辑器配置文件
+.vscode/
+*.swp
+*.swo
+
+# 操作系统文件
+Thumbs.db
+.DS_Store
+
+# 日志文件
+*.log
+
+# 依赖包文件夹
+node_modules/
+vendor/
+
+# 构建输出文件夹
+dist/
+build/
+
+# 临时文件
+tmp/
+temp/
+
+# 缓存文件
+*.cache
