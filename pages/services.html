@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>农业机械代办业务 - 报关物流技术支持</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="专业农业机械代办业务，提供报关清关、物流运输、技术支持、金融服务等一站式农业机械贸易解决方案。">
+    <meta name="keywords" content="农业机械代办,报关清关,物流运输,技术支持,金融服务,农机贸易服务">
+    <meta name="author" content="磐工金田">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="农业机械代办业务服务">
+    <meta property="og:description" content="专业农业机械代办业务，报关物流技术支持一站式服务">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.agrimachinery.com/services.html">
+    <meta property="og:image" content="https://www.agrimachinery.com/images/services.jpg">
+    
+    <!-- Twitter Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="农业机械代办业务服务">
+    <meta name="twitter:description" content="专业农业机械代办，报关物流技术支持一站式服务">
+    <meta name="twitter:image" content="https://www.agrimachinery.com/images/services.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.agrimachinery.com/pages/services.html">
+    
+    <style>
+        
+        /* 页面标题 */
+        .page-header {
+            background: linear-gradient(135deg, #2E7D32, #388E3C);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .page-header h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .page-header p { font-size: 1.2rem; opacity: 0.9; }
+        
+        /* 服务网格容器 */
+        .services-section {
+            background: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+        
+        /* 服务网格 */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        /* 确保在大屏幕上保持三个并排 */
+        @media (min-width: 1200px) {
+            .services-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover { transform: translateY(-10px); }
+        
+        .service-icon {
+            background: linear-gradient(135deg, #2E7D32, #388E3C);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .service-icon i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .service-icon h3 {
+            font-size: 1.5rem;
+        }
+        
+        .service-content {
+            padding: 2rem;
+        }
+        
+        .service-title {
+            font-size: 1.3rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        
+        .service-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-features {
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            color: #666;
+        }
+        
+        .feature-item i {
+            color: #2E7D32;
+            margin-right: 0.5rem;
+        }
+        
+        .service-price {
+            background: #f8f9fa;
+            padding: 1rem;
+            border-radius: 5px;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .price-label {
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        
+        .price-value {
+            font-size: 1.5rem;
+            color: #D3AF58;
+            font-weight: bold;
+        }
+        
+        /* 服务流程 */
+        .service-process {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 3rem;
+        }
+        
+        .process-title {
+            font-size: 2rem;
+            color: #2E7D32;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .process-step {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            position: relative;
+        }
+        
+        .process-step::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -1.5rem;
+            width: 3rem;
+            height: 2px;
+            background: #2E7D32;
+            transform: translateY(-50%);
+        }
+        
+        .process-step:last-child::after {
+            display: none;
+        }
+        
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: #2E7D32;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+        }
+        
+        .step-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .step-description {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* 服务优势 */
+        .service-advantages {
+            background: linear-gradient(135deg, #f5f5f5, #e8f5e9);
+            padding: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .advantages-title {
+            font-size: 2rem;
+            color: #2E7D32;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .advantages-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .advantage-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .advantage-icon {
+            font-size: 2.5rem;
+            color: #2E7D32;
+            margin-bottom: 1rem;
+        }
+        
+        .advantage-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .advantage-description {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* 立即咨询 */
+        .consultation {
+            background: linear-gradient(135deg, #2E7D32, #388E3C);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .consultation-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .consultation-description {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        /* 页脚样式 */
+        .footer {
+            background: #2E7D32;
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #D3AF58;
+        }
+        
+        .footer-col ul { list-style: none; }
+        
+        .footer-col ul li { margin-bottom: 0.5rem; }
+        
+        .footer-col ul li a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-col ul li a:hover { color: white; }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #e0e0e0;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .navbar-content { flex-direction: column; }
+            .nav-menu { margin-top: 1rem; justify-content: center; }
+            .nav-menu li { margin: 0 0.5rem; margin-top: 0.5rem; }
+            .page-header h1 { font-size: 2rem; }
+            .process-steps { flex-direction: column; }
+            .process-step::after {
+                display: none;
+            }
+            .language-container { display: none; }
+        }
+/* 登录注册按钮样式 */
+.auth-btn {
+    color: white;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    margin: 0 0.5rem;
+    display: flex;
+    align-items: center;
+    background: none; /* 去掉背景色 */
+    border: none; /* 去掉边框 */
+    border-radius: 0; /* 去掉圆角 */
+}
+
+.auth-btn:hover {
+    color: #D3AF58; /* 悬停时变橙色 */
+    background: none; /* 去掉悬停背景 */
+    transform: none; /* 去掉悬停动画 */
+}
+
+.auth-btn-outline {
+    color: white;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    margin: 0 0.5rem;
+    display: flex;
+    align-items: center;
+    background: none; /* 去掉背景色 */
+    border: none; /* 去掉边框 */
+    border-radius: 0; /* 去掉圆角 */
+}
+
+.auth-btn-outline:hover {
+    color: #D3AF58; /* 悬停时变橙色 */
+    background: none; /* 去掉悬停背景 */
+}
+
+/* 语言选择器样式 */
+.language-container {
+    display: flex;
+    align-items: center;
+    margin-left: 1.5rem;
+}
+
+.language-selector {
+    margin-left: 1rem;
+}
+
+.language-btn {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.language-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+/* 添加倒三角箭头 */
+.language-btn::after {
+    content: "ⅴ";
+    font-size: 0.8rem;
+    margin-left: 0.3rem;
+}
+
+/* 视频播放显示器样式 */
+.video-section {
+    background: white;
+    padding: 2rem 0;
+    margin-bottom: 2rem;
+}
+
+.video-section h2 {
+    text-align: center;
+    color: #2E7D32;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.video-container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    height: 450px;
+}
+
+.video-player {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #4CAF50;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+}
+
+.video-player:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+}
+
+.play-icon {
+    width: 3.5rem;
+    height: 3.5rem;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 0.8rem;
+    transition: transform 0.3s ease;
+}
+
+.video-player:hover .play-icon {
+    transform: scale(1.1);
+}
+
+.play-icon i {
+    color: #4CAF50;
+    font-size: 1.5rem;
+    margin-left: 5px;
+}
+
+.video-hint {
+    color: white;
+    font-size: 1.1rem;
+    margin: 0;
+}
+
+/* 平板端尺寸（992px以下） */
+@media (max-width: 991px) {
+    .video-container {
+        height: 350px;
+    }
+}
+
+/* 移动端尺寸（768px以下） */
+@media (max-width: 767px) {
+    .video-container {
+        height: auto;
+        padding-bottom: 56.25%; /* 16:9 比例 (9/16 = 0.5625) */
+    }
+    
+    .video-player {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    
+    .video-player:hover {
+        transform: translateY(-5px);
+    }
+}
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"></script>
+    <script src="/js/main.js?v=1.0"></script>
+    <script src="/js/wechat-module.js?v=1.0"></script>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <!-- 导航栏 -->
+<nav class="navbar">
+    <div class="container">
+        <div class="navbar-content">
+            <!-- Logo (已更改为"磐工金田") -->
+            <div class="logo">
+                <i class="fas fa-tractor"></i>
+                <span>磐工金田</span>
+            </div>
+            
+            <!-- 导航菜单 (已调整顺序和内容) -->
+            <ul class="nav-menu">
+                <li><a href="/index.html">首页</a></li>
+                <li><a href="/pages/products.html">农机设备</a></li>
+                <li><a href="/pages/used-equipment.html">二手设备</a></li>
+                <li><a href="/pages/equipment-rental.html">农机租赁</a></li>
+                <li><a href="/pages/services.html">代办业务</a></li>
+                <li><a href="/pages/ai-services.html">AI智能服务</a></li>
+                <li><a href="/pages/video_center.html">视频中心</a></li>
+                
+                <!-- 登录注册按钮 (移到视频中心后面) -->
+                <li><a href="/pages/login.html" class="auth-btn">登录</a></li>
+                <li><a href="/pages/register.html" class="auth-btn auth-btn-outline">注册</a></li>
+            </ul>
+            
+            <!-- 语言选择器 - 单独放置在右侧 -->
+            <div class="language-container">
+                <button class="language-btn" onclick="toggleLanguageMenu()">
+                    <i class="fas fa-globe"></i> 
+                    中文
+                </button>
+            </div>
+        </div>
+    </div>
+</nav>
+
+    <!-- 页面标题 -->
+    <section class="page-header">
+        <div class="container">
+            <h1>代办业务</h1>
+            <p>专业农业机械贸易服务，一站式解决方案</p>
+        </div>
+    </section>
+
+    <!-- 视频播放显示器 -->
+    <section class="video-section">
+        <div class="container">
+            <h2 style="text-align: center; color: #2E7D32; margin-bottom: 2rem; font-size: 2rem;">业务展示</h2>
+            <div class="video-container">
+                <div class="video-player" onclick="playVideo()">
+                    <div class="play-icon">
+                        <i class="fas fa-play"></i>
+                    </div>
+                    <p class="video-hint">点击播放业务展示视频</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 服务网格 -->
+    <section class="services-section">
+        <div class="container">
+            <h2 style="text-align: center; color: #2E7D32; margin-bottom: 2rem; font-size: 2rem;">业务类型</h2>
+            <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-clipboard-list"></i>
+                    <h3>贸易代理</h3>
+                </div>
+                <div class="service-content">
+                    <h3 class="service-title">国际贸易代理</h3>
+                    <p class="service-description">专业的国际贸易代理服务，帮您处理复杂的进出口手续，确保交易顺利进行。</p>
+                    <div class="service-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            进出口代理
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            合同签订指导
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            贸易条款咨询
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            风险评估
+                        </div>
+                    </div>
+                    <div class="service-price">
+                        <div class="price-label">服务费用</div>
+                        <div class="price-value">订单金额的2-5%</div>
+                    </div>
+                    <button class="btn" onclick="inquireService('trade')">
+                        <i class="fas fa-phone"></i> 立即咨询
+                    </button>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-ship"></i>
+                    <h3>物流运输</h3>
+                </div>
+                <div class="service-content">
+                    <h3 class="service-title">全球物流运输</h3>
+                    <p class="service-description">全球物流网络，提供门到门的运输服务，确保货物安全准时到达。</p>
+                    <div class="service-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            海运/空运/陆运
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            门到门服务
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            货物跟踪
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            保险服务
+                        </div>
+                    </div>
+                    <div class="service-price">
+                        <div class="price-label">服务费用</div>
+                        <div class="price-value">根据货物重量和目的地</div>
+                    </div>
+                    <button class="btn" onclick="inquireService('logistics')">
+                        <i class="fas fa-phone"></i> 立即咨询
+                    </button>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-balance-scale"></i>
+                    <h3>报关清关</h3>
+                </div>
+                <div class="service-content">
+                    <h3 class="service-title">专业报关清关</h3>
+                    <p class="service-description">专业的报关清关服务，熟悉各国海关规定，确保货物顺利通关。</p>
+                    <div class="service-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            进口报关
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            出口报关
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            商检代理
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            关税计算
+                        </div>
+                    </div>
+                    <div class="service-price">
+                        <div class="price-label">服务费用</div>
+                        <div class="price-value">500-2000元/票</div>
+                    </div>
+                    <button class="btn" onclick="inquireService('customs')">
+                        <i class="fas fa-phone"></i> 立即咨询
+                    </button>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <h3>金融服务</h3>
+                </div>
+                <div class="service-content">
+                    <h3 class="service-title">贸易金融服务</h3>
+                    <p class="service-description">提供信用证、托收等多种国际贸易结算方式，降低交易风险。</p>
+                    <div class="service-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            信用证开立
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            托收代理
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            资金融通
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            汇率锁定
+                        </div>
+                    </div>
+                    <div class="service-price">
+                        <div class="price-label">服务费用</div>
+                        <div class="price-value">根据服务类型</div>
+                    </div>
+                    <button class="btn" onclick="inquireService('finance')">
+                        <i class="fas fa-phone"></i> 立即咨询
+                    </button>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-wrench"></i>
+                    <h3>技术支持</h3>
+                </div>
+                <div class="service-content">
+                    <h3 class="service-title">技术支持服务</h3>
+                    <p class="service-description">专业的技术团队，提供设备安装调试和培训服务。</p>
+                    <div class="service-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            安装调试
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            操作培训
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            维护保养
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            技术咨询
+                        </div>
+                    </div>
+                    <div class="service-price">
+                        <div class="price-label">服务费用</div>
+                        <div class="price-value">2000-10000元/次</div>
+                    </div>
+                    <button class="btn" onclick="inquireService('technical')">
+                        <i class="fas fa-phone"></i> 立即咨询
+                    </button>
+                </div>
+            </div>
+            
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-headset"></i>
+                    <h3>售后服务</h3>
+                </div>
+                <div class="service-content">
+                    <h3 class="service-title">完善售后服务</h3>
+                    <p class="service-description">完善的售后服务体系，让您购买无忧，使用放心。</p>
+                    <div class="service-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            质保服务
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            维修保养
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            配件供应
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            紧急救援
+                        </div>
+                    </div>
+                    <div class="service-price">
+                        <div class="price-label">服务费用</div>
+                        <div class="price-value">根据服务内容</div>
+                    </div>
+                    <button class="btn" onclick="inquireService('aftersales')">
+                        <i class="fas fa-phone"></i> 立即咨询
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 服务流程 -->
+        <div class="service-process">
+            <h2 class="process-title">服务流程</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-title">需求咨询</div>
+                    <div class="step-description">客户提出服务需求</div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-title">方案制定</div>
+                    <div class="step-description">制定个性化服务方案</div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-title">合同签订</div>
+                    <div class="step-description">签订服务合同</div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div class="step-title">服务实施</div>
+                    <div class="step-description">专业团队执行服务</div>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <div class="step-title">服务完成</div>
+                    <div class="step-description">服务验收完成</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 服务优势 -->
+        <div class="service-advantages">
+            <h2 class="advantages-title">服务优势</h2>
+            <div class="advantages-list">
+                <div class="advantage-item">
+                    <div class="advantage-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="advantage-title">专业团队</h3>
+                    <p class="advantage-description">经验丰富的专业团队</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="advantage-title">高效服务</h3>
+                    <p class="advantage-description">快速响应，高效执行</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="advantage-title">安全可靠</h3>
+                    <p class="advantage-description">严格把控服务质量</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3 class="advantage-title">诚信合作</h3>
+                    <p class="advantage-description">诚信经营，合作共赢</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- 立即咨询 -->
+        <div class="consultation">
+            <div class="container">
+                <h2 class="consultation-title">需要代办业务？</h2>
+                <p class="consultation-description">专业团队为您提供一站式农业机械贸易服务</p>
+                <button class="btn" onclick="contactService()">
+                    <i class="fas fa-phone"></i> 立即联系我们
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>关于我们</h3>
+                    <ul>
+                        <li><a href="about.html">公司简介</a></li>
+                        <li><a href="about.html#history">发展历程</a></li>
+                        <li><a href="about.html#culture">企业文化</a></li>
+                        <li><a href="about.html#team">团队介绍</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>产品服务</h3>
+                    <ul>
+                        <li><a href="products.html">全新设备</a></li>
+                        <li><a href="used-equipment.html">二手设备</a></li>
+                        <li><a href="services.html">代办业务</a></li>
+                        <li><a href="video_center.html">视频中心</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>客户支持</h3>
+                    <ul>
+                        <li><a href="contact.html#faq">帮助中心</a></li>
+                        <li><a href="contact.html">联系我们</a></li>
+                        <li><a href="contact.html#service">在线咨询</a></li>
+                        <li><a href="contact.html#feedback">意见反馈</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>联系信息</h3>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +86 400-888-9999</li>
+                        <li><i class="fas fa-envelope"></i> info@agrimachinery.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 北京市朝阳区国贸大厦</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 磐工金田. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleLanguageMenu() {
+            alert('语言切换功能将在后续版本中完善');
+        }
+        
+        // 检查登录状态的功能
+        function checkLoginStatus() {
+            // 从localStorage获取登录状态
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            let currentUser = null;
+            
+            try {
+                const storedUser = localStorage.getItem('currentUser');
+                if (storedUser && storedUser !== 'undefined' && storedUser !== 'null') {
+                    // 尝试将存储的用户数据解析为JSON
+                    currentUser = JSON.parse(storedUser);
+                }
+            } catch (error) {
+                // 如果解析失败，记录错误并设置默认值
+                console.warn('解析用户数据时出错:', error);
+                // 尝试创建一个有效的用户对象
+                currentUser = { username: 'guest' };
+            }
+            
+            return {
+                isLoggedIn: isLoggedIn,
+                currentUser: currentUser
+            };
+        }
+        
+        function inquireService(serviceType) {
+            const { isLoggedIn } = checkLoginStatus();
+            
+            if (!isLoggedIn) {
+                alert('请先登录再进行咨询');
+                window.location.href = 'login.html';
+                return;
+            }
+            
+            const serviceNames = {
+                'trade': '国际贸易代理',
+                'logistics': '全球物流运输',
+                'customs': '专业报关清关',
+                'finance': '贸易金融服务',
+                'technical': '技术支持服务',
+                'aftersales': '完善售后服务'
+            };
+            
+            alert(`您正在咨询 ${serviceNames[serviceType]} 服务！\n\n我们的专业顾问将在24小时内与您联系。\n\n咨询热线：400-888-9999\n邮箱：info@agrimachinery.com`);
+        }
+        
+        function contactService() {
+            const { isLoggedIn } = checkLoginStatus();
+            
+            if (!isLoggedIn) {
+                alert('请先登录再联系我们');
+                window.location.href = 'login.html';
+                return;
+            }
+            
+            window.location.href = 'contact.html';
+        }
+        
+        // 视频播放功能
+        function playVideo() {
+            // 模拟视频播放，实际项目中可以替换为真实的视频播放器
+            alert('视频播放功能将在后续版本中完善');
+        }
+        
+        // 为所有立即咨询按钮添加登录状态检查
+        document.addEventListener('DOMContentLoaded', function() {
+            const consultationButtons = document.querySelectorAll('.btn');
+            
+            consultationButtons.forEach(button => {
+                // 检查按钮是否已经绑定了onclick事件，如果有，则不重复添加
+                if (!button.onclick) {
+                    button.addEventListener('click', function() {
+                        const { isLoggedIn } = checkLoginStatus();
+                        
+                        if (!isLoggedIn) {
+                            alert('请先登录再进行操作');
+                            window.location.href = 'login.html';
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"></script>
+
+</body>
+</html>

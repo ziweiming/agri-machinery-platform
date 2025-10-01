@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>农业机械设备产品展示 - 拖拉机收割机播种机价格</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="专业农业机械设备产品展示，提供拖拉机、收割机、播种机、喷雾机等各类农业机械价格报价，支持进出口贸易。">
+    <meta name="keywords" content="农业机械产品,拖拉机价格,收割机报价,播种机型号,农业设备价格,农机产品展示">
+    <meta name="author" content="磐工金田">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="农业机械设备产品展示">
+    <meta property="og:description" content="专业农业机械设备产品展示平台，提供各类农机价格报价">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.agrimachinery.com/products.html">
+    <meta property="og:image" content="https://www.agrimachinery.com/images/products.jpg">
+    
+    <!-- Twitter Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="农业机械设备产品展示">
+    <meta name="twitter:description" content="专业农业机械设备产品展示，提供拖拉机收割机价格报价">
+    <meta name="twitter:image" content="https://www.agrimachinery.com/images/products.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.agrimachinery.com/pages/products.html">
+    
+    <style>
+        
+        /* 页面标题 */
+        .page-header {
+            background: linear-gradient(135deg, #2E7D32, #388E3C);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .page-header h1 { font-size: 2.5rem; margin-bottom: 1rem; }
+        .page-header p { font-size: 1.2rem; opacity: 0.9; }
+        
+        /* 视频播放版块 */
+        .video-section {
+            background: white;
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+        
+        .video-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            height: 450px;
+        }
+
+        /* 平板端尺寸（992px以下） */
+        @media (max-width: 991px) {
+            .video-container {
+                height: 350px;
+            }
+        }
+
+        /* 移动端尺寸（768px以下） */
+        @media (max-width: 767px) {
+            .video-container {
+                height: auto;
+                padding-bottom: 56.25%; /* 16:9 比例 (9/16 = 0.5625) */
+            }
+            
+            .video-player {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+            }
+        }
+        
+        .video-player {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #4CAF50;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+        
+        .video-player:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+        
+        .play-icon {
+            width: 3.5rem;
+            height: 3.5rem;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .video-player:hover .play-icon {
+            transform: scale(1.1);
+        }
+        
+        .play-icon span {
+            color: #4CAF50;
+            font-size: 1.5rem;
+        }
+        
+        .video-player p {
+            color: white;
+            font-size: 1.1rem;
+        }
+        
+        @media (max-width: 992px) {
+            .video-container {
+                height: 350px !important;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .video-container {
+                height: auto !important;
+                padding-bottom: 56.25% !important;
+            }
+            
+            .video-player {
+                position: absolute !important;
+                top: 0 !important;
+                left: 0 !important;
+                width: 100% !important;
+                height: 100% !important;
+            }
+            
+            .video-player:hover {
+                transform: translateY(-5px);
+            }
+        }
+        
+        /* 筛选器 */
+        .filters {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .filter-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .filter-group {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .filter-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+        }
+        
+        .filter-group select, .filter-group input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        /* 产品网格 */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+            min-height: 480px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .product-card:hover { transform: translateY(-10px); }
+        
+        .product-img {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(45deg, #e0e0e0, #bdbdbd);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 3rem;
+        }
+        
+        .product-info {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        
+        .product-info .btn {
+            width: 100%;
+            max-width: 200px;
+            display: block;
+            margin: 1rem auto 0;
+        }
+        
+        .product-title {
+            font-size: 1.3rem;
+            color: #333;
+            margin-bottom: 0.5rem;
+        }
+        
+        .product-desc {
+            color: #666;
+            margin-bottom: 1rem;
+        }
+        
+        .product-price {
+            font-size: 1.5rem;
+            color: #D3AF58;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            margin-top: auto;
+        }
+        
+        .product-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .product-tag {
+            background: #f5f5f5;
+            color: #666;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+        }
+        
+        /* 分页 */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 0.5rem;
+        }
+        
+        .pagination li a {
+            display: inline-block;
+            padding: 0.8rem 1.2rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            color: #333;
+            text-decoration: none;
+        }
+        
+        .pagination li.active a {
+            background: #2E7D32;
+            color: white;
+            border-color: #2E7D32;
+        }
+        
+        /* 页脚样式 */
+        .footer {
+            background: #2E7D32;
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #D3AF58;
+        }
+        
+        .footer-col ul { list-style: none; }
+        
+        .footer-col ul li { margin-bottom: 0.5rem; }
+        
+        .footer-col ul li a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-col ul li a:hover { color: white; }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #e0e0e0;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .navbar-content { flex-direction: column; }
+            .nav-menu { margin-top: 1rem; justify-content: center; }
+            .nav-menu li { margin: 0 0.5rem; margin-top: 0.5rem; }
+            .page-header h1 { font-size: 2rem; }
+            .filter-row { flex-direction: column; }
+            .language-container { display: none; }
+        }
+/* 登录注册按钮样式 */
+.auth-btn {
+    color: white;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    margin: 0 0.5rem;
+    display: flex;
+    align-items: center;
+    background: none; /* 去掉背景色 */
+    border: none; /* 去掉边框 */
+    border-radius: 0; /* 去掉圆角 */
+}
+
+.auth-btn:hover {
+    color: #D3AF58; /* 悬停时变橙色 */
+    background: none; /* 去掉悬停背景 */
+    transform: none; /* 去掉悬停动画 */
+}
+
+.auth-btn-outline {
+    color: white;
+    padding: 0.5rem 1rem;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    margin: 0 0.5rem;
+    display: flex;
+    align-items: center;
+    background: none; /* 去掉背景色 */
+    border: none; /* 去掉边框 */
+    border-radius: 0; /* 去掉圆角 */
+}
+
+.auth-btn-outline:hover {
+     color: #D3AF58; /* 悬停时变橙色 */
+     background: none; /* 去掉悬停背景 */
+}
+
+/* 语言选择器样式 */
+.language-container {
+    display: flex;
+    align-items: center;
+    margin-left: 1.5rem;
+}
+
+.language-selector {
+    margin-left: 1rem;
+}
+
+.language-btn {
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.language-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: translateY(-2px);
+}
+
+/* 添加倒三角箭头 */
+.language-btn::after {
+    content: "ⅴ";
+    font-size: 0.8rem;
+    margin-left: 0.3rem;
+}
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"></script>
+
+</head>
+<body>
+    <!-- 导航栏 -->
+    <!-- 导航栏 -->
+<nav class="navbar">
+            <div class="container">
+                <div class="navbar-content">
+                    <!-- Logo (已更改为"磐工金田") -->
+                    <div class="logo">
+                        <i class="fas fa-tractor"></i>
+                        <span>磐工金田</span>
+                    </div>
+                    
+                    <!-- 导航菜单 (已调整顺序和内容) -->
+                    <ul class="nav-menu">
+                        <li><a href="../index.html">首页</a></li>
+                        <li><a href="products.html" class="active">农机设备</a></li>
+                        <li><a href="used-equipment.html">二手设备</a></li>
+                        <li><a href="equipment-rental.html">农机租赁</a></li>
+                        <li><a href="services.html">代办业务</a></li>
+                        <li><a href="ai-services.html">AI智能服务</a></li>
+                        <li><a href="video_center.html">视频中心</a></li>
+                            
+                        <!-- 登录注册按钮 (移到视频中心后面) -->
+                        <li><a href="login.html" class="auth-btn">登录</a></li>
+                        <li><a href="register.html" class="auth-btn auth-btn-outline">注册</a></li>
+                    </ul>
+                    
+                    <!-- 语言选择器 - 单独放置在右侧 -->
+                    <div class="language-container">
+                        <button class="language-btn" onclick="toggleLanguageMenu()">
+                            <i class="fas fa-globe"></i> 
+                            中文
+                        </button>
+                    </div>
+        </div>
+    </div>
+</nav>
+
+    <!-- 页面标题 -->
+    <section class="page-header">
+        <div class="container">
+            <h1>设备展示</h1>
+            <p>专业农业机械设备，品质保证，价格优惠</p>
+        </div>
+    </section>
+
+    <!-- 视频播放版块 -->
+    <section class="video-section">
+        <div class="container">
+            <h2 style="text-align: center; color: #2E7D32; margin-bottom: 2rem; font-size: 2rem;">设备展示</h2>
+            <div class="video-container">
+                <div class="video-player">
+                    <div class="play-icon">
+                        <span>▶</span>
+                    </div>
+                    <p>点击播放设备展示</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 筛选器 -->
+    <section class="container">
+        <div class="filters">
+            <div class="filter-row">
+                <div class="filter-group">
+                    <label for="product-type">产品类型</label>
+                    <select id="product-type">
+                        <option value="">全部类型</option>
+                        <option value="tractor">拖拉机</option>
+                        <option value="harvester">收割机</option>
+                        <option value="seeder">播种机</option>
+                        <option value="sprayer">喷雾机</option>
+                        <option value="irrigation">灌溉设备</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="brand">品牌</label>
+                    <select id="brand">
+                        <option value="">全部品牌</option>
+                        <option value="dongfanghong">东方红</option>
+                        <option value="kubota">久保田</option>
+                        <option value="john-deere">约翰迪尔</option>
+                        <option value="yituo">中国一拖</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="price-range">价格范围</label>
+                    <select id="price-range">
+                        <option value="">全部价格</option>
+                        <option value="0-10">10万以下</option>
+                        <option value="10-20">10-20万</option>
+                        <option value="20-50">20-50万</option>
+                        <option value="50+">50万以上</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="search">搜索产品</label>
+                    <input type="text" id="search" placeholder="输入产品名称或型号...">
+                </div>
+            </div>
+            
+            <div style="text-align: center;">
+                <button class="btn filter-btn" onclick="applyFilters()" style="padding: 0.8rem 1.5rem;">
+                    <i class="fas fa-search"></i> 搜索设备
+                </button>
+                <button class="btn btn-outline" onclick="resetFilters()">
+                    <i class="fas fa-bullseye"></i> 重置筛选
+                </button>
+            </div>
+        </div>
+
+        <!-- 产品网格 -->
+        <div class="products-grid">
+            <div class="product-card">
+                <div class="product-img">
+                    <i class="fas fa-tractor"></i>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">东方红LX1204拖拉机</h3>
+                    <p class="product-desc">120马力四轮驱动拖拉机，适用于各种农业作业</p>
+                    <div class="product-tags">
+                        <span class="product-tag">拖拉机</span>
+                        <span class="product-tag">四轮驱动</span>
+                        <span class="product-tag">120马力</span>
+                    </div>
+                    <div class="product-price">¥158,000</div>
+                    <button class="btn" onclick="viewProductDetail('lx1204')">
+                        <i class="fas fa-info-circle"></i> 查看详情
+                    </button>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-img">
+                    <i class="fas fa-harvester"></i>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">久保田PRO988Q收割机</h3>
+                    <p class="product-desc">高性能联合收割机，效率高，操作简便</p>
+                    <div class="product-tags">
+                        <span class="product-tag">收割机</span>
+                        <span class="product-tag">全喂入</span>
+                        <span class="product-tag">高性能</span>
+                    </div>
+                    <div class="product-price">¥380,000</div>
+                    <button class="btn" onclick="viewProductDetail('pro988q')">
+                        <i class="fas fa-info-circle"></i> 查看详情
+                    </button>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-img">
+                    <i class="fas fa-seedling"></i>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">精密播种机</h3>
+                    <p class="product-desc">高精度播种机，节省种子，提高效率</p>
+                    <div class="product-tags">
+                        <span class="product-tag">播种机</span>
+                        <span class="product-tag">精密</span>
+                        <span class="product-tag">高效率</span>
+                    </div>
+                    <div class="product-price">¥85,000</div>
+                    <button class="btn" onclick="viewProductDetail('seeder')">
+                        <i class="fas fa-info-circle"></i> 查看详情
+                    </button>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-img">
+                    <i class="fas fa-spray-can"></i>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">自走式喷雾机</h3>
+                    <p class="product-desc">高效植保设备，喷洒均匀，覆盖面积大</p>
+                    <div class="product-tags">
+                        <span class="product-tag">喷雾机</span>
+                        <span class="product-tag">自走式</span>
+                        <span class="product-tag">植保</span>
+                    </div>
+                    <div class="product-price">¥120,000</div>
+                    <button class="btn" onclick="viewProductDetail('sprayer')">
+                        <i class="fas fa-info-circle"></i> 查看详情
+                    </button>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-img">
+                    <i class="fas fa-water"></i>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">滴灌设备系统</h3>
+                    <p class="product-desc">节水灌溉设备，适用于各种作物</p>
+                    <div class="product-tags">
+                        <span class="product-tag">灌溉设备</span>
+                        <span class="product-tag">滴灌</span>
+                        <span class="product-tag">节水</span>
+                    </div>
+                    <div class="product-price">¥45,000</div>
+                    <button class="btn" onclick="viewProductDetail('irrigation')">
+                        <i class="fas fa-info-circle"></i> 查看详情
+                    </button>
+                </div>
+            </div>
+            
+            <div class="product-card">
+                <div class="product-img">
+                    <i class="fas fa-tractor"></i>
+                </div>
+                <div class="product-info">
+                    <h3 class="product-title">约翰迪尔5E-804拖拉机</h3>
+                    <p class="product-desc">80马力拖拉机，品质可靠，性价比高</p>
+                    <div class="product-tags">
+                        <span class="product-tag">拖拉机</span>
+                        <span class="product-tag">约翰迪尔</span>
+                        <span class="product-tag">80马力</span>
+                    </div>
+                    <div class="product-price">¥120,000</div>
+                    <button class="btn" onclick="viewProductDetail('john-deere-804')">
+                        <i class="fas fa-info-circle"></i> 查看详情
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 分页 -->
+        <div class="pagination">
+            <li class="active"><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>关于我们</h3>
+                    <ul>
+                        <li><a href="about.html">公司简介</a></li>
+                        <li><a href="about.html#history">发展历程</a></li>
+                        <li><a href="about.html#culture">企业文化</a></li>
+                        <li><a href="about.html#team">团队介绍</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>产品服务</h3>
+                    <ul>
+                        <li><a href="products.html">全新设备</a></li>
+                        <li><a href="used-equipment.html">二手设备</a></li>
+                        <li><a href="services.html">代办业务</a></li>
+                        <li><a href="video_center.html">视频中心</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>客户支持</h3>
+                    <ul>
+                        <li><a href="contact.html#faq">帮助中心</a></li>
+                        <li><a href="contact.html">联系我们</a></li>
+                        <li><a href="contact.html#service">在线咨询</a></li>
+                        <li><a href="contact.html#feedback">意见反馈</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>联系信息</h3>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +86 400-888-9999</li>
+                        <li><i class="fas fa-envelope"></i> info@agrimachinery.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 北京市朝阳区国贸大厦</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 磐工金田. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleLanguageMenu() {
+            alert('语言切换功能将在后续版本中完善');
+        }
+        
+        // 检查登录状态的功能
+        function checkLoginStatus() {
+            // 从localStorage获取登录状态
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            let currentUser = null;
+            
+            try {
+                const storedUser = localStorage.getItem('currentUser');
+                if (storedUser && storedUser !== 'undefined' && storedUser !== 'null') {
+                    // 尝试将存储的用户数据解析为JSON
+                    currentUser = JSON.parse(storedUser);
+                }
+            } catch (error) {
+                // 如果解析失败，记录错误并设置默认值
+                console.warn('解析用户数据时出错:', error);
+                // 尝试创建一个有效的用户对象
+                currentUser = { username: 'guest' };
+            }
+            
+            return {
+                isLoggedIn: isLoggedIn,
+                currentUser: currentUser
+            };
+        }
+        
+        function applyFilters() {
+            const { isLoggedIn } = checkLoginStatus();
+            
+            if (!isLoggedIn) {
+                alert('请先登录再进行筛选');
+                window.location.href = '../pages/login.html';
+            } else {
+                alert('产品筛选功能已应用！');
+            }
+        }
+        
+        function resetFilters() {
+            const { isLoggedIn } = checkLoginStatus();
+            
+            if (!isLoggedIn) {
+                alert('请先登录再进行操作');
+                window.location.href = '../pages/login.html';
+            } else {
+                document.getElementById('product-type').value = '';
+                document.getElementById('brand').value = '';
+                document.getElementById('price-range').value = '';
+                document.getElementById('search').value = '';
+            }
+        }
+        
+        function viewProductDetail(productId) {
+            const { isLoggedIn } = checkLoginStatus();
+            
+            if (!isLoggedIn) {
+                alert('请先登录再查看产品详情');
+                window.location.href = '../pages/login.html';
+            } else {
+                alert(`正在查看产品 ${productId} 的详细信息...`);
+            }
+        }
+        
+        // 为分页添加登录状态检查
+        document.addEventListener('DOMContentLoaded', function() {
+            const paginationLinks = document.querySelectorAll('.pagination li a');
+            
+            paginationLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const { isLoggedIn } = checkLoginStatus();
+                    
+                    if (!isLoggedIn) {
+                        alert('请先登录再查看更多页面');
+                        window.location.href = '../pages/login.html';
+                    } else {
+                        // 在实际应用中，这里会加载对应页码的数据
+                        const pageNum = this.textContent.trim();
+                        alert(`切换到第${pageNum}页`);
+                    }
+                });
+            });
+            
+            // 为搜索输入框添加登录状态检查
+            const searchInput = document.getElementById('search');
+            if (searchInput) {
+                searchInput.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter') {
+                        const { isLoggedIn } = checkLoginStatus();
+                        
+                        if (!isLoggedIn) {
+                            e.preventDefault();
+                            alert('请先登录再进行搜索');
+                            window.location.href = '../pages/login.html';
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"></script>
+    <script src="/js/main.js?v=1.0"></script>
+    <script src="/js/wechat-module.js?v=1.0"></script>
+
+</body>
+</html>

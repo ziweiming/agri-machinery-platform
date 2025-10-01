@@ -1,0 +1,1558 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI智能服务 - 农业机械智能解决方案</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="专业农业机械AI智能服务，提供设备选型、维护诊断、产量预测、农场管理等智能解决方案。">
+    <meta name="keywords" content="AI智能服务,农业机械智能,设备选型,维护诊断,产量预测,农场管理">
+    <meta name="author" content="磐工金田">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="农业机械AI智能服务">
+    <meta property="og:description" content="专业农业机械AI智能服务，提供设备选型、维护诊断、产量预测等智能解决方案">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.agrimachinery.com/ai-services.html">
+    <meta property="og:image" content="https://www.agrimachinery.com/images/ai-services.jpg">
+    
+    <!-- Twitter Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="农业机械AI智能服务">
+    <meta name="twitter:description" content="专业农业机械AI智能服务，设备选型、维护诊断、产量预测智能解决方案">
+    <meta name="twitter:image" content="https://www.agrimachinery.com/images/ai-services.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.agrimachinery.com/pages/ai-services.html">
+    
+    <style>
+        
+        /* 页面标题 */
+        .page-header {
+            background: linear-gradient(135deg, #2E7D32, #388E3C);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        .page-header h1 { 
+            font-size: 2.5rem; 
+            margin-bottom: 1rem;
+            animation: slideUp 0.8s ease-out 0.2s both;
+        }
+        
+        .page-header p { 
+            font-size: 1.2rem; 
+            opacity: 0.9;
+            animation: slideUp 0.8s ease-out 0.4s both;
+        }
+        
+        /* 服务网格 */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .service-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        
+        .service-card:nth-child(1) { animation-delay: 0.2s; }
+        .service-card:nth-child(2) { animation-delay: 0.3s; }
+        .service-card:nth-child(3) { animation-delay: 0.4s; }
+        .service-card:nth-child(4) { animation-delay: 0.5s; }
+        .service-card:nth-child(5) { animation-delay: 0.6s; }
+        .service-card:nth-child(6) { animation-delay: 0.7s; }
+        .service-card:nth-child(7) { animation-delay: 0.8s; }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+        }
+        
+        .service-icon {
+            background: linear-gradient(135deg, #2E7D32, #388E3C);
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .service-icon i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .service-card:hover .service-icon i {
+            transform: scale(1.1);
+        }
+        
+        .service-icon h3 {
+            font-size: 1.5rem;
+        }
+        
+        .service-content {
+            padding: 2rem;
+        }
+        
+        .service-title {
+            font-size: 1.3rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        
+        .service-description {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-features {
+            margin-bottom: 1.5rem;
+        }
+        
+        .feature-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            color: #666;
+        }
+        
+        .feature-item i {
+            color: #2E7D32;
+            margin-right: 0.5rem;
+        }
+        
+        /* 服务流程 */
+        .service-process {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 3rem;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        .process-title {
+            font-size: 2rem;
+            color: #2E7D32;
+            text-align: center;
+            margin-bottom: 2rem;
+            animation: slideUp 0.8s ease-out 0.2s both;
+        }
+        
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .process-step {
+            flex: 1;
+            min-width: 200px;
+            text-align: center;
+            padding: 1.5rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+            position: relative;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease-out forwards;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+        
+        .process-step:nth-child(1) { animation-delay: 0.3s; }
+        .process-step:nth-child(2) { animation-delay: 0.4s; }
+        .process-step:nth-child(3) { animation-delay: 0.5s; }
+        .process-step:nth-child(4) { animation-delay: 0.6s; }
+        .process-step:nth-child(5) { animation-delay: 0.7s; }
+        
+        .process-step::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            right: -1.5rem;
+            width: 3rem;
+            height: 2px;
+            background: #2E7D32;
+            transform: translateY(-50%);
+            transition: width 0.3s ease;
+        }
+        
+        .process-step:last-child::after {
+            display: none;
+        }
+        
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: #2E7D32;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin: 0 auto 1rem;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+        
+        .process-step:hover {
+            transform: translateY(-5px);
+            background: #e8f5e9;
+        }
+        
+        .process-step:hover .step-number {
+            transform: scale(1.1);
+            background: #1B5E20;
+        }
+        
+        .step-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .step-description {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* 服务优势 */
+        .service-advantages {
+            background: linear-gradient(135deg, #f5f5f5, #e8f5e9);
+            padding: 2rem;
+            margin-bottom: 3rem;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        .advantages-title {
+            font-size: 2rem;
+            color: #2E7D32;
+            text-align: center;
+            margin-bottom: 2rem;
+            animation: slideUp 0.8s ease-out 0.2s both;
+        }
+        
+        .advantages-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .advantage-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease-out forwards;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .advantage-item:nth-child(1) { animation-delay: 0.3s; }
+        .advantage-item:nth-child(2) { animation-delay: 0.4s; }
+        .advantage-item:nth-child(3) { animation-delay: 0.5s; }
+        .advantage-item:nth-child(4) { animation-delay: 0.6s; }
+        .advantage-item:nth-child(5) { animation-delay: 0.7s; }
+        .advantage-item:nth-child(6) { animation-delay: 0.8s; }
+        
+        .advantage-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+        
+        .advantage-icon {
+            font-size: 2.5rem;
+            color: #2E7D32;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .advantage-item:hover .advantage-icon {
+            transform: scale(1.1) rotate(5deg);
+            color: #1B5E20;
+        }
+        
+        .advantage-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .advantage-description {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* 立即咨询 */
+        .consultation {
+            background: linear-gradient(135deg, #2E7D32, #388E3C);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        .consultation-title {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            animation: slideUp 0.8s ease-out 0.2s both;
+        }
+        
+        .consultation-description {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: slideUp 0.8s ease-out 0.4s both;
+        }
+        
+        /* AI智能选型助手 */
+        .ai-selection-assistant {
+            margin-bottom: 3rem;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        .section-title {
+            color: #2E7D32;
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+            animation: slideUp 0.8s ease-out 0.2s both;
+        }
+        
+        .assistant-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            color: #666;
+            animation: slideUp 0.8s ease-out 0.4s both;
+        }
+        
+        .selection-form-container {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            animation: fadeIn 0.8s ease-out 0.6s both;
+        }
+        
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            animation: fadeIn 0.8s ease-out 0.8s both;
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .form-control {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .form-control:focus {
+            outline: none;
+            border-color: #2E7D32;
+            box-shadow: 0 0 0 3px rgba(46, 125, 50, 0.1);
+        }
+        
+        .form-submit {
+            text-align: center;
+            margin-top: 2rem;
+        }
+        
+        .btn {
+            background: #D3AF58;
+            color: white;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+            transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+        
+        .btn:hover {
+            background: #B39D4B;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(211, 175, 88, 0.3);
+        }
+        
+        .btn:active {
+            transform: translateY(0);
+        }
+        
+        /* 加载动画 */
+        .loading-container {
+            display: none;
+            text-align: center;
+            padding: 3rem 0;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 6px solid #f3f3f3;
+            border-top: 6px solid #2E7D32;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            animation: spin 1s linear infinite;
+        }
+        
+        /* 选型结果 */
+        .selection-results {
+            display: none;
+            margin-top: 2rem;
+        }
+        
+        .results-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .result-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .result-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .result-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .result-card:hover .result-image img {
+            transform: scale(1.05);
+        }
+        
+        .result-content {
+            padding: 1.5rem;
+        }
+        
+        .result-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+        
+        .result-title {
+            font-size: 1.2rem;
+            color: #2E7D32;
+            margin: 0;
+        }
+        
+        .match-score {
+            background: #4CAF50;
+            color: white;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        
+        .result-price {
+            color: #FF5722;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .result-reason {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* AI视觉评估系统 */
+        .ai-visual-assessment-section {
+            margin-bottom: 3rem;
+            animation: fadeIn 1s ease-out;
+        }
+        
+        .visual-assessment-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            color: #666;
+            animation: slideUp 0.8s ease-out 0.4s both;
+        }
+        
+        .visual-assessment-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .feature-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.6s ease-out forwards;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-card:nth-child(1) { animation-delay: 0.3s; }
+        .feature-card:nth-child(2) { animation-delay: 0.4s; }
+        .feature-card:nth-child(3) { animation-delay: 0.5s; }
+        .feature-card:nth-child(4) { animation-delay: 0.6s; }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+        
+        .feature-card .feature-icon {
+            font-size: 2.5rem;
+            color: #2E7D32;
+            margin-bottom: 1rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover .feature-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .feature-card .feature-title {
+            color: #2E7D32;
+            margin-bottom: 0.5rem;
+        }
+        
+        .feature-card .feature-description {
+            color: #666;
+        }
+        
+        /* 服务介绍 */
+        .services-intro {
+            margin-bottom: 3rem;
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            animation: fadeIn 1s ease-out 0.2s both;
+        }
+        
+        .service-intro-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: #666;
+        }
+        
+        /* 页脚样式 */
+        .footer {
+            background: #2E7D32;
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #D3AF58;
+        }
+        
+        .footer-col ul { 
+            list-style: none;
+            padding: 0;
+        }
+        
+        .footer-col ul li { margin-bottom: 0.5rem; }
+        
+        .footer-col ul li a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: color 0.3s ease, transform 0.3s ease;
+            display: inline-block;
+        }
+        
+        .footer-col ul li a:hover {
+            color: white;
+            transform: translateX(3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #e0e0e0;
+        }
+        
+        /* 登录注册按钮样式 */
+        .auth-btn {
+            color: white;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+            margin: 0 0.5rem;
+            display: flex;
+            align-items: center;
+            background: none;
+            border: none;
+            border-radius: 0;
+        }
+
+        .auth-btn:hover {
+            color: #D3AF58;
+            background: none;
+            transform: none;
+        }
+
+        .auth-btn-outline {
+            color: white;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+            margin: 0 0.5rem;
+            display: flex;
+            align-items: center;
+            background: none;
+            border: none;
+            border-radius: 0;
+        }
+
+        .auth-btn-outline:hover {
+            color: #D3AF58;
+            background: none;
+        }
+        
+        /* 语言选择器样式 */
+        .language-container {
+            display: flex;
+            align-items: center;
+            margin-left: 1.5rem;
+        }
+        
+        .language-selector {
+            margin-left: 1rem;
+        }
+        
+        .language-btn {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .language-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        /* 添加倒三角箭头 */
+        .language-btn::after {
+            content: "ⅴ";
+            font-size: 0.8rem;
+            margin-left: 0.3rem;
+        }
+        
+        /* 动画定义 */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+        
+        @keyframes slideUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* 响应式设计 - 全面增强 */
+        @media (max-width: 1024px) {
+            .page-header h1, .consultation-title {
+                font-size: 2.2rem;
+            }
+            
+            .page-header p, .consultation-description {
+                font-size: 1.1rem;
+            }
+            
+            .process-steps {
+                max-width: 800px;
+            }
+            
+            .process-step {
+                min-width: 180px;
+                padding: 1.2rem;
+            }
+            
+            .advantages-list {
+                max-width: 900px;
+                gap: 1.5rem;
+            }
+            
+            .advantage-item {
+                padding: 1.2rem;
+            }
+            
+            .services-grid {
+                gap: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .navbar-content {
+                flex-direction: column;
+            }
+            
+            .nav-menu {
+                margin-top: 1rem;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+            
+            .nav-menu li {
+                margin: 0.3rem 0.5rem;
+            }
+            
+            .page-header h1, .consultation-title {
+                font-size: 1.8rem;
+            }
+            
+            .page-header p, .consultation-description {
+                font-size: 1rem;
+            }
+            
+            .process-steps {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .process-step {
+                width: 100%;
+                max-width: 300px;
+                margin-bottom: 1rem;
+            }
+            
+            .process-step::after {
+                display: none;
+            }
+            
+            .language-container {
+                display: none;
+            }
+            
+            .advantages-list {
+                gap: 1rem;
+            }
+            
+            .advantages-title, .process-title, .section-title {
+                font-size: 1.6rem;
+            }
+            
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .visual-assessment-features {
+                gap: 1rem;
+            }
+            
+            .btn {
+                padding: 0.7rem 1.5rem;
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .page-header, .consultation {
+                padding: 2rem 0;
+            }
+            
+            .page-header h1, .consultation-title {
+                font-size: 1.6rem;
+            }
+            
+            .advantages-title, .process-title, .section-title {
+                font-size: 1.4rem;
+            }
+            
+            .services-grid {
+                gap: 1rem;
+            }
+            
+            .service-card, .advantage-item, .feature-card {
+                margin-bottom: 1rem;
+            }
+            
+            .footer-grid {
+                gap: 1.5rem;
+            }
+            
+            .selection-form-container, .service-process, .service-advantages {
+                padding: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .nav-menu li {
+                margin: 0.2rem 0.3rem;
+                font-size: 0.9rem;
+            }
+            
+            .auth-btn, .auth-btn-outline {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.9rem;
+            }
+            
+            .page-header h1, .consultation-title {
+                font-size: 1.4rem;
+            }
+            
+            .advantages-title, .process-title, .section-title {
+                font-size: 1.2rem;
+            }
+            
+            .step-number {
+                width: 35px;
+                height: 35px;
+            }
+            
+            .advantage-icon, .service-icon i {
+                font-size: 2rem;
+            }
+            
+            .btn {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.85rem;
+            }
+            
+            .service-icon, .service-content {
+                padding: 1.5rem;
+            }
+            
+            .footer-col h3 {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"></script>
+    <script src="/js/main.js?v=1.0"></script>
+    <script src="/js/wechat-module.js?v=1.0"></script>
+    <script src="/js/ai-services.js?v=1.1"></script>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <!-- Logo -->
+                <div class="logo">
+                    <i class="fas fa-tractor"></i>
+                    <span>磐工金田</span>
+                </div>
+                
+                <!-- 导航菜单 -->
+                <ul class="nav-menu">
+                    <li><a href="/index.html">首页</a></li>
+                    <li><a href="/pages/products.html">农机设备</a></li>
+                    <li><a href="/pages/used-equipment.html">二手设备</a></li>
+                    <li><a href="/pages/equipment-rental.html">农机租赁</a></li>
+                    <li><a href="/pages/services.html">代办业务</a></li>
+                    <li><a href="/pages/ai-services.html" class="active">AI智能服务</a></li>
+                    <li><a href="/pages/video_center.html">视频中心</a></li>
+                    
+                    <!-- 登录注册按钮 -->
+                    <li><a href="/pages/login.html" class="auth-btn">登录</a></li>
+                    <li><a href="/pages/register.html" class="auth-btn auth-btn-outline">注册</a></li>
+                </ul>
+                
+                <!-- 语言选择器 - 单独放置在右侧 -->
+                <div class="language-container">
+                    <button class="language-btn" onclick="toggleLanguageMenu()">
+                        <i class="fas fa-globe"></i> 
+                        中文
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <section class="page-header">
+        <div class="container">
+            <h1>AI智能服务</h1>
+            <p>利用人工智能技术，为您提供专业的农业机械解决方案和智能决策支持</p>
+        </div>
+    </section>
+
+    <!-- 主要内容 -->
+    <main class="container">
+        <!-- AI智能选型助手 -->
+        <section class="ai-selection-assistant" style="margin-bottom: 3rem;">
+            <h2 class="section-title" style="color: #2E7D32; text-align: center; margin-bottom: 2rem;">AI智能选型助手</h2>
+            
+            <!-- 选型助手介绍 -->
+            <div class="assistant-intro" style="text-align: center; max-width: 800px; margin: 0 auto 2rem; color: #666;">
+                <p>根据您的种植需求和农场情况，我们的AI系统将为您推荐最适合的农业机械设备。请填写以下信息，开始智能选型之旅。</p>
+            </div>
+            
+            <!-- 选型表单 -->
+            <div class="selection-form-container" style="background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 2rem;">
+                <form id="selection-form" class="selection-form">
+                    <div class="form-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+                        <!-- 设备类型 -->
+                        <div class="form-group">
+                            <label for="machine-type" class="form-label">设备类型</label>
+                            <select id="machine-type" name="machine-type" class="form-control">
+                                <option value="all">全部类型</option>
+                                <option value="拖拉机">拖拉机</option>
+                                <option value="收割机">收割机</option>
+                                <option value="联合收割机">联合收割机</option>
+                                <option value="插秧机">插秧机</option>
+                                <option value="植保机械">植保机械</option>
+                            </select>
+                        </div>
+                        
+                        <!-- 作物类型 -->
+                        <div class="form-group">
+                            <label for="crop-type" class="form-label">作物类型</label>
+                            <select id="crop-type" name="crop-type" class="form-control" required>
+                                <option value="">请选择作物类型</option>
+                                <option value="水稻">水稻</option>
+                                <option value="小麦">小麦</option>
+                                <option value="玉米">玉米</option>
+                                <option value="大豆">大豆</option>
+                                <option value="棉花">棉花</option>
+                                <option value="油菜">油菜</option>
+                                <option value="甘蔗">甘蔗</option>
+                                <option value="其他">其他</option>
+                            </select>
+                        </div>
+                        
+                        <!-- 土地面积 -->
+                        <div class="form-group">
+                            <label for="land-area" class="form-label">土地面积（亩）</label>
+                            <input type="number" id="land-area" name="land-area" class="form-control" min="1" max="10000" placeholder="请输入土地面积" required>
+                        </div>
+                        
+                        <!-- 预算范围 -->
+                        <div class="form-group">
+                            <label for="budget" class="form-label">预算范围（万元）</label>
+                            <select id="budget" name="budget" class="form-control" required>
+                                <option value="">请选择预算范围</option>
+                                <option value="0-5">0-5万</option>
+                                <option value="5-10">5-10万</option>
+                                <option value="10-20">10-20万</option>
+                                <option value="20-50">20-50万</option>
+                                <option value="50-100">50-100万</option>
+                                <option value="100+">100万以上</option>
+                            </select>
+                        </div>
+                        
+                        <!-- 所在地区 -->
+                        <div class="form-group">
+                            <label for="region" class="form-label">所在地区</label>
+                            <select id="region" name="region" class="form-control" required>
+                                <option value="">请选择所在地区</option>
+                                <option value="东北">东北</option>
+                                <option value="华北">华北</option>
+                                <option value="华东">华东</option>
+                                <option value="华南">华南</option>
+                                <option value="西南">西南</option>
+                                <option value="西北">西北</option>
+                                <option value="其他">其他</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <!-- 提交按钮 -->
+                    <div class="form-submit" style="text-align: center; margin-top: 2rem;">
+                        <button type="submit" class="btn" style="background: #D3AF58; color: white; padding: 0.8rem 2rem;">
+                            <i class="fas fa-search"></i> 开始AI选型
+                        </button>
+                    </div>
+                </form>
+            </div>
+            
+            <!-- 加载动画 -->
+            <div id="loading-container" class="loading-container" style="display: none; text-align: center; padding: 3rem 0; background: white; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); margin-bottom: 2rem;">
+                <div class="loading-spinner" style="width: 60px; height: 60px; border: 6px solid #f3f3f3; border-top: 6px solid #2E7D32; border-radius: 50%; margin: 0 auto 1rem; animation: spin 1s linear infinite;"></div>
+                <h3 style="color: #2E7D32; margin-bottom: 1rem;">AI正在分析...</h3>
+                <p style="color: #666; max-width: 600px; margin: 0 auto;">我们的AI系统正在根据您提供的信息，结合大数据和农业专家知识库，为您匹配最适合的农业机械设备。请稍候...</p>
+            </div>
+            
+            <!-- 选型结果 -->
+            <div id="selection-results" class="selection-results" style="display: none; margin-top: 2rem;">
+                <div style="display: flex; justify-content: center; margin-bottom: 2rem;">
+                    <h3 style="color: #2E7D32; margin: 0;">AI推荐结果</h3>
+                </div>
+                
+                <!-- 重新选型按钮 -->
+                <div style="text-align: center; margin-bottom: 2rem;">
+                    <button id="reset-selection" class="btn" style="background: #D3AF58; color: white; padding: 0.8rem 2rem;">
+                    <i class="fas fa-redo-alt"></i> 重新选型
+                </button>
+                </div>
+                
+                <div id="results-grid" class="results-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+                    <!-- 结果将通过JavaScript动态添加 -->
+                </div>
+            </div>
+        </section>
+        
+        <!-- AI视觉评估系统 -->
+        <section class="ai-visual-assessment-section" style="margin-bottom: 3rem;">
+            <h2 class="section-title" style="color: #2E7D32; text-align: center; margin-bottom: 2rem;">AI视觉评估系统</h2>
+            
+            <!-- 视觉评估介绍 -->
+            <div class="visual-assessment-intro" style="text-align: center; max-width: 800px; margin: 0 auto 2rem; color: #666;">
+                <p>通过上传农机设备图片，我们的AI系统能够自动识别设备状况，评估磨损程度，提供维修建议和市场估值，帮助您做出更明智的决策。</p>
+            </div>
+            
+            <!-- 视觉评估特性 -->
+            <div class="visual-assessment-features" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 2rem;">
+                <div class="feature-card" style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center;">
+                    <div class="feature-icon" style="font-size: 2.5rem; color: #2E7D32; margin-bottom: 1rem;">
+                        <i class="fas fa-camera"></i>
+                    </div>
+                    <h4 class="feature-title" style="color: #2E7D32; margin-bottom: 0.5rem;">图片智能识别</h4>
+                    <p class="feature-description" style="color: #666;">高精度图像识别技术，自动分析设备外观、部件磨损和结构完整性</p>
+                </div>
+                <div class="feature-card" style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center;">
+                    <div class="feature-icon" style="font-size: 2.5rem; color: #2E7D32; margin-bottom: 1rem;">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h4 class="feature-title" style="color: #2E7D32; margin-bottom: 0.5rem;">综合评分系统</h4>
+                    <p class="feature-description" style="color: #666;">多维度评估模型，对设备状况进行科学评分和等级划分</p>
+                </div>
+                <div class="feature-card" style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center;">
+                    <div class="feature-icon" style="font-size: 2.5rem; color: #2E7D32; margin-bottom: 1rem;">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h4 class="feature-title" style="color: #2E7D32; margin-bottom: 0.5rem;">维修建议</h4>
+                    <p class="feature-description" style="color: #666;">智能诊断潜在问题，提供详细维修建议和成本估算</p>
+                </div>
+                <div class="feature-card" style="background: white; padding: 1.5rem; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); text-align: center;">
+                    <div class="feature-icon" style="font-size: 2.5rem; color: #2E7D32; margin-bottom: 1rem;">
+                        <i class="fas fa-tag"></i>
+                    </div>
+                    <h4 class="feature-title" style="color: #2E7D32; margin-bottom: 0.5rem;">市场估值</h4>
+                    <p class="feature-description" style="color: #666;">基于市场数据和设备状况，提供客观的设备市场价值评估</p>
+                </div>
+            </div>
+            
+            <!-- 立即使用按钮 -->
+            <div style="text-align: center;">
+                <a href="/pages/ai-visual-assessment.html" class="btn" style="background: #D3AF58; color: white; padding: 0.8rem 2rem; text-decoration: none;">
+                    <i class="fas fa-rocket"></i> 立即使用
+                </a>
+            </div>
+        </section>
+        
+        <!-- 服务介绍 -->
+        <section class="services-intro" style="margin-bottom: 3rem; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto;">
+            <p class="service-intro-text" style="font-size: 1.1rem; line-height: 1.8; color: #666;">
+                我们的AI智能服务整合了最新的人工智能技术，为农业机械用户提供全方位的智能解决方案，帮助您优化设备使用效率、降低运营成本、提高农业生产效益。
+            </p>
+        </section>
+
+        <!-- 服务网格 -->
+        <section class="services-grid">
+            <!-- AI智能选型 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-lightbulb"></i>
+                    <h3>AI智能选型</h3>
+                </div>
+                <div class="service-content">
+                    <h4 class="service-title">精准设备推荐</h4>
+                    <p class="service-description">基于您的农场规模、种植作物、地形条件等数据，AI系统为您推荐最适合的农业机械型号和配置方案。</p>
+                    <div class="service-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>基于大数据分析的精准推荐</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>多维度参数对比分析</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>投资回报预测分析</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>个性化配置方案</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 智能维护诊断 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-stethoscope"></i>
+                    <h3>智能维护诊断</h3>
+                </div>
+                <div class="service-content">
+                    <h4 class="service-title">设备健康管理</h4>
+                    <p class="service-description">通过AI技术实时监测设备运行状态，提前预测潜在故障，提供精准维护建议，降低设备故障率。</p>
+                    <div class="service-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>实时运行数据监测分析</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>故障预警与诊断</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>智能维护周期建议</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>维修成本预测</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 产量预测分析 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-chart-line"></i>
+                    <h3>产量预测分析</h3>
+                </div>
+                <div class="service-content">
+                    <h4 class="service-title">智能产量预测</h4>
+                    <p class="service-description">结合历史数据、气象信息、土壤条件和设备使用情况，AI系统为您提供精准的产量预测和种植建议。</p>
+                    <div class="service-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>多因素综合分析预测</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>动态调整种植策略</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>最佳收获时机建议</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>市场价格趋势分析</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 农场智能管理 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-project-diagram"></i>
+                    <h3>农场智能管理</h3>
+                </div>
+                <div class="service-content">
+                    <h4 class="service-title">智能化农场管理系统</h4>
+                    <p class="service-description">整合农场各类数据，提供智能化的资源调度、作业规划和成本控制方案，实现农场管理高效化。</p>
+                    <div class="service-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>农田分区管理与监测</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>农机作业路径优化</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>资源投入成本分析</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>生产效率评估</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 农机操作培训 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-graduation-cap"></i>
+                    <h3>农机操作培训</h3>
+                </div>
+                <div class="service-content">
+                    <h4 class="service-title">AI辅助培训系统</h4>
+                    <p class="service-description">利用AI技术提供个性化的农机操作培训方案，包括模拟操作、技能评估和进阶指导。</p>
+                    <div class="service-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>虚拟模拟操作训练</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>操作技能智能评估</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>个性化学习路径规划</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>常见问题智能解答</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 智能采购建议 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                    <h3>智能采购建议</h3>
+                </div>
+                <div class="service-content">
+                    <h4 class="service-title">农机采购决策支持</h4>
+                    <p class="service-description">基于市场数据分析和用户需求，提供农机采购时机、价格趋势和供应商选择的智能建议。</p>
+                    <div class="service-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>市场价格波动分析</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>最佳采购时机预测</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>供应商信誉评估</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>采购预算优化</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- AI视觉评估 -->
+            <div class="service-card">
+                <div class="service-icon">
+                    <i class="fas fa-camera"></i>
+                    <h3>AI视觉评估</h3>
+                </div>
+                <div class="service-content">
+                    <h4 class="service-title">农机设备视觉评估系统</h4>
+                    <p class="service-description">通过上传农机设备图片，AI系统自动识别设备状况，评估磨损程度，提供维修建议和市场估值。</p>
+                    <div class="service-features">
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>图片智能识别分析</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>设备状况综合评分</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>维修建议与成本估算</span>
+                        </div>
+                        <div class="feature-item">
+                            <i class="fas fa-check"></i>
+                            <span>设备市场价值评估</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 服务流程 -->
+        <section class="service-process">
+            <h2 class="process-title">AI智能服务流程</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h4 class="step-title">需求评估</h4>
+                    <p class="step-description">了解您的具体需求和农场情况，确定最适合的AI服务类型</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h4 class="step-title">数据收集</h4>
+                    <p class="step-description">收集相关农场数据、设备信息和历史记录，为AI分析提供基础</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h4 class="step-title">模型训练</h4>
+                    <p class="step-description">根据您的数据训练个性化AI模型，确保分析结果精准可靠</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h4 class="step-title">方案生成</h4>
+                    <p class="step-description">AI系统生成个性化解决方案和建议报告</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <h4 class="step-title">实施优化</h4>
+                    <p class="step-description">协助实施解决方案，并持续优化调整，确保最佳效果</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 服务优势 -->
+        <section class="service-advantages">
+            <h2 class="advantages-title">AI智能服务优势</h2>
+            <div class="advantages-list">
+                <div class="advantage-item">
+                    <div class="advantage-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h4 class="advantage-title">智能决策</h4>
+                    <p class="advantage-description">基于大数据和人工智能的精准分析，帮助您做出科学决策</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h4 class="advantage-title">高效便捷</h4>
+                    <p class="advantage-description">自动化分析过程，大大提高工作效率，节省宝贵时间</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                    <h4 class="advantage-title">降本增效</h4>
+                    <p class="advantage-description">优化资源配置，降低运营成本，提高农业生产效益</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h4 class="advantage-title">风险预警</h4>
+                    <p class="advantage-description">提前预测潜在问题，帮助您规避风险，减少损失</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h4 class="advantage-title">专业支持</h4>
+                    <p class="advantage-description">农业专家团队结合AI技术，提供专业可靠的解决方案</p>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h4 class="advantage-title">持续优化</h4>
+                    <p class="advantage-description">AI模型持续学习和优化，适应不断变化的农业环境</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 立即咨询 -->
+        <section class="consultation">
+            <div class="container">
+                <h2 class="consultation-title">开启AI智能农业新时代</h2>
+                <p class="consultation-description">立即咨询我们的AI智能服务，获取专业的农业机械智能解决方案</p>
+                <a href="/pages/contact.html" class="btn" style="background: #D3AF58; color: white; padding: 0.8rem 2rem; text-decoration: none;">
+                    <i class="fas fa-comments"></i> 立即咨询
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>关于我们</h3>
+                    <ul>
+                        <li><a href="/pages/about.html">公司简介</a></li>
+                        <li><a href="/pages/about.html#history">发展历程</a></li>
+                        <li><a href="/pages/about.html#culture">企业文化</a></li>
+                        <li><a href="/pages/about.html#team">团队介绍</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>产品服务</h3>
+                    <ul>
+                        <li><a href="/pages/products.html">全新设备</a></li>
+                        <li><a href="/pages/used-equipment.html">二手设备</a></li>
+                        <li><a href="/pages/services.html">代办业务</a></li>
+                        <li><a href="/pages/ai-services.html">AI智能服务</a></li>
+                        <li><a href="/pages/video_center.html">视频中心</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>客户支持</h3>
+                    <ul>
+                        <li><a href="/pages/contact.html#faq">帮助中心</a></li>
+                        <li><a href="/pages/contact.html">联系我们</a></li>
+                        <li><a href="/pages/contact.html#service">在线咨询</a></li>
+                        <li><a href="/pages/contact.html#feedback">意见反馈</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>联系信息</h3>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +86 400-888-9999</li>
+                        <li><i class="fas fa-envelope"></i> info@agrimachinery.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 北京市朝阳区国贸大厦</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 磐工金田. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 回到顶部按钮 -->
+    <button class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // 检查用户登录状态
+        function checkLoginStatus() {
+            // 这里应该是实际的登录状态检查逻辑
+            // 模拟登录检查，假设localStorage中的isLoggedIn表示登录状态
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            return isLoggedIn;
+        }
+        
+        function toggleLanguageMenu() {
+            alert('语言切换功能将在后续版本中完善');
+        }
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+        
+        // 滚动动画处理
+        document.addEventListener('DOMContentLoaded', function() {
+            // 为可见元素添加动画
+            const animateOnScroll = function() {
+                const elements = document.querySelectorAll('.service-card, .advantage-item, .process-step, .feature-card');
+                
+                elements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.3;
+                    
+                    if (elementPosition < screenPosition) {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }
+                });
+            };
+            
+            // 初始加载和滚动时触发动画
+            window.addEventListener('scroll', animateOnScroll);
+            animateOnScroll(); // 初始检查
+        });
+    </script>
+</body>
+</html>

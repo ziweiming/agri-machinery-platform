@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>微信聊天模块直接测试</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .test-result {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+        .loading {
+            background-color: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeaa7;
+        }
+    </style>
+</head>
+<body>
+    <h1>微信聊天模块直接测试</h1>
+    <p>本页面直接内联测试代码，跳过外部脚本依赖，用于诊断问题。</p>
+    
+    <h2>步骤 1: 尝试直接加载 wechat-module.js</h2>
+    <div id="step1-result" class="test-result loading">
+        <p>正在尝试加载 wechat-module.js...</p>
+    </div>
+    
+    <h2>步骤 2: 检查模块是否加载成功</h2>
+    <div id="step2-result" class="test-result loading">
+        <p>等待模块加载完成...</p>
+    </div>
+    
+    <h2>步骤 3: 尝试直接创建微信模块</h2>
+    <div id="step3-result" class="test-result loading">
+        <p>等待前两步完成...</p>
+    </div>
+
+    <script>
+        console.log('开始测试微信聊天模块');
+        
+        // 步骤 1: 尝试直接加载 wechat-module.js
+        function step1() {
+            const resultDiv = document.getElementById('step1-result');
+            const script = document.createElement('script');
+            script.src = '/js/wechat-module.js?v=' + Date.now(); // 添加时间戳避免缓存
+            
+            script.onload = function() {
+                resultDiv.className = 'test-result success';
+                resultDiv.innerHTML = `
+                    <p>✓ wechat-module.js 已成功加载</p>
+                    <p>加载状态: 成功</p>
+                `;
+                console.log('wechat-module.js 已成功加载');
+                step2();
+            };
+            
+            script.onerror = function() {
+                resultDiv.className = 'test-result error';
+                resultDiv.innerHTML = `
+                    <p>✗ wechat-module.js 加载失败</p>
+                    <p>错误: 无法加载脚本文件</p>
+                    <p>请检查文件路径是否正确: /js/wechat-module.js</p>
+                `;
+                console.error('wechat-module.js 加载失败');
+                
+                // 即使加载失败，也继续尝试其他步骤
+                step2();
+            };
+            
+            document.head.appendChild(script);
+        }
+        
+        // 步骤 2: 检查模块是否加载成功
+        function step2() {
+            const resultDiv = document.getElementById('step2-result');
+            
+            setTimeout(function() {
+                if (window.WechatModule) {
+                    resultDiv.className = 'test-result success';
+                    resultDiv.innerHTML = `
+                        <p>✓ 微信聊天模块已成功初始化</p>
+                        <p>模块版本: ${window.WechatModule.version || '未知'}</p>
+                        <p>初始化状态: ${window.WechatModule.isInitialized ? '已初始化' : '未初始化'}</p>
+                        <p>模块方法: ${Object.keys(window.WechatModule).join(', ')}</p>
+                    `;
+                    console.log('微信聊天模块已成功初始化:', window.WechatModule);
+                } else {
+                    resultDiv.className = 'test-result error';
+                    resultDiv.innerHTML = `
+                        <p>✗ 微信聊天模块未在全局作用域中找到</p>
+                        <p>可能的原因:</p>
+                        <ul>
+                            <li>脚本加载成功但没有正确定义 window.WechatModule</li>
+                            <li>脚本加载失败</li>
+                            <li>脚本执行出错</li>
+                        </ul>
+                    `;
+                    console.error('微信聊天模块未在全局作用域中找到');
+                }
+                
+                step3();
+            }, 1000);
+        }
+        
+        // 步骤 3: 尝试直接创建微信模块
+        function step3() {
+            const resultDiv = document.getElementById('step3-result');
+            
+            if (window.createWechatModule) {
+                try {
+                    createWechatModule();
+                    resultDiv.className = 'test-result success';
+                    resultDiv.innerHTML = `
+                        <p>✓ 成功调用 createWechatModule() 函数</p>
+                        <p>请检查页面右下角是否出现微信图标</p>
+                    `;
+                    console.log('成功调用 createWechatModule() 函数');
+                } catch (error) {
+                    resultDiv.className = 'test-result error';
+                    resultDiv.innerHTML = `
+                        <p>✗ 调用 createWechatModule() 函数出错</p>
+                        <p>错误信息: ${error.message}</p>
+                    `;
+                    console.error('调用 createWechatModule() 函数出错:', error);
+                }
+            } else {
+                resultDiv.className = 'test-result error';
+                resultDiv.innerHTML = `
+                    <p>✗ createWechatModule() 函数未找到</p>
+                    <p>函数不可用，无法直接创建微信模块</p>
+                `;
+                console.error('createWechatModule() 函数未找到');
+            }
+        }
+        
+        // 开始测试
+        document.addEventListener('DOMContentLoaded', function() {
+            step1();
+        });
+    </script>
+</body>
+</html>

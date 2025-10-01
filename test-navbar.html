@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>导航栏测试</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <!-- Logo -->
+                <div class="logo">
+                    <img src="images/logo.png" alt="磐工金田logo" style="height: 50px;">
+                </div>
+                
+                <!-- 移动端菜单按钮 -->
+                <button class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <!-- 导航菜单 -->
+                <ul class="nav-menu">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="pages/products.html">产品展示</a></li>
+                    <li><a href="pages/used-equipment.html">二手设备</a></li>
+                    <li><a href="pages/equipment-rental.html" class="active">农机租赁</a></li>
+                    <li><a href="pages/services.html">代办业务</a></li>
+                    <li><a href="pages/video_center.html">视频中心</a></li>
+                    
+                    <!-- 登录注册按钮 -->
+                    <li><a href="pages/login.html" class="auth-btn">
+                        登录
+                    </a></li>
+                    <li><a href="pages/register.html" class="auth-btn auth-btn-outline">
+                        注册
+                    </a></li>
+                    
+                    <!-- 语言选择器 -->
+                    <li class="language-selector">
+                        <button class="language-btn" onclick="toggleLanguageMenu()">
+                            <i class="fas fa-globe"></i> 
+                            中文
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

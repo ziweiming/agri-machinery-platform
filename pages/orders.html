@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的订单 - 磐工金田</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="磐工金田订单管理，查看和管理您的所有订单，包括订单状态、物流信息、支付详情等。">
+    <meta name="keywords" content="磐工金田,订单管理,农业机械订单,订单查询,订单状态,物流跟踪">
+    <meta name="author" content="磐工金田">
+    <meta name="robots" content="noindex, nofollow">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="我的订单 - 磐工金田">
+    <meta property="og:description" content="磐工金田订单管理系统，查看订单状态和物流信息">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.agrimachinery.com/pages/orders.html">
+    <meta property="og:image" content="https://www.agrimachinery.com/images/logo.jpg">
+    
+    <!-- Twitter Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="我的订单 - 磐工金田">
+    <meta name="twitter:description" content="磐工金田订单管理系统">
+    <meta name="twitter:image" content="https://www.agrimachinery.com/images/logo.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.agrimachinery.com/pages/orders.html">
+    
+    <style>
+        /* 完整的CSS样式 */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Microsoft YaHei', Arial, sans-serif; line-height: 1.6; color: #333; background: #f9f9f9; }
+        
+        /* 导航栏样式 */
+        .navbar {
+            background: linear-gradient(135deg, #2E7D32, #388E3C);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            transition: padding 0.3s ease, background 0.3s ease;
+        }
+        
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        .navbar-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            min-height: 80px; /* 设置导航栏最小高度 */
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .logo i { margin-right: 10px; font-size: 1.8rem; }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            flex-wrap: wrap;
+        }
+        
+        .nav-menu li { margin: 0 1rem; }
+        
+        .nav-menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+            display: flex;
+            align-items: center;
+            padding: 0.8rem 0; /* 增加上下内边距 */
+        }
+        
+        .nav-menu a i { margin-right: 5px; }
+        .nav-menu a:hover { color: #D3AF58; }
+        .nav-menu a.active { color: #D3AF58; font-weight: bold; }
+        
+        .user-menu {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            position: relative; /* 添加相对定位，使下拉菜单相对于此元素定位 */
+        }
+        
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            background: #D3AF58;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .user-dropdown {
+            position: absolute;
+            top: 60px;
+            right: 0;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            min-width: 200px;
+            display: none;
+            z-index: 1001;
+        }
+        
+        .user-dropdown.active {
+            display: block;
+        }
+        
+        .dropdown-item {
+            padding: 0.8rem 1.2rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            display: flex;
+            align-items: center;
+            color: #333;
+        }
+        
+        .dropdown-item i {
+            margin-right: 0.5rem;
+            color: #666;
+        }
+        
+        .dropdown-item:hover {
+            background: #f5f5f5;
+        }
+        
+        .dropdown-divider {
+            height: 1px;
+            background: #eee;
+            margin: 0.5rem 0;
+        }
+        
+        /* 页面标题 */
+        .page-header {
+            background: linear-gradient(135deg, #f5f5f5, #e8f5e9);
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+        
+        .page-header h1 {
+            color: #2E7D32;
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .page-header p {
+            color: #666;
+            font-size: 1.1rem;
+        }
+        
+        /* 订单状态统计 */
+        .order-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .stat-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            flex: 1;
+            min-width: 150px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #2E7D32;
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-weight: bold;
+        }
+        
+        /* 订单筛选器 */
+        .order-filters {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .filter-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .filter-group {
+            flex: 1;
+            min-width: 200px;
+        }
+        
+        .filter-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+        
+        .filter-group select,
+        .filter-group input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .filter-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #D3AF58;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: #C29A47;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 152, 0, 0.4);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #2E7D32;
+            color: #2E7D32;
+        }
+        
+        .btn-outline:hover {
+            background: #2E7D32;
+            color: white;
+        }
+        
+        .btn-success {
+            background: #2E7D32;
+        }
+        
+        .btn-success:hover {
+            background: #1B5E20;
+        }
+        
+        .btn-danger {
+            background: #F44336;
+        }
+        
+        .btn-danger:hover {
+            background: #D32F2F;
+        }
+        
+        /* 订单列表 */
+        .orders-list {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            overflow: hidden;
+        }
+        
+        .order-header {
+            background: #f8f9fa;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid #eee;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+            font-weight: bold;
+            color: #666;
+        }
+        
+        .order-item {
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid #eee;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+            align-items: center;
+            transition: background 0.3s ease;
+        }
+        
+        .order-item:hover {
+            background: #f8f9fa;
+        }
+        
+        .order-item:last-child {
+            border-bottom: none;
+        }
+        
+        .order-status {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+        
+        .status-pending {
+            background: #FFF3E0;
+            color: #C29A47;
+        }
+        
+        .status-processing {
+            background: #E3F2FD;
+            color: #1976D2;
+        }
+        
+        .status-shipped {
+            background: #E8F5E9;
+            color: #388E3C;
+        }
+        
+        .status-delivered {
+            background: #E8F5E9;
+            color: #2E7D32;
+        }
+        
+        .status-cancelled {
+            background: #FFEBEE;
+            color: #F44336;
+        }
+        
+        .order-actions {
+            display: flex;
+            gap: 0.5rem;
+            justify-content: center;
+        }
+        
+        .action-btn {
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        
+        /* 订单详情模态框 */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 900px;
+            max-height: 90vh;
+            overflow-y: auto;
+            position: relative;
+        }
+        
+        .modal-header {
+            background: #2E7D32;
+            color: white;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .modal-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+        
+        .close-modal {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        .modal-body {
+            padding: 2rem;
+        }
+        
+        .order-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .detail-section {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+        
+        .section-title {
+            font-size: 1.2rem;
+            color: #2E7D32;
+            margin-bottom: 1rem;
+            font-weight: bold;
+        }
+        
+        .detail-item {
+            margin-bottom: 0.8rem;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .detail-label {
+            color: #666;
+            font-weight: bold;
+        }
+        
+        .detail-value {
+            color: #333;
+        }
+        
+        .product-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+        }
+        
+        .product-table th,
+        .product-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .product-table th {
+            background: #f8f9fa;
+            color: #666;
+            font-weight: bold;
+        }
+        
+        .product-table img {
+            width: 60px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+        
+        .total-section {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: right;
+        }
+        
+        .total-item {
+            display: flex;
+            justify-content: flex-end;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .total-label {
+            margin-right: 1rem;
+            color: #666;
+        }
+        
+        .total-value {
+            font-weight: bold;
+            color: #2E7D32;
+        }
+        
+        .grand-total {
+            font-size: 1.3rem;
+            color: #F44336;
+        }
+        
+        .modal-footer {
+            padding: 1.5rem 2rem;
+            background: #f8f9fa;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+        }
+        
+        /* 分页样式 */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 0.5rem;
+        }
+        
+        .pagination li a {
+            display: inline-block;
+            padding: 0.8rem 1.2rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            color: #333;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .pagination li a:hover {
+            background: #f5f5f5;
+            border-color: #ccc;
+        }
+        
+        .pagination li.active a {
+            background: #2E7D32;
+            color: white;
+            border-color: #2E7D32;
+        }
+        
+        /* 页脚样式 */
+        .footer {
+            background: #2E7D32;
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #D3AF58;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-col ul li a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-col ul li a:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 50%;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            background: #D3AF58;
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #e0e0e0;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .navbar-content {
+                flex-direction: column;
+            }
+            
+            .nav-menu {
+                margin-top: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .nav-menu li {
+                margin: 0 0.5rem;
+                margin-top: 0.5rem;
+            }
+            
+            .order-header {
+                display: none;
+            }
+            
+            .order-item {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .order-actions {
+                justify-content: center;
+                margin-top: 1rem;
+            }
+            
+            .order-details {
+                grid-template-columns: 1fr;
+            }
+            
+            .modal-footer {
+                flex-direction: column;
+            }
+            
+            .modal-footer .btn {
+                width: 100%;
+            }
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"></script>
+
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <!-- Logo (已更改为"磐工金田") -->
+                <div class="logo">
+                    <i class="fas fa-tractor"></i>
+                    <span>磐工金田</span>
+                </div>
+                
+                <!-- 导航菜单 (已调整顺序和内容) -->
+                <ul class="nav-menu">
+                    <li><a href="index.html">首页</a></li>
+                    <li><a href="products.html">产品展示</a></li>
+                    <li><a href="used-equipment.html">二手设备</a></li>
+                    <li><a href="equipment-rental.html">农机租赁</a></li>
+                    <li><a href="services.html">代办业务</a></li>
+                    <li><a href="ai-services.html">AI智能服务</a></li>
+                    <li><a href="video_center.html">视频中心</a></li>
+                </ul>
+                
+                <!-- 用户菜单 (保留下拉功能) -->
+                <div class="user-menu">
+                    <div class="user-avatar" onclick="toggleUserDropdown()">
+                        <span id="currentUserName">testuser</span>
+                    </div>
+                    <div class="user-dropdown" id="userDropdown">
+                        <div class="dropdown-item" onclick="goToProfile()">
+                            <i class="fas fa-user"></i>
+                            个人资料
+                        </div>
+                        <div class="dropdown-item" onclick="goToOrders()">
+                            <i class="fas fa-shopping-cart"></i>
+                            我的订单
+                        </div>
+                        <div class="dropdown-item" onclick="goToInquiries()">
+                            <i class="fas fa-envelope"></i>
+                            我的询价
+                        </div>
+                        <div class="dropdown-item" onclick="goToFavorites()">
+                            <i class="fas fa-heart"></i>
+                            我的收藏
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <div class="dropdown-item" onclick="goToSettings()">
+                            <i class="fas fa-cog"></i>
+                            账户设置
+                        </div>
+                        <div class="dropdown-item" onclick="logout()">
+                            <i class="fas fa-sign-out-alt"></i>
+                            退出登录
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <section class="page-header">
+        <div class="container">
+            <h1>我的订单</h1>
+            <p>查看和管理您的所有订单</p>
+        </div>
+    </section>
+
+    <!-- 订单统计 -->
+    <section class="container">
+        <div class="order-stats">
+            <div class="stat-card">
+                <div class="stat-number">12</div>
+                <div class="stat-label">全部订单</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">3</div>
+                <div class="stat-label">待付款</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">2</div>
+                <div class="stat-label">处理中</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">4</div>
+                <div class="stat-label">已发货</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">3</div>
+                <div class="stat-label">已完成</div>
+            </div>
+        </div>
+
+        <!-- 订单筛选器 -->
+        <div class="order-filters">
+            <div class="filter-row">
+                <div class="filter-group">
+                    <label for="order-status">订单状态</label>
+                    <select id="order-status">
+                        <option value="">全部状态</option>
+                        <option value="pending">待付款</option>
+                        <option value="processing">处理中</option>
+                        <option value="shipped">已发货</option>
+                        <option value="delivered">已完成</option>
+                        <option value="cancelled">已取消</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="order-type">订单类型</label>
+                    <select id="order-type">
+                        <option value="">全部类型</option>
+                        <option value="new">全新设备</option>
+                        <option value="used">二手设备</option>
+                        <option value="service">服务订单</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="time-range">时间范围</label>
+                    <select id="time-range">
+                        <option value="">全部时间</option>
+                        <option value="week">近一周</option>
+                        <option value="month">近一个月</option>
+                        <option value="quarter">近三个月</option>
+                        <option value="year">近一年</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="search-order">搜索订单</label>
+                    <input type="text" id="search-order" placeholder="输入订单号或产品名称">
+                </div>
+            </div>
+            
+            <div class="filter-actions">
+                <button class="btn" onclick="applyFilters()">
+                    <i class="fas fa-search"></i> 搜索订单
+                </button>
+                <button class="btn btn-outline" onclick="resetFilters()">
+                    <i class="fas fa-bullseye"></i> 重置
+                </button>
+            </div>
+        </div>
+
+        <!-- 订单列表 -->
+        <div class="orders-list">
+            <div class="order-header">
+                <div>订单号</div>
+                <div>下单时间</div>
+                <div>订单金额</div>
+                <div>订单状态</div>
+                <div>支付方式</div>
+                <div>操作</div>
+            </div>
+            
+            <!-- 订单1 -->
+            <div class="order-item">
+                <div>ORD20240920001</div>
+                <div>2024-09-20</div>
+                <div>¥158,000</div>
+                <div><span class="order-status status-pending">待付款</span></div>
+                <div>银行转账</div>
+                <div class="order-actions">
+                    <button class="action-btn btn-success" onclick="viewOrderDetail('ORD20240920001')">查看</button>
+                    <button class="action-btn btn-danger" onclick="cancelOrder('ORD20240920001')">取消</button>
+                </div>
+            </div>
+            
+            <!-- 订单2 -->
+            <div class="order-item">
+                <div>ORD20240918002</div>
+                <div>2024-09-18</div>
+                <div>¥380,000</div>
+                <div><span class="order-status status-processing">处理中</span></div>
+                <div>信用证</div>
+                <div class="order-actions">
+                    <button class="action-btn btn-success" onclick="viewOrderDetail('ORD20240918002')">查看</button>
+                    <button class="action-btn btn-outline" onclick="contactService('ORD20240918002')">咨询</button>
+                </div>
+            </div>
+            
+            <!-- 订单3 -->
+            <div class="order-item">
+                <div>ORD20240915003</div>
+                <div>2024-09-15</div>
+                <div>¥85,000</div>
+                <div><span class="order-status status-shipped">已发货</span></div>
+                <div>电汇</div>
+                <div class="order-actions">
+                    <button class="action-btn btn-success" onclick="viewOrderDetail('ORD20240915003')">查看</button>
+                    <button class="action-btn btn-outline" onclick="trackShipment('ORD20240915003')">跟踪</button>
+                </div>
+            </div>
+            
+            <!-- 订单4 -->
+            <div class="order-item">
+                <div>ORD20240912004</div>
+                <div>2024-09-12</div>
+                <div>¥68,000</div>
+                <div><span class="order-status status-delivered">已完成</span></div>
+                <div>支付宝</div>
+                <div class="order-actions">
+                    <button class="action-btn btn-success" onclick="viewOrderDetail('ORD20240912004')">查看</button>
+                    <button class="action-btn btn-outline" onclick="writeReview('ORD20240912004')">评价</button>
+                </div>
+            </div>
+            
+            <!-- 订单5 -->
+            <div class="order-item">
+                <div>ORD20240910005</div>
+                <div>2024-09-10</div>
+                <div>¥120,000</div>
+                <div><span class="order-status status-cancelled">已取消</span></div>
+                <div>微信支付</div>
+                <div class="order-actions">
+                    <button class="action-btn btn-success" onclick="viewOrderDetail('ORD20240910005')">查看</button>
+                    <button class="action-btn btn-outline" onclick="reorder('ORD20240910005')">重新购买</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- 分页 -->
+        <div class="pagination">
+            <li class="disabled"><a href="#"><i class="fas fa-chevron-left"></i></a></li>
+            <li class="active"><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#"><i class="fas fa-chevron-right"></i></a></li>
+        </div>
+    </section>
+
+    <!-- 订单详情模态框 -->
+    <div class="modal" id="orderModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">订单详情</h2>
+                <button class="close-modal" onclick="closeOrderModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="order-details">
+                    <div class="detail-section">
+                        <h3 class="section-title">订单信息</h3>
+                        <div class="detail-item">
+                            <span class="detail-label">订单号：</span>
+                            <span class="detail-value" id="modalOrderId">ORD20240920001</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">下单时间：</span>
+                            <span class="detail-value" id="modalOrderTime">2024-09-20 14:30:25</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">订单状态：</span>
+                            <span class="detail-value" id="modalOrderStatus">待付款</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">支付方式：</span>
+                            <span class="detail-value" id="modalPaymentMethod">银行转账</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">预计发货：</span>
+                            <span class="detail-value" id="modalShipTime">付款后3个工作日</span>
+                        </div>
+                    </div>
+                    
+                    <div class="detail-section">
+                        <h3 class="section-title">收货信息</h3>
+                        <div class="detail-item">
+                            <span class="detail-label">联系人：</span>
+                            <span class="detail-value">张三</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">联系电话：</span>
+                            <span class="detail-value">+86 138****5678</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">收货地址：</span>
+                            <span class="detail-value">北京市朝阳区国贸大厦A座25层</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">邮政编码：</span>
+                            <span class="detail-value">100004</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <h3 class="section-title">产品信息</h3>
+                <table class="product-table">
+                    <thead>
+                        <tr>
+                            <th>产品图片</th>
+                            <th>产品名称</th>
+                            <th>单价</th>
+                            <th>数量</th>
+                            <th>小计</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><i class="fas fa-tractor" style="font-size: 2rem;"></i></td>
+                            <td>东方红LX1204轮式拖拉机</td>
+                            <td>¥158,000</td>
+                            <td>1</td>
+                            <td>¥158,000</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <div class="total-section">
+                    <div class="total-item">
+                        <span class="total-label">商品总价：</span>
+                        <span class="total-value">¥158,000</span>
+                    </div>
+                    <div class="total-item">
+                        <span class="total-label">运费：</span>
+                        <span class="total-value">¥0</span>
+                    </div>
+                    <div class="total-item">
+                        <span class="total-label">税费：</span>
+                        <span class="total-value">¥0</span>
+                    </div>
+                    <div class="total-item">
+                        <span class="total-label">优惠：</span>
+                        <span class="total-value">-¥0</span>
+                    </div>
+                    <div class="total-item grand-total">
+                        <span class="total-label">订单总价：</span>
+                        <span class="total-value">¥158,000</span>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeOrderModal()">关闭</button>
+                <button class="btn btn-danger" onclick="cancelOrderModal()">取消订单</button>
+                <button class="btn btn-success" onclick="payOrderModal()">立即付款</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>关于我们</h3>
+                    <ul>
+                        <li><a href="about.html">公司简介</a></li>
+                        <li><a href="about.html#history">发展历程</a></li>
+                        <li><a href="about.html#culture">企业文化</a></li>
+                        <li><a href="about.html#team">团队介绍</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>产品服务</h3>
+                    <ul>
+                        <li><a href="products.html">全新设备</a></li>
+                        <li><a href="used-equipment.html">二手设备</a></li>
+                        <li><a href="services.html">代办业务</a></li>
+                        <li><a href="video_center.html">视频中心</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>客户支持</h3>
+                    <ul>
+                        <li><a href="contact.html#faq">帮助中心</a></li>
+                        <li><a href="contact.html">联系我们</a></li>
+                        <li><a href="contact.html#service">在线咨询</a></li>
+                        <li><a href="contact.html#feedback">意见反馈</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>联系信息</h3>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +86 400-888-9999</li>
+                        <li><i class="fas fa-envelope"></i> info@pangongjintian.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 北京市朝阳区国贸大厦</li>
+                    </ul>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2024 磐工金田. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 用户下拉菜单功能
+        function toggleUserDropdown() {
+            const dropdown = document.getElementById('userDropdown');
+            dropdown.classList.toggle('active');
+        }
+        
+        // 点击页面其他地方关闭下拉菜单
+        document.addEventListener('click', function(event) {
+            const userMenu = document.querySelector('.user-menu');
+            const dropdown = document.getElementById('userDropdown');
+            
+            if (!userMenu.contains(event.target)) {
+                dropdown.classList.remove('active');
+            }
+        });
+        
+        // 用户菜单各项功能
+        function goToProfile() {
+            alert('个人资料页面将在后续版本中完善！');
+        }
+        
+        function goToOrders() {
+            // 已经在订单页面，不需要跳转
+            document.getElementById('userDropdown').classList.remove('active');
+        }
+        
+        function goToInquiries() {
+            alert('我的询价页面将在后续版本中完善！');
+        }
+        
+        function goToFavorites() {
+            alert('我的收藏页面将在后续版本中完善！');
+        }
+        
+        function goToSettings() {
+            alert('账户设置页面将在后续版本中完善！');
+        }
+        
+        function logout() {
+            if (confirm('确定要退出登录吗？')) {
+                localStorage.removeItem('isLoggedIn');
+                localStorage.removeItem('currentUser');
+                window.location.href = '../index.html';
+            }
+        }
+        
+        // 页面加载完成后的初始化
+        window.addEventListener('load', function() {
+            // 检查登录状态
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            if (!isLoggedIn) {
+                alert('请先登录！');
+                window.location.href = 'login.html';
+                return;
+            }
+            
+            const currentUser = localStorage.getItem('currentUser');
+            if (currentUser) {
+                console.log(`当前登录用户：${currentUser}`);
+                // 更新用户菜单显示的用户名
+                const userNameElement = document.getElementById('currentUserName');
+                if (userNameElement) {
+                    userNameElement.textContent = currentUser;
+                }
+            }
+        });
+
+        function applyFilters() {
+            const filters = {
+                status: document.getElementById('order-status').value,
+                type: document.getElementById('order-type').value,
+                time: document.getElementById('time-range').value,
+                search: document.getElementById('search-order').value
+            };
+            
+            console.log('应用筛选条件:', filters);
+            alert('订单筛选功能已应用！在实际项目中，这里会根据筛选条件显示相应的订单。');
+        }
+        
+        function resetFilters() {
+            document.getElementById('order-status').value = '';
+            document.getElementById('order-type').value = '';
+            document.getElementById('time-range').value = '';
+            document.getElementById('search-order').value = '';
+            
+            console.log('筛选条件已重置');
+        }
+        
+        // 订单操作功能
+        function viewOrderDetail(orderId) {
+            document.getElementById('modalOrderId').textContent = orderId;
+            document.getElementById('orderModal').style.display = 'flex';
+        }
+        
+        function closeOrderModal() {
+            document.getElementById('orderModal').style.display = 'none';
+        }
+        
+        function cancelOrder(orderId) {
+            if (confirm(`确定要取消订单 ${orderId} 吗？`)) {
+                alert(`订单 ${orderId} 已取消！`);
+            }
+        }
+        
+        function cancelOrderModal() {
+            const orderId = document.getElementById('modalOrderId').textContent;
+            cancelOrder(orderId);
+            closeOrderModal();
+        }
+        
+        function contactService(orderId) {
+            alert(`正在为订单 ${orderId} 联系客服...`);
+        }
+        
+        function trackShipment(orderId) {
+            alert(`正在跟踪订单 ${orderId} 的物流信息...`);
+        }
+        
+        function writeReview(orderId) {
+            alert(`正在为订单 ${orderId} 写评价...`);
+        }
+        
+        function reorder(orderId) {
+            alert(`正在重新购买订单 ${orderId} 的商品...`);
+        }
+        
+        function payOrderModal() {
+            const orderId = document.getElementById('modalOrderId').textContent;
+            alert(`正在为订单 ${orderId} 支付...`);
+            
+            // 模拟支付过程
+            setTimeout(() => {
+                alert(`订单 ${orderId} 支付成功！`);
+                document.getElementById('modalOrderStatus').textContent = '已付款';
+                closeOrderModal();
+                
+                // 更新订单列表中的状态
+                const orderElements = document.querySelectorAll('.order-item');
+                orderElements.forEach(element => {
+                    if (element.textContent.includes(orderId)) {
+                        const statusElement = element.querySelector('.order-status');
+                        statusElement.textContent = '处理中';
+                        statusElement.className = 'order-status status-processing';
+                    }
+                });
+            }, 2000);
+        }
+        
+        // 点击模态框外部关闭
+        document.getElementById('orderModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeOrderModal();
+            }
+        });
+        
+        // ESC键关闭模态框
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeOrderModal();
+            }
+        });
+        
+        // 页面加载完成后的初始化
+        window.addEventListener('load', function() {
+            // 检查登录状态
+            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            if (!isLoggedIn) {
+                alert('请先登录！');
+                window.location.href = 'login.html';
+                return;
+            }
+            
+            const currentUser = localStorage.getItem('currentUser');
+            if (currentUser) {
+                console.log(`当前登录用户：${currentUser}`);
+            }
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"></script>
+    <script src="/js/main.js?v=1.0"></script>
+    <script src="/js/wechat-module.js?v=1.0"></script>
+
+</body>
+</html>

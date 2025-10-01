@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>最简单的微信模块测试</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .test-result {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+    <!-- 直接在这里加载 wechat-module.js -->
+    <script src="/js/wechat-module.js?v=1.0"></script>
+</head>
+<body>
+    <h1>最简单的微信模块测试</h1>
+    <p>本页面直接在 head 中加载 wechat-module.js，然后在 body 中检查全局对象。</p>
+    
+    <div id="test-result" class="test-result">
+        <p>测试中...</p>
+    </div>
+
+    <script>
+        console.log('页面加载完成，开始检查微信模块');
+        console.log('当前 window 对象中的 WechatModule:', window.WechatModule);
+        console.log('当前全局作用域中的 createWechatModule 函数:', typeof createWechatModule);
+        
+        // 立即检查
+        function checkWechatModule() {
+            const resultDiv = document.getElementById('test-result');
+            
+            if (window.WechatModule) {
+                resultDiv.className = 'test-result success';
+                resultDiv.innerHTML = `
+                    <h3>✓ 测试成功！</h3>
+                    <p>微信聊天模块已成功加载。</p>
+                    <p>模块版本: ${window.WechatModule.version || '未知'}</p>
+                    <p>初始化状态: ${window.WechatModule.isInitialized ? '已初始化' : '未初始化'}</p>
+                    <p>模块方法: ${Object.keys(window.WechatModule).join(', ')}</p>
+                    <p>请检查页面右下角是否出现微信图标</p>
+                    <pre>控制台输出: window.WechatModule = ${JSON.stringify(window.WechatModule, null, 2)}</pre>
+                `;
+            } else {
+                // 如果立即检查失败，尝试延迟检查
+                setTimeout(function() {
+                    if (window.WechatModule) {
+                        resultDiv.className = 'test-result success';
+                        resultDiv.innerHTML = `
+                            <h3>✓ 延迟测试成功！</h3>
+                            <p>微信聊天模块已成功加载，但有延迟。</p>
+                            <p>模块版本: ${window.WechatModule.version || '未知'}</p>
+                            <p>初始化状态: ${window.WechatModule.isInitialized ? '已初始化' : '未初始化'}</p>
+                            <p>模块方法: ${Object.keys(window.WechatModule).join(', ')}</p>
+                        `;
+                    } else {
+                        resultDiv.className = 'test-result error';
+                        resultDiv.innerHTML = `
+                            <h3>✗ 测试失败</h3>
+                            <p>微信聊天模块未成功加载。</p>
+                            <p>window.WechatModule 不存在。</p>
+                            <p>createWechatModule 函数类型: ${typeof createWechatModule}</p>
+                            <p>请检查控制台错误信息获取更多详情。</p>
+                        `;
+                    }
+                }, 1000);
+            }
+        }
+        
+        // 页面加载完成后检查
+        document.addEventListener('DOMContentLoaded', function() {
+            checkWechatModule();
+        });
+    </script>
+</body>
+</html>

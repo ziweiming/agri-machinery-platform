@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>全局对象测试</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .test-result {
+            margin-top: 20px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+    </style>
+    <!-- 直接在这里定义一个全局对象 -->
+    <script>
+        // 直接在 head 中定义一个简单的全局对象
+        window.TestGlobalObject = {
+            version: '1.0.0',
+            message: '这是一个测试全局对象',
+            timestamp: new Date().getTime()
+        };
+        
+        console.log('在 head 中定义的全局对象:', window.TestGlobalObject);
+    </script>
+</head>
+<body>
+    <h1>全局对象测试</h1>
+    <p>本页面直接在 head 中定义一个简单的全局对象，不依赖任何外部脚本。</p>
+    
+    <div id="test-result" class="test-result">
+        <p>测试中...</p>
+    </div>
+
+    <script>
+        console.log('页面加载完成，开始检查全局对象');
+        console.log('当前 window 对象中的 TestGlobalObject:', window.TestGlobalObject);
+        
+        // 立即检查
+        function checkGlobalObject() {
+            const resultDiv = document.getElementById('test-result');
+            
+            if (window.TestGlobalObject) {
+                resultDiv.className = 'test-result success';
+                resultDiv.innerHTML = `
+                    <h3>✓ 测试成功！</h3>
+                    <p>全局对象已成功定义。</p>
+                    <p>版本: ${window.TestGlobalObject.version}</p>
+                    <p>消息: ${window.TestGlobalObject.message}</p>
+                    <p>时间戳: ${window.TestGlobalObject.timestamp}</p>
+                    <pre>控制台输出: window.TestGlobalObject = ${JSON.stringify(window.TestGlobalObject, null, 2)}</pre>
+                `;
+            } else {
+                resultDiv.className = 'test-result error';
+                resultDiv.innerHTML = `
+                    <h3>✗ 测试失败</h3>
+                    <p>全局对象未成功定义。</p>
+                    <p>window.TestGlobalObject 不存在。</p>
+                    <p>请检查控制台错误信息获取更多详情。</p>
+                `;
+            }
+        }
+        
+        // 页面加载完成后检查
+        document.addEventListener('DOMContentLoaded', function() {
+            checkGlobalObject();
+        });
+    </script>
+</body>
+</html>

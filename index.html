@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>磐工金田 - 专业的农业机械进出口贸易服务</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="磐工金田，专业从事拖拉机、收割机、播种机等农业机械进出口贸易，提供报关、物流、售后等一站式服务。">
+    <meta name="keywords" content="农业机械,拖拉机,收割机,播种机,农业机械贸易,农业机械出口,农业机械进口,农业设备国际贸易">
+    <meta name="author" content="磐工金田">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="磐工金田">
+    <meta property="og:description" content="专业的农业机械进出口贸易服务平台">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.agrimachinery.com">
+    <meta property="og:image" content="https://www.agrimachinery.com/images/logo.jpg">
+    
+    <!-- Twitter Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="磐工金田">
+    <meta name="twitter:description" content="专业的农业机械进出口贸易服务平台">
+    <meta name="twitter:image" content="https://www.agrimachinery.com/images/logo.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.agrimachinery.com">
+    
+    <style>
+        /* 页面特定样式 */
+        .btn {
+            display: inline-block;
+            background: #D3AF58;
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin: 0 0.5rem;
+            border: none;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        
+        .btn:hover { background: #C29A47; transform: translateY(-2px); }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+        }
+        
+        .btn-outline:hover { background: white; color: #2E7D32; }
+        
+        .language-selector { 
+             margin-left: 1rem; 
+        }
+        
+        .language-btn {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem; /* 图标和文字之间的间距 */
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .language-btn:hover {
+              background: rgba(255, 255, 255, 0.3);
+              transform: translateY(-2px);
+        }
+
+        /* 添加倒三角箭头 */
+        .language-btn::after {
+              content: "ⅴ";
+              font-size: 0.8rem;
+             margin-left: 0.3rem;
+        }
+
+        /* 确保图标和文字垂直居中 */
+        .language-btn i {
+              font-size: 1.1rem;
+        }  
+
+        /* 移动端菜单按钮样式 */
+        .menu-toggle {
+            display: none;
+            background: transparent;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero区域 */
+        .hero {
+            background: linear-gradient(135deg, #2E7D32, #388E3C);
+            color: white;
+            padding: 5rem 0;
+            text-align: center;
+        }
+        
+        .hero h1 { font-size: 3.5rem; margin-bottom: 1rem; }
+        .hero p { font-size: 1.3rem; margin-bottom: 2rem; opacity: 0.9; }
+        
+        /* 主要内容区域 */
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2E7D32;
+            margin: 3rem 0;
+        }
+        
+        .features-grid, .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto 3rem;
+        }
+        
+        .feature-card, .product-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .feature-card:hover, .product-card:hover { transform: translateY(-10px); }
+        
+        .feature-icon {
+            font-size: 3rem;
+            color: #2E7D32;
+            margin-bottom: 1.5rem;
+        }
+        
+        .product-img {
+            width: 100%;
+            height: 220px;
+            background: linear-gradient(45deg, #e0e0e0, #bdbdbd);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-size: 3rem;
+        }
+        
+        .product-price {
+            font-size: 1.5rem;
+            color: #D3AF58;
+            font-weight: bold;
+            margin: 1rem 0;
+        }
+        
+        /* 页脚样式 */
+        .footer {
+            background: #2E7D32;
+            color: white;
+            padding: 3rem 0 1rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #D3AF58;
+        }
+        
+        .footer-col ul { list-style: none; }
+        
+        .footer-col ul li { margin-bottom: 0.5rem; }
+        
+        .footer-col ul li a {
+            color: #e0e0e0;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-col ul li a:hover { color: white; }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #e0e0e0;
+        }
+        
+        /* 回到顶部按钮样式 */
+        .back-to-top {
+            display: none;
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: #2E7D32;
+            color: white;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            z-index: 999;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .navbar-content { flex-direction: row; } /* 保持行布局，方便菜单按钮显示 */
+            .menu-toggle { display: block; } /* 显示移动端菜单按钮 */
+            .nav-menu { 
+                display: flex; /* 默认显示菜单 */
+                width: 100%; 
+                margin-top: 1rem; 
+                flex-direction: column; 
+                align-items: center;
+            }
+            .nav-menu li { margin: 0.5rem 0; }
+            .hero h1 { font-size: 2.5rem; }
+            .section-title { font-size: 2rem; }
+        }
+        
+        /* 登录注册按钮样式 */
+        .auth-btn {
+            color: white;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin: 0 0.5rem;
+            display: flex;
+            align-items: center;
+            background: none; /* 去掉背景色 */
+            border: none; /* 去掉边框 */
+            border-radius: 0; /* 去掉圆角 */
+        }
+
+        .auth-btn:hover {
+            color: #D3AF58; /* 悬停时变橙色 */
+            background: none; /* 去掉悬停背景 */
+            transform: none; /* 去掉悬停动画 */
+        }
+
+        .auth-btn-outline {
+            color: white;
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+            margin: 0 0.5rem;
+            display: flex;
+            align-items: center;
+            background: none; /* 去掉背景色 */
+            border: none; /* 去掉边框 */
+            border-radius: 0; /* 去掉圆角 */
+        }
+
+        .auth-btn-outline:hover {
+             color: #D3AF58; /* 悬停时变橙色 */
+             background: none; /* 去掉悬停背景 */
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <!-- Logo (已修复路径错误) -->
+                <div class="logo">
+                    <img src="images/logo.png" alt="磐工金田logo" style="height: 50px;"> <!-- 假设logo高度50px，可调整 -->
+                </div>
+                
+                <!-- 移动端菜单按钮 -->
+                <button class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <!-- 导航菜单 -->
+                <ul class="nav-menu">
+                    <li><a href="index.html" class="active">首页</a></li>
+                    <li><a href="pages/products.html">农机设备</a></li>
+                    <li><a href="pages/used-equipment.html">二手设备</a></li>
+                    <li><a href="pages/equipment-rental.html">农机租赁</a></li>
+                    <li><a href="pages/services.html">代办业务</a></li>
+                    <li><a href="pages/ai-services.html">AI智能服务</a></li>
+                    <li><a href="pages/video_center.html">视频中心</a></li>
+                    
+                    <!-- 登录注册按钮 -->
+                    <li><a href="pages/login.html" class="auth-btn">登录</a></li>
+                    <li><a href="pages/register.html" class="auth-btn auth-btn-outline">注册</a></li>
+                </ul>
+                
+                <!-- 语言选择器 - 单独放置在右侧 -->
+                <div class="language-container">
+                    <button class="language-btn" onclick="toggleLanguageMenu()">
+                        <i class="fas fa-globe"></i> 
+                        中文
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero区域 -->
+    <section class="hero">
+        <div class="container">
+            <h1>专业农业机械贸易平台</h1>
+            <p>连接全球农业机械贸易，提供一站式进出口解决方案</p>
+            <div>
+                <a href="pages/register.html" class="btn">成为会员</a>
+                <a href="pages/contact.html" class="btn btn-outline">联系我们</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 视频播放版块 -->
+    <section class="video-section">
+            <div class="container">
+                <h2 class="section-title">平台资讯</h2>
+                <div class="video-container" style="max-width: 800px; margin: 0 auto; position: relative; height: 450px;">
+                    <div class="video-player" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: #4CAF50; display: flex; flex-direction: column; align-items: center; justify-content: center; border-radius: 12px;">
+                        <div class="play-icon" style="width: 3.5rem; height: 3.5rem; background-color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 0.8rem;">
+                            <span style="color: #4CAF50; font-size: 1.5rem;">▶</span>
+                        </div>
+                        <p style="color: white; font-size: 1.1rem;">点击播放最新资讯</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <style>
+            /* 视频播放器悬停效果 */
+            .video-player {
+                transition: transform 0.3s ease;
+                cursor: pointer;
+            }
+            
+            .video-player:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+            }
+            
+            /* 播放图标悬停动画 */
+            .play-icon {
+                transition: transform 0.3s ease;
+            }
+            
+            .video-player:hover .play-icon {
+                transform: scale(1.1);
+            }
+            
+            @media (max-width: 992px) {
+                .video-container {
+                    height: 350px !important;
+                }
+            }
+            
+            @media (max-width: 768px) {
+                .video-container {
+                    height: auto !important;
+                    padding-bottom: 56.25% !important;
+                }
+                
+                .video-player {
+                    position: absolute !important;
+                    top: 0 !important;
+                    left: 0 !important;
+                    width: 100% !important;
+                    height: 100% !important;
+                }
+                
+                .video-player:hover {
+                    transform: translateY(-5px); /* 移动端悬浮效果稍小 */
+                }
+            }
+        </style>
+
+    <!-- 平台优势 -->
+    <section class="features">
+        <div class="container">
+            <h2 class="section-title">平台优势</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>全球网络</h3>
+                    <p>覆盖全球20多个国家和地区的合作伙伴网络</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>优质合作</h3>
+                    <p>与国内知名农业机械制造商建立长期合作关系</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>专业团队</h3>
+                    <p>农业机械专家和国际贸易专业人士组成的团队</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-headset"></i>
+                    </div>
+                    <h3>完善服务</h3>
+                    <p>提供从选型到售后的全流程服务</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 热门产品 -->
+    <section class="products">
+        <div class="container">
+            <h2 class="section-title">热门产品</h2>
+            <div class="products-grid">
+                <div class="product-card">
+                    <div class="product-img">
+                        <i class="fas fa-tractor"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3>东方红LX1204拖拉机</h3>
+                        <p>120马力四轮驱动拖拉机</p>
+                        <div class="product-price">¥158,000</div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-img">
+                        <i class="fas fa-harvester"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3>久保田PRO988Q收割机</h3>
+                        <p>高性能联合收割机</p>
+                        <div class="product-price">¥380,000</div>
+                    </div>
+                </div>
+                
+                <div class="product-card">
+                    <div class="product-img">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <div class="product-info">
+                        <h3>精密播种机</h3>
+                        <p>高精度播种机</p>
+                        <div class="product-price">¥85,000</div>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center;">
+                <a href="pages/products.html" class="btn">查看更多设备</a>
+            </div>
+            
+            <!-- 设备品牌LOGO展示版块 -->
+            <section id="brand-showcase" class="brand-showcase" style="margin-top: 3rem; padding: 2rem 0;">
+                <h2 class="section-title" style="margin-top: 0;">品牌展示</h2>
+                <div class="brands-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 2rem; justify-items: center; align-items: center;">
+                    <div class="brand-logo" style="width: 100px; height: 80px; background: linear-gradient(45deg, #e0e0e0, #bdbdbd); display: flex; align-items: center; justify-content: center; color: #666; font-size: 1.5rem; border-radius: 8px; transition: transform 0.3s ease;">东方红</div>
+                    <div class="brand-logo" style="width: 100px; height: 80px; background: linear-gradient(45deg, #e0e0e0, #bdbdbd); display: flex; align-items: center; justify-content: center; color: #666; font-size: 1.5rem; border-radius: 8px; transition: transform 0.3s ease;">久保田</div>
+                    <div class="brand-logo" style="width: 100px; height: 80px; background: linear-gradient(45deg, #e0e0e0, #bdbdbd); display: flex; align-items: center; justify-content: center; color: #666; font-size: 1.5rem; border-radius: 8px; transition: transform 0.3s ease;">约翰迪尔</div>
+                    <div class="brand-logo" style="width: 100px; height: 80px; background: linear-gradient(45deg, #e0e0e0, #bdbdbd); display: flex; align-items: center; justify-content: center; color: #666; font-size: 1.5rem; border-radius: 8px; transition: transform 0.3s ease;">雷沃</div>
+                    <div class="brand-logo" style="width: 100px; height: 80px; background: linear-gradient(45deg, #e0e0e0, #bdbdbd); display: flex; align-items: center; justify-content: center; color: #666; font-size: 1.5rem; border-radius: 8px; transition: transform 0.3s ease;">凯斯</div>
+                </div>
+            </section>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>关于我们</h3>
+                    <ul>
+                        <li><a href="pages/about.html">公司简介</a></li>
+                        <li><a href="pages/about.html#history">发展历程</a></li>
+                        <li><a href="pages/about.html#culture">企业文化</a></li>
+                        <li><a href="pages/about.html#team">团队介绍</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>产品服务</h3>
+                    <ul>
+                        <li><a href="pages/products.html">全新设备</a></li>
+                        <li><a href="pages/used-equipment.html">二手设备</a></li>
+                        <li><a href="pages/services.html">代办业务</a></li>
+                        <li><a href="pages/video_center.html">视频中心</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>客户支持</h3>
+                    <ul>
+                        <li><a href="pages/contact.html#faq">帮助中心</a></li>
+                        <li><a href="pages/contact.html">联系我们</a></li>
+                        <li><a href="pages/contact.html#service">在线咨询</a></li>
+                        <li><a href="pages/contact.html#feedback">意见反馈</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-col">
+                    <h3>联系信息</h3>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> +86 400-888-9999</li>
+                        <li><i class="fas fa-envelope"></i> info@agrimachinery.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 北京市朝阳区国贸大厦</li>
+                    </ul>
+                </div>
+            </div>
+            
+
+            
+            <div class="copyright">
+                <p>&copy; 2024 磐工金田. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 回到顶部按钮 -->
+    <button class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // 检查用户登录状态
+        function checkLoginStatus() {
+            // 这里应该是实际的登录状态检查逻辑
+            // 模拟登录检查，假设localStorage中的isLoggedIn表示登录状态
+            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
+            return isLoggedIn;
+        }
+        
+        function toggleLanguageMenu() {
+            alert('语言切换功能将在后续版本中完善');
+        }
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+        
+        // 页面加载完成后添加事件监听器
+        document.addEventListener('DOMContentLoaded', function() {
+            // 为'查看更多设备'按钮添加登录状态检查
+            let viewMoreButton = document.querySelector('a.btn[href="pages/products.html"]');
+            
+            // 如果没有找到，尝试通过文本内容查找
+            if (!viewMoreButton) {
+                const buttons = document.querySelectorAll('.btn');
+                for (let i = 0; i < buttons.length; i++) {
+                    if (buttons[i].textContent.includes('查看更多设备')) {
+                        viewMoreButton = buttons[i];
+                        break;
+                    }
+                }
+            }
+            
+            if (viewMoreButton) {
+                // 确保链接指向正确的pages/products.html
+                if (viewMoreButton.getAttribute('href') === 'products.html') {
+                    viewMoreButton.setAttribute('href', 'pages/products.html');
+                }
+                
+                viewMoreButton.addEventListener('click', function(e) {
+                    if (!checkLoginStatus()) {
+                        e.preventDefault();
+                        alert('请先登录后再查看更多设备');
+                        window.location.href = 'pages/login.html';
+                    }
+                });
+            }
+        });
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"></script>
+    <script src="/js/main.js?v=1.0"></script>
+    <script src="/js/wechat-module.js?v=1.0"></script>
+
+</body>
+</html>
