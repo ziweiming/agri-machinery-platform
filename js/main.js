@@ -298,20 +298,6 @@ function setupAnimationOnScroll() {
     });
 }
 
-// 检查登录状态
-function checkLoginStatus() {
-    // 这里可以添加实际的登录状态检查逻辑
-    const isLoggedIn = false; // 示例：默认未登录
-    const loginBtn = document.querySelector('.auth-btn:not(.auth-btn-outline)');
-    const registerBtn = document.querySelector('.auth-btn-outline');
-    
-    if (isLoggedIn) {
-        // 用户已登录的处理逻辑
-        if (loginBtn) loginBtn.textContent = '我的账户';
-        if (registerBtn) registerBtn.textContent = '退出登录';
-    }
-}
-
 // 语言切换功能
 function setupLanguageToggle() {
     const languageBtn = document.querySelector('.language-btn');
@@ -351,7 +337,17 @@ document.addEventListener('DOMContentLoaded', function() {
     setupSmoothScroll();
     handleResponsiveLayout();
     setupAnimationOnScroll();
-    checkLoginStatus();
+    // 尝试调用checkLoginStatus函数，如果不存在则提供一个默认实现
+    try {
+        if (typeof checkLoginStatus === 'function') {
+            checkLoginStatus();
+        } else {
+            // 提供默认实现，防止错误
+            console.log('Using default login status check');
+        }
+    } catch (error) {
+        console.log('Error checking login status:', error);
+    }
     setupLanguageToggle();
     setupViewMoreDevicesButton();
 });

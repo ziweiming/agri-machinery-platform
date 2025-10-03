@@ -666,6 +666,7 @@
         }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"></script>
+    <script src="/js/global.js"></script>
 
 </head>
 <body>
@@ -1109,24 +1110,25 @@
             }
         }
         
+
+        
         // 页面加载完成后的初始化
         window.addEventListener('load', function() {
             // 检查登录状态
-            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            const { isLoggedIn } = checkLoginStatus();
             if (!isLoggedIn) {
                 alert('请先登录！');
                 window.location.href = 'login.html';
                 return;
             }
             
-            const currentUser = localStorage.getItem('currentUser');
-            if (currentUser) {
-                console.log(`当前登录用户：${currentUser}`);
-                // 更新用户菜单显示的用户名
-                const userNameElement = document.getElementById('currentUserName');
-                if (userNameElement) {
-                    userNameElement.textContent = currentUser;
-                }
+            // 模拟当前用户
+            const currentUser = 'testuser';
+            console.log(`当前登录用户：${currentUser}`);
+            // 更新用户菜单显示的用户名
+            const userNameElement = document.getElementById('currentUserName');
+            if (userNameElement) {
+                userNameElement.textContent = currentUser;
             }
         });
 
@@ -1225,25 +1227,28 @@
             }
         });
         
-        // 页面加载完成后的初始化
+        // 注释掉重复的页面加载初始化代码
+        /*
         window.addEventListener('load', function() {
             // 检查登录状态
-            const isLoggedIn = localStorage.getItem('isLoggedIn');
+            const isLoggedIn = checkLoginStatus();
             if (!isLoggedIn) {
                 alert('请先登录！');
                 window.location.href = 'login.html';
                 return;
             }
             
-            const currentUser = localStorage.getItem('currentUser');
+            const currentUser = 'testuser';
             if (currentUser) {
                 console.log(`当前登录用户：${currentUser}`);
             }
         });
+        */
     </script>
 
+    <script src="/js/global.js"></script>
+    <script src="/js/main.js?v=1.1"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"></script>
-    <script src="/js/main.js?v=1.0"></script>
     <script src="/js/wechat-module.js?v=1.0"></script>
 
 </body>

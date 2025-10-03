@@ -712,34 +712,11 @@
         </div>
     </footer>
 
+    <script src="/js/global.js"></script>
+    
     <script>
         function toggleLanguageMenu() {
             alert('语言切换功能将在后续版本中完善');
-        }
-        
-        // 检查登录状态的功能
-        function checkLoginStatus() {
-            // 从localStorage获取登录状态
-            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-            let currentUser = null;
-            
-            try {
-                const storedUser = localStorage.getItem('currentUser');
-                if (storedUser && storedUser !== 'undefined' && storedUser !== 'null') {
-                    // 尝试将存储的用户数据解析为JSON
-                    currentUser = JSON.parse(storedUser);
-                }
-            } catch (error) {
-                // 如果解析失败，记录错误并设置默认值
-                console.warn('解析用户数据时出错:', error);
-                // 尝试创建一个有效的用户对象
-                currentUser = { username: 'guest' };
-            }
-            
-            return {
-                isLoggedIn: isLoggedIn,
-                currentUser: currentUser
-            };
         }
         
         function applyFilters() {
@@ -817,8 +794,9 @@
         });
     </script>
 
+    <script src="/js/global.js"></script>
+    <script src="/js/main.js?v=1.1"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"></script>
-    <script src="/js/main.js?v=1.0"></script>
     <script src="/js/wechat-module.js?v=1.0"></script>
 
 </body>

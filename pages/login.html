@@ -661,17 +661,19 @@
                 document.getElementById('rememberMe').checked = true;
             }
             
-            // 检查是否已登录
+            // 检查是否已登录 - 开发阶段不强制跳转
             const isLoggedIn = localStorage.getItem('isLoggedIn');
             if (isLoggedIn === 'true') {
-                // 直接跳转到首页，不显示alert
-                window.location.href = '../index.html';
+                console.log('用户已登录，开发阶段不强制跳转');
+                // 实际项目中可以选择是否显示提示或强制跳转
+                // window.location.href = '../index.html';
             }
         });
     </script>
 
+    <script src="/js/global.js"></script>
+    <script src="/js/main.js?v=1.1"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"></script>
-    <script src="/js/main.js?v=1.0"></script>
     <script src="/js/wechat-module.js?v=1.0"></script>
 
 </body>

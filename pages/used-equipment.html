@@ -804,80 +804,47 @@
         </div>
     </footer>
 
+    <script src="/js/global.js"></script>
+    
     <script>
         function toggleLanguageMenu() {
             alert('语言切换功能将在后续版本中完善');
         }
         
-        // 检查登录状态的功能
-        function checkLoginStatus() {
-            try {
-                // 从localStorage获取登录状态
-                const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-                let currentUser = null;
-                
-                try {
-                    const storedUser = localStorage.getItem('currentUser');
-                    if (storedUser && storedUser !== 'undefined' && storedUser !== 'null') {
-                        // 尝试将存储的用户数据解析为JSON
-                        currentUser = JSON.parse(storedUser);
-                    }
-                } catch (error) {
-                    // 如果解析失败，记录错误并设置默认值
-                    console.warn('解析用户数据时出错:', error);
-                    // 尝试创建一个有效的用户对象
-                    currentUser = { username: 'guest' };
-                }
-                
-                return {
-                    isLoggedIn: isLoggedIn,
-                    currentUser: currentUser
-                };
-            } catch (error) {
-                // 捕获所有可能的错误，确保函数始终返回有效值
-                console.error('检查登录状态时出错:', error);
-                return {
-                    isLoggedIn: false,
-                    currentUser: { username: 'guest' }
-                };
-            }
-        }
-        
         function applyFilters() {
-            const { isLoggedIn } = checkLoginStatus();
-            
-            if (!isLoggedIn) {
+            if (!checkLoginStatus()) {
                 alert('请先登录再进行搜索');
                 window.location.href = 'login.html';
-            } else {
-                alert('设备筛选功能已应用！');
+                return;
             }
+            
+            alert('设备筛选功能已应用！');
         }
         
         function resetFilters() {
             const { isLoggedIn } = checkLoginStatus();
-            
             if (!isLoggedIn) {
                 alert('请先登录再进行操作');
                 window.location.href = 'login.html';
-            } else {
-                document.getElementById('equipment-type').value = '';
-                document.getElementById('brand').value = '';
-                document.getElementById('year').value = '';
-                document.getElementById('price-range').value = '';
-                document.getElementById('search').value = '';
+                return;
             }
+            
+            document.getElementById('equipment-type').value = '';
+            document.getElementById('brand').value = '';
+            document.getElementById('year').value = '';
+            document.getElementById('price-range').value = '';
+            document.getElementById('search').value = '';
         }
         
         function viewEquipmentDetail(equipmentId) {
             const { isLoggedIn } = checkLoginStatus();
-            
             if (!isLoggedIn) {
                 alert('请先登录再查看设备详情');
                 window.location.href = 'login.html';
-            } else {
-                alert(`正在查看设备 ${equipmentId} 的详细信息...`);
+                return;
             }
+            
+            alert(`正在查看设备 ${equipmentId} 的详细信息...`);
         }
         
         // 为分页添加登录状态检查
@@ -889,15 +856,15 @@
                     e.preventDefault();
                     
                     const { isLoggedIn } = checkLoginStatus();
-                    
                     if (!isLoggedIn) {
                         alert('请先登录再查看更多页面');
                         window.location.href = 'login.html';
-                    } else {
-                        // 在实际应用中，这里会加载对应页码的数据
-                        const pageNum = this.textContent.trim();
-                        alert(`切换到第${pageNum}页`);
+                        return;
                     }
+                    
+                    // 在实际应用中，这里会加载对应页码的数据
+                    const pageNum = this.textContent.trim();
+                    alert(`切换到第${pageNum}页`);
                 });
             });
             
@@ -907,22 +874,23 @@
                 searchInput.addEventListener('keypress', function(e) {
                     if (e.key === 'Enter') {
                         const { isLoggedIn } = checkLoginStatus();
-                        
                         if (!isLoggedIn) {
                             e.preventDefault();
                             alert('请先登录再进行搜索');
                             window.location.href = 'login.html';
-                        } else {
-                            applyFilters();
+                            return;
                         }
+                        
+                        applyFilters();
                     }
                 });
             }
         });
     </script>
 
+   <script src="/js/global.js"></script>
+    <script src="/js/main.js?v=1.1"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"></script>
-    <script src="/js/main.js?v=1.0"></script>
     <script src="/js/wechat-module.js?v=1.0"></script>
 
 </body>

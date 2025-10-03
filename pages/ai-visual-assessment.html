@@ -14,6 +14,8 @@
     
     <!-- 基础样式 -->
     <link rel="stylesheet" href="../css/style.css">
+    <!-- 引入全局JavaScript -->
+    <script src="/js/global.js"></script>
     
     <style type="text/tailwindcss">
         @layer utilities {
@@ -983,15 +985,9 @@
     </button>
     
     <!-- JavaScript -->
+    <script src="/js/global.js"></script>
+    
     <script>
-        // 切换语言菜单显示/隐藏 - 全局函数
-        function toggleLanguageMenu() {
-            console.log('切换语言菜单');
-            // 由于实际项目中没有实现语言切换功能，这里只输出日志
-            // 在实际应用中，这里会显示/隐藏语言下拉菜单
-            alert('语言切换功能将在后续版本中完善');
-        }
-        
         // 确保页面完全加载后再执行JavaScript
         document.addEventListener('DOMContentLoaded', function() {
             try {
@@ -1039,20 +1035,6 @@
                     
                     return true;
                 }
-                
-                // 检查用户登录状态
-                function checkLoginStatus() {
-                    // 模拟登录状态检查
-                    const isLoggedIn = false;
-                    
-                    if (!isLoggedIn) {
-                        console.log('用户未登录状态');
-                    }
-                    
-                    return { isLoggedIn: isLoggedIn };
-                }
-                
-
                 
                 // 初始化语言选择器
                 function initLanguageSelector() {
@@ -1560,7 +1542,19 @@
                         }
                         
                         // 依次初始化各个功能模块
-                        checkLoginStatus();
+                        if (typeof checkLoginStatus === 'function') {
+                            try {
+                                checkLoginStatus();
+                            } catch (error) {
+                                console.warn('登录状态检查失败:', error);
+                                // 提供默认的登录状态
+                                window.userStatus = { isLoggedIn: false };
+                            }
+                        } else {
+                            console.warn('checkLoginStatus函数未定义');
+                            // 提供默认的登录状态
+                            window.userStatus = { isLoggedIn: false };
+                        }
                         initLanguageSelector();
                         initSmoothScroll();
                         initBackToTopButton();

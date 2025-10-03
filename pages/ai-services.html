@@ -926,7 +926,7 @@
         }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"></script>
-    <script src="/js/main.js?v=1.0"></script>
+    <script src="/js/main.js?v=1.1"></script>
     <script src="/js/wechat-module.js?v=1.0"></script>
     <script src="/js/ai-services.js?v=1.1"></script>
 </head>
@@ -1508,19 +1508,9 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
+    <script src="/js/global.js"></script>
+    
     <script>
-        // 检查用户登录状态
-        function checkLoginStatus() {
-            // 这里应该是实际的登录状态检查逻辑
-            // 模拟登录检查，假设localStorage中的isLoggedIn表示登录状态
-            const isLoggedIn = localStorage.getItem('isLoggedIn') === 'true';
-            return isLoggedIn;
-        }
-        
-        function toggleLanguageMenu() {
-            alert('语言切换功能将在后续版本中完善');
-        }
-        
         // 平滑滚动
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
@@ -1554,5 +1544,11 @@
             animateOnScroll(); // 初始检查
         });
     </script>
+
+    <script src="/js/global.js"></script>
+    <script src="/js/main.js?v=1.0"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"></script>
+    <script src="/js/wechat-module.js?v=1.0"></script>
+
 </body>
 </html>
