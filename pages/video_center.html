@@ -427,10 +427,16 @@
                 <li><a href="../index.html">首页</a></li>
                 <li><a href="products.html">农机设备</a></li>
                 <li><a href="used-equipment.html">二手设备</a></li>
-                <li><a href="equipment-rental.html">农机租赁</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle">农机租赁 ▼</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="equipment-rental.html" class="dropdown-item">设备租赁</a></li>
+                        <li><a href="parts-rental.html" class="dropdown-item">配件租赁</a></li>
+                    </ul>
+                </li>
                 <li><a href="services.html">代办业务</a></li>
                 <li><a href="ai-services.html">AI智能服务</a></li>
-                <li><a href="video_center.html">视频中心</a></li>
+                <li><a href="video_center.html" class="active">视频中心</a></li>
                 
                 <!-- 登录注册按钮 (移到视频中心后面) -->
                 <li><a href="login.html" class="auth-btn">登录</a></li>
@@ -799,6 +805,10 @@
             });
         });
     </script>
+
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script src="/js/global.js"></script>
     <script src="/js/main.js?v=1.1"></script>

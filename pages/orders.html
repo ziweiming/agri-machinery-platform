@@ -3,28 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>我的订单 - 磐工金田</title>
+    <title>我的租赁 - 磐工金田</title>
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="磐工金田订单管理，查看和管理您的所有订单，包括订单状态、物流信息、支付详情等。">
-    <meta name="keywords" content="磐工金田,订单管理,农业机械订单,订单查询,订单状态,物流跟踪">
+    <meta name="description" content="磐工金田租赁管理，查看和管理您的所有设备和配件租赁订单，统一管理租赁流程。">
+    <meta name="keywords" content="磐工金田,租赁管理,设备租赁,配件租赁,订单查询,租赁状态">
     <meta name="author" content="磐工金田">
     <meta name="robots" content="noindex, nofollow">
     
     <!-- Open Graph Tags -->
-    <meta property="og:title" content="我的订单 - 磐工金田">
-    <meta property="og:description" content="磐工金田订单管理系统，查看订单状态和物流信息">
+    <meta property="og:title" content="我的租赁 - 磐工金田">
+    <meta property="og:description" content="磐工金田租赁管理系统，统一管理设备和配件租赁订单">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.agrimachinery.com/pages/orders.html">
     <meta property="og:image" content="https://www.agrimachinery.com/images/logo.jpg">
     
     <!-- Twitter Tags -->
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="我的订单 - 磐工金田">
-    <meta name="twitter:description" content="磐工金田订单管理系统">
+    <meta name="twitter:title" content="我的租赁 - 磐工金田">
+    <meta name="twitter:description" content="磐工金田租赁管理系统，统一管理设备和配件租赁">
     <meta name="twitter:image" content="https://www.agrimachinery.com/images/logo.jpg">
     
     <!-- Canonical URL -->
@@ -303,7 +303,7 @@
             padding: 1rem 2rem;
             border-bottom: 1px solid #eee;
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
             font-weight: bold;
             color: #666;
         }
@@ -312,7 +312,7 @@
             padding: 1.5rem 2rem;
             border-bottom: 1px solid #eee;
             display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
             align-items: center;
             transition: background 0.3s ease;
         }
@@ -621,6 +621,111 @@
             color: #e0e0e0;
         }
         
+        /* 租赁流程指示器样式 */
+        .rental-process {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+        }
+        
+        .process-title {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .process-title h3 {
+            color: #2E7D32;
+            font-size: 1.5rem;
+        }
+        
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+        
+        .process-step {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 1;
+            flex: 1;
+        }
+        
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: #e0e0e0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #666;
+            margin-bottom: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .process-step.active .step-number {
+            background: #4CAF50;
+            color: white;
+        }
+        
+        .step-name {
+            font-size: 0.9rem;
+            color: #666;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .process-step.active .step-name {
+            color: #4CAF50;
+            font-weight: bold;
+        }
+        
+        .process-connector {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: #e0e0e0;
+            z-index: 0;
+        }
+        
+        .process-connector::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 100%;
+            background: #4CAF50;
+            width: 66.67%; /* 表示已完成4个步骤，共6个步骤 */
+            transition: width 0.3s ease;
+        }
+        
+        /* 订单类型标签样式 */
+        .order-category {
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            text-align: center;
+        }
+        
+        .category-equipment {
+            background: #E3F2FD;
+            color: #1976D2;
+        }
+        
+        .category-parts {
+            background: #FFF3E0;
+            color: #F57C00;
+        }
+        
         /* 响应式设计 */
         @media (max-width: 768px) {
             .navbar-content {
@@ -663,6 +768,16 @@
             .modal-footer .btn {
                 width: 100%;
             }
+            
+            /* 响应式租赁流程样式 */
+            .process-steps {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            .process-connector {
+                display: none;
+            }
         }
     </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"></script>
@@ -685,7 +800,13 @@
                     <li><a href="index.html">首页</a></li>
                     <li><a href="products.html">产品展示</a></li>
                     <li><a href="used-equipment.html">二手设备</a></li>
-                    <li><a href="equipment-rental.html">农机租赁</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">农机租赁 ▼</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="equipment-rental.html" class="dropdown-item">设备租赁</a></li>
+                            <li><a href="parts-rental.html" class="dropdown-item">配件租赁</a></li>
+                        </ul>
+                    </li>
                     <li><a href="services.html">代办业务</a></li>
                     <li><a href="ai-services.html">AI智能服务</a></li>
                     <li><a href="video_center.html">视频中心</a></li>
@@ -702,8 +823,8 @@
                             个人资料
                         </div>
                         <div class="dropdown-item" onclick="goToOrders()">
-                            <i class="fas fa-shopping-cart"></i>
-                            我的订单
+                            <i class="fas fa-tools"></i>
+                            我的租赁
                         </div>
                         <div class="dropdown-item" onclick="goToInquiries()">
                             <i class="fas fa-envelope"></i>
@@ -731,8 +852,48 @@
     <!-- 页面标题 -->
     <section class="page-header">
         <div class="container">
-            <h1>我的订单</h1>
-            <p>查看和管理您的所有订单</p>
+            <h1>我的租赁</h1>
+            <p>统一管理您的设备和配件租赁订单</p>
+        </div>
+    </section>
+
+    <!-- 租赁流程指示器 -->
+    <section class="container">
+        <div class="rental-process">
+            <div class="process-title">
+                <h3>租赁流程</h3>
+            </div>
+            <div class="process-steps">
+                <div class="process-step active">
+                    <div class="step-number">1</div>
+                    <div class="step-name">选择设备/配件</div>
+                </div>
+                <div class="process-connector"></div>
+                <div class="process-step active">
+                    <div class="step-number">2</div>
+                    <div class="step-name">选择租赁时间</div>
+                </div>
+                <div class="process-connector"></div>
+                <div class="process-step active">
+                    <div class="step-number">3</div>
+                    <div class="step-name">填写联系信息</div>
+                </div>
+                <div class="process-connector"></div>
+                <div class="process-step active">
+                    <div class="step-number">4</div>
+                    <div class="step-name">确认订单信息</div>
+                </div>
+                <div class="process-connector"></div>
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <div class="step-name">支付押金</div>
+                </div>
+                <div class="process-connector"></div>
+                <div class="process-step">
+                    <div class="step-number">6</div>
+                    <div class="step-name">完成租赁</div>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -780,8 +941,10 @@
                     <label for="order-type">订单类型</label>
                     <select id="order-type">
                         <option value="">全部类型</option>
-                        <option value="new">全新设备</option>
-                        <option value="used">二手设备</option>
+                        <option value="equipment">设备租赁</option>
+                        <option value="parts">配件租赁</option>
+                        <option value="new">全新设备购买</option>
+                        <option value="used">二手设备购买</option>
                         <option value="service">服务订单</option>
                     </select>
                 </div>
@@ -817,6 +980,7 @@
         <div class="orders-list">
             <div class="order-header">
                 <div>订单号</div>
+                <div>下单类型</div>
                 <div>下单时间</div>
                 <div>订单金额</div>
                 <div>订单状态</div>
@@ -827,6 +991,7 @@
             <!-- 订单1 -->
             <div class="order-item">
                 <div>ORD20240920001</div>
+                <div><span class="order-category category-equipment">设备租赁</span></div>
                 <div>2024-09-20</div>
                 <div>¥158,000</div>
                 <div><span class="order-status status-pending">待付款</span></div>
@@ -840,6 +1005,7 @@
             <!-- 订单2 -->
             <div class="order-item">
                 <div>ORD20240918002</div>
+                <div><span class="order-category category-parts">配件租赁</span></div>
                 <div>2024-09-18</div>
                 <div>¥380,000</div>
                 <div><span class="order-status status-processing">处理中</span></div>
@@ -853,6 +1019,7 @@
             <!-- 订单3 -->
             <div class="order-item">
                 <div>ORD20240915003</div>
+                <div><span class="order-category category-equipment">设备租赁</span></div>
                 <div>2024-09-15</div>
                 <div>¥85,000</div>
                 <div><span class="order-status status-shipped">已发货</span></div>
@@ -866,6 +1033,7 @@
             <!-- 订单4 -->
             <div class="order-item">
                 <div>ORD20240912004</div>
+                <div><span class="order-category category-parts">配件租赁</span></div>
                 <div>2024-09-12</div>
                 <div>¥68,000</div>
                 <div><span class="order-status status-delivered">已完成</span></div>
@@ -879,6 +1047,7 @@
             <!-- 订单5 -->
             <div class="order-item">
                 <div>ORD20240910005</div>
+                <div><span class="order-category category-equipment">设备租赁</span></div>
                 <div>2024-09-10</div>
                 <div>¥120,000</div>
                 <div><span class="order-status status-cancelled">已取消</span></div>
@@ -910,28 +1079,52 @@
             <div class="modal-body">
                 <div class="order-details">
                     <div class="detail-section">
-                        <h3 class="section-title">订单信息</h3>
-                        <div class="detail-item">
-                            <span class="detail-label">订单号：</span>
-                            <span class="detail-value" id="modalOrderId">ORD20240920001</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">下单时间：</span>
-                            <span class="detail-value" id="modalOrderTime">2024-09-20 14:30:25</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">订单状态：</span>
-                            <span class="detail-value" id="modalOrderStatus">待付款</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">支付方式：</span>
-                            <span class="detail-value" id="modalPaymentMethod">银行转账</span>
-                        </div>
-                        <div class="detail-item">
-                            <span class="detail-label">预计发货：</span>
-                            <span class="detail-value" id="modalShipTime">付款后3个工作日</span>
-                        </div>
+                    <h3 class="section-title">订单信息</h3>
+                    <div class="detail-item">
+                        <span class="detail-label">订单号：</span>
+                        <span class="detail-value" id="modalOrderId">ORD20240920001</span>
                     </div>
+                    <div class="detail-item">
+                        <span class="detail-label">订单类型：</span>
+                        <span class="detail-value" id="modalOrderType"><span class="order-category category-equipment">设备租赁</span></span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">下单时间：</span>
+                        <span class="detail-value" id="modalOrderTime">2024-09-20 14:30:25</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">订单状态：</span>
+                        <span class="detail-value" id="modalOrderStatus">待付款</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">支付方式：</span>
+                        <span class="detail-value" id="modalPaymentMethod">银行转账</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">预计发货：</span>
+                        <span class="detail-value" id="modalShipTime">付款后3个工作日</span>
+                    </div>
+                </div>
+                
+                <div class="detail-section">
+                    <h3 class="section-title">租赁详情</h3>
+                    <div class="detail-item">
+                        <span class="detail-label">租赁开始日期：</span>
+                        <span class="detail-value" id="rentalStartDate">2024-09-25</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">租赁结束日期：</span>
+                        <span class="detail-value" id="rentalEndDate">2024-10-25</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">租赁期限：</span>
+                        <span class="detail-value" id="rentalDuration">30天</span>
+                    </div>
+                    <div class="detail-item">
+                        <span class="detail-label">押金金额：</span>
+                        <span class="detail-value" id="depositAmount">¥30,000</span>
+                    </div>
+                </div>
                     
                     <div class="detail-section">
                         <h3 class="section-title">收货信息</h3>
@@ -978,8 +1171,12 @@
                 
                 <div class="total-section">
                     <div class="total-item">
-                        <span class="total-label">商品总价：</span>
+                        <span class="total-label">租赁费用：</span>
                         <span class="total-value">¥158,000</span>
+                    </div>
+                    <div class="total-item">
+                        <span class="total-label">押金：</span>
+                        <span class="total-value">¥30,000</span>
                     </div>
                     <div class="total-item">
                         <span class="total-label">运费：</span>
@@ -994,13 +1191,14 @@
                         <span class="total-value">-¥0</span>
                     </div>
                     <div class="total-item grand-total">
-                        <span class="total-label">订单总价：</span>
-                        <span class="total-value">¥158,000</span>
+                        <span class="total-label">应付总额（含押金）：</span>
+                        <span class="total-value">¥188,000</span>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
                 <button class="btn btn-outline" onclick="closeOrderModal()">关闭</button>
+                <button class="btn btn-outline" onclick="contactServiceModal()">联系客服</button>
                 <button class="btn btn-danger" onclick="cancelOrderModal()">取消订单</button>
                 <button class="btn btn-success" onclick="payOrderModal()">立即付款</button>
             </div>
@@ -1179,6 +1377,11 @@
             alert(`正在为订单 ${orderId} 联系客服...`);
         }
         
+        function contactServiceModal() {
+            const orderId = document.getElementById('modalOrderId').textContent;
+            alert(`正在为订单 ${orderId} 联系客服，我们的客服人员将尽快为您提供帮助！\n\n客服热线：400-888-9999\n在线客服：点击平台右下角客服图标`);
+        }
+        
         function trackShipment(orderId) {
             alert(`正在跟踪订单 ${orderId} 的物流信息...`);
         }
@@ -1245,6 +1448,10 @@
         });
         */
     </script>
+
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script src="/js/global.js"></script>
     <script src="/js/main.js?v=1.1"></script>

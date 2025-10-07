@@ -946,7 +946,13 @@
                     <li><a href="/index.html">首页</a></li>
                     <li><a href="/pages/products.html">农机设备</a></li>
                     <li><a href="/pages/used-equipment.html">二手设备</a></li>
-                    <li><a href="/pages/equipment-rental.html">农机租赁</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">农机租赁 ▼</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/pages/equipment-rental.html" class="dropdown-item">设备租赁</a></li>
+                            <li><a href="/pages/parts-rental.html" class="dropdown-item">配件租赁</a></li>
+                        </ul>
+                    </li>
                     <li><a href="/pages/services.html">代办业务</a></li>
                     <li><a href="/pages/ai-services.html" class="active">AI智能服务</a></li>
                     <li><a href="/pages/video_center.html">视频中心</a></li>
@@ -1504,7 +1510,7 @@
     </footer>
 
     <!-- 回到顶部按钮 -->
-    <button class="back-to-top">
+    <button class="back-to-top" id="backToTop">
         <i class="fas fa-arrow-up"></i>
     </button>
 
@@ -1545,7 +1551,6 @@
         });
     </script>
 
-    <script src="/js/global.js"></script>
     <script src="/js/main.js?v=1.0"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"></script>
     <script src="/js/wechat-module.js?v=1.0"></script>

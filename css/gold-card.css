@@ -1,0 +1,61 @@
+/* 金色边框卡片样式 */
+.gold-border-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.gold-border-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #D3AF58, #E6C570, #D3AF58);
+}
+
+.gold-border-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    border-color: #D3AF58;
+}
+
+.gold-border-card .card-icon {
+    font-size: 2.5rem;
+    color: #4CAF50;
+    margin-bottom: 1rem;
+    transition: color 0.3s ease;
+}
+
+.gold-border-card:hover .card-icon {
+    color: #D3AF58;
+}
+
+.gold-border-card .card-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.8rem;
+    color: #333;
+}
+
+.gold-border-card .card-text {
+    color: #666;
+    line-height: 1.6;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .gold-border-card {
+        padding: 1.5rem;
+    }
+    
+    .gold-border-card .card-icon {
+        font-size: 2rem;
+    }
+}

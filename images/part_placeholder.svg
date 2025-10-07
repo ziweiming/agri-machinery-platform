@@ -1,0 +1,11 @@
+<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景 -->
+  <rect width="100%" height="100%" fill="#f0f0f0"/>
+  <!-- 图标 -->
+  <circle cx="200" cy="130" r="50" fill="#4CAF50"/>
+  <path d="M180,120 L220,120 L210,150 L190,150 Z" fill="white"/>
+  <path d="M170,150 L230,150 L225,180 L175,180 Z" fill="white"/>
+  <!-- 文字 -->
+  <text x="200" y="240" font-family="Arial" font-size="24" text-anchor="middle" fill="#555">农机配件</text>
+  <text x="200" y="270" font-family="Arial" font-size="14" text-anchor="middle" fill="#888">点击查看详情</text>
+</svg>

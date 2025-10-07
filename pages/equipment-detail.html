@@ -7,6 +7,8 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/common-responsive.css">
+    <script src="../js/responsive-functions.js"></script>
 
     <!-- SEO Meta Tags -->
     <meta name="description" content="东方红LX1204拖拉机详细信息，包括技术参数、租赁价格和设备状况，专业的农业机械租赁服务。">
@@ -346,6 +348,97 @@
         .equipment-info {
             flex: 1;
             min-width: 300px;
+        }
+
+        /* 页脚样式 */
+        footer {
+            background-color: #2E7D32;
+            color: white;
+            padding: 1.5rem 0;
+            margin-top: 3rem;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .footer-col {
+            min-width: 200px;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .footer-logo i {
+            margin-right: 10px;
+            color: #D3AF58;
+            font-size: 1.8rem;
+        }
+
+        .footer-col h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #D3AF58;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-col ul li a:hover {
+            color: #D3AF58;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+
+        /* 返回顶部按钮 */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: #D3AF58;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            z-index: 1000;
+            border: none;
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            background-color: #C19A36;
         }
         
         .info-header {
@@ -926,6 +1019,21 @@
             background: #388E3C;
             transform: translateY(-3px);
         }
+        
+        /* 相关配件推荐样式 */
+        .part-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+        
+        .part-checkbox input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+        }
+        
+        .part-checkbox:hover {
+            color: #4CAF50;
+        }
     </style>
 </head>
 <body>
@@ -946,9 +1054,15 @@
                 <!-- 导航菜单 -->
                 <ul class="nav-menu">
                     <li><a href="../index.html">首页</a></li>
-                    <li><a href="products.html">产品展示</a></li>
+                    <li><a href="products.html">农机设备</a></li>
                     <li><a href="used-equipment.html">二手设备</a></li>
-                    <li><a href="equipment-rental.html">农机租赁</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">农机租赁 ▼</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="equipment-rental.html" class="dropdown-item">设备租赁</a></li>
+                            <li><a href="parts-rental.html" class="dropdown-item">配件租赁</a></li>
+                        </ul>
+                    </li>
                     <li><a href="services.html">代办业务</a></li>
                     <li><a href="ai-services.html">AI智能服务</a></li>
                     <li><a href="video_center.html">视频中心</a></li>
@@ -1087,6 +1201,86 @@
                         </button>
                     </div>
                 </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 相关配件推荐 -->
+    <section class="related-parts-section" style="background: white; padding: 2rem 0; margin-bottom: 2rem;">
+        <div class="container">
+            <h2 style="font-size: 2rem; color: #2E7D32; margin-bottom: 2rem; text-align: center;">相关配件推荐</h2>
+            
+            <div class="parts-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
+                <!-- 配件1 -->
+                <div class="part-card" style="background: #f9f9f9; border-radius: 8px; overflow: hidden; transition: all 0.3s ease;">
+                    <div class="part-image" style="height: 150px; background: #e0e0e0; display: flex; align-items: center; justify-content: center;">
+                        <img src="../images/part_placeholder.svg" alt="液压翻转犁" style="max-width: 80%; max-height: 80%;">
+                    </div>
+                    <div class="part-info" style="padding: 1rem;">
+                        <h3 class="part-name" style="font-size: 1.2rem; margin-bottom: 0.5rem;">液压翻转犁</h3>
+                        <div class="part-model" style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;">型号：FP-430</div>
+                        <div class="part-price" style="font-size: 1.1rem; font-weight: bold; color: #D3AF58; margin-bottom: 1rem;">¥300/天</div>
+                        <label class="part-checkbox" style="display: flex; align-items: center; cursor: pointer;">
+                            <input type="checkbox" class="add-to-package" data-part="液压翻转犁" data-price="300" style="margin-right: 0.5rem;" />
+                            添加到租赁套餐
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- 配件2 -->
+                <div class="part-card" style="background: #f9f9f9; border-radius: 8px; overflow: hidden; transition: all 0.3s ease;">
+                    <div class="part-image" style="height: 150px; background: #e0e0e0; display: flex; align-items: center; justify-content: center;">
+                        <img src="../images/part_placeholder.svg" alt="旋耕机" style="max-width: 80%; max-height: 80%;">
+                    </div>
+                    <div class="part-info" style="padding: 1rem;">
+                        <h3 class="part-name" style="font-size: 1.2rem; margin-bottom: 0.5rem;">旋耕机</h3>
+                        <div class="part-model" style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;">型号：XG-250</div>
+                        <div class="part-price" style="font-size: 1.1rem; font-weight: bold; color: #D3AF58; margin-bottom: 1rem;">¥250/天</div>
+                        <label class="part-checkbox" style="display: flex; align-items: center; cursor: pointer;">
+                            <input type="checkbox" class="add-to-package" data-part="旋耕机" data-price="250" style="margin-right: 0.5rem;" />
+                            添加到租赁套餐
+                        </label>
+                    </div>
+                </div>
+                
+                <!-- 配件3 -->
+                <div class="part-card" style="background: #f9f9f9; border-radius: 8px; overflow: hidden; transition: all 0.3s ease;">
+                    <div class="part-image" style="height: 150px; background: #e0e0e0; display: flex; align-items: center; justify-content: center;">
+                        <img src="../images/part_placeholder.svg" alt="播种机" style="max-width: 80%; max-height: 80%;">
+                    </div>
+                    <div class="part-info" style="padding: 1rem;">
+                        <h3 class="part-name" style="font-size: 1.2rem; margin-bottom: 0.5rem;">播种机</h3>
+                        <div class="part-model" style="font-size: 0.9rem; color: #666; margin-bottom: 0.5rem;">型号：BJ-6</div>
+                        <div class="part-price" style="font-size: 1.1rem; font-weight: bold; color: #D3AF58; margin-bottom: 1rem;">¥400/天</div>
+                        <label class="part-checkbox" style="display: flex; align-items: center; cursor: pointer;">
+                            <input type="checkbox" class="add-to-package" data-part="播种机" data-price="400" style="margin-right: 0.5rem;" />
+                            添加到租赁套餐
+                        </label>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 套餐选项 -->
+            <div class="package-options" style="background: #e8f5e9; border-radius: 8px; padding: 1.5rem; margin-bottom: 2rem;">
+                <h3 style="font-size: 1.5rem; color: #2E7D32; margin-bottom: 1rem;">"一键租赁设备+配件"套餐选项</h3>
+                
+                <div class="package-summary" style="margin-bottom: 1.5rem;">
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                        <span>设备：东方红LX1204拖拉机</span>
+                        <span>¥1,200/天</span>
+                    </div>
+                    <div id="selected-parts" style="margin-left: 1rem; margin-bottom: 0.5rem;">
+                        <!-- 选中的配件将动态显示在这里 -->
+                    </div>
+                    <div style="display: flex; justify-content: space-between; font-weight: bold; padding-top: 0.5rem; border-top: 1px solid #4CAF50;">
+                        <span>套餐总价：</span>
+                        <span id="package-total">¥1,200/天</span>
+                    </div>
+                </div>
+                
+                <button class="btn" onclick="scrollToFormWithPackage()" style="background: linear-gradient(135deg, #D3AF58, #C19A36); color: white; padding: 0.8rem 1.5rem; border: none; border-radius: 4px; font-weight: bold; cursor: pointer;">
+                    一键申请套餐租赁
+                </button>
             </div>
         </div>
     </section>
@@ -1324,50 +1518,44 @@
     </section>
 
     <!-- 页脚 -->
-    <footer class="footer">
+    <footer>
         <div class="container">
-            <div class="footer-grid">
+            <div class="footer-content">
                 <div class="footer-col">
-                    <h3>关于我们</h3>
-                    <ul>
-                        <li><a href="about.html">公司简介</a></li>
-                        <li><a href="about.html#history">发展历程</a></li>
-                        <li><a href="about.html#culture">企业文化</a></li>
-                        <li><a href="about.html#team">团队介绍</a></li>
-                    </ul>
+                    <div class="footer-logo">
+                        <i class="fas fa-tractor"></i>
+                        <span>磐工金田</span>
+                    </div>
+                    <p>专业的农业机械进出口贸易服务平台，为全球客户提供高品质的农业机械设备和服务。</p>
                 </div>
-                
                 <div class="footer-col">
-                    <h3>产品服务</h3>
+                    <h3>快速链接</h3>
                     <ul>
-                        <li><a href="products.html">全新设备</a></li>
+                        <li><a href="../index.html">首页</a></li>
+                        <li><a href="products.html">农机设备</a></li>
                         <li><a href="used-equipment.html">二手设备</a></li>
+                        <li><a href="equipment-rental.html">农机租赁</a></li>
+                        <li><a href="parts-rental.html">配件租赁</a></li>
                         <li><a href="services.html">代办业务</a></li>
-                        <li><a href="video_center.html">视频中心</a></li>
                     </ul>
                 </div>
-                
                 <div class="footer-col">
-                    <h3>客户支持</h3>
+                    <h3>联系我们</h3>
                     <ul>
-                        <li><a href="contact.html#faq">帮助中心</a></li>
-                        <li><a href="contact.html">联系我们</a></li>
-                        <li><a href="contact.html#service">在线咨询</a></li>
-                        <li><a href="contact.html#feedback">意见反馈</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-col">
-                    <h3>联系信息</h3>
-                    <ul>
-                        <li><i class="fas fa-phone"></i> +86 400-888-9999</li>
+                        <li><i class="fas fa-phone"></i> 400-888-9999</li>
                         <li><i class="fas fa-envelope"></i> info@agrimachinery.com</li>
                         <li><i class="fas fa-map-marker-alt"></i> 北京市朝阳区国贸大厦</li>
                     </ul>
                 </div>
+                <div class="footer-col">
+                    <h3>关注我们</h3>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-weixin"></i> 微信公众号</a></li>
+                        <li><a href="#"><i class="fab fa-weibo"></i> 新浪微博</a></li>
+                        <li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+                    </ul>
+                </div>
             </div>
-            
-            
             <div class="copyright">
                 <p>&copy; 2024 磐工金田. 保留所有权利.</p>
             </div>
@@ -1845,6 +2033,73 @@
         
         menuToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active');
+        });
+        
+        // 相关配件推荐逻辑
+        document.addEventListener('DOMContentLoaded', function() {
+            const equipmentPrice = 1200; // 设备基础价格
+            const checkboxes = document.querySelectorAll('.add-to-package');
+            const selectedPartsContainer = document.getElementById('selected-parts');
+            const packageTotalElement = document.getElementById('package-total');
+            
+            // 监听配件选择变化
+            if (checkboxes.length > 0) {
+                checkboxes.forEach(checkbox => {
+                    checkbox.addEventListener('change', updatePackageSummary);
+                });
+                
+                // 初始化时调用一次
+                updatePackageSummary();
+            }
+            
+            // 更新套餐摘要
+            function updatePackageSummary() {
+                let totalPrice = equipmentPrice;
+                let selectedPartsHtml = '';
+                let selectedParts = [];
+                
+                checkboxes.forEach(checkbox => {
+                    if (checkbox.checked) {
+                        const partName = checkbox.getAttribute('data-part');
+                        const partPrice = parseInt(checkbox.getAttribute('data-price'));
+                        totalPrice += partPrice;
+                        selectedPartsHtml += `<div style="display: flex; justify-content: space-between; margin-bottom: 0.2rem;">
+                            <span>配件：${partName}</span>
+                            <span>¥${partPrice}/天</span>
+                        </div>`;
+                        selectedParts.push({name: partName, price: partPrice});
+                    }
+                });
+                
+                // 更新显示
+                selectedPartsContainer.innerHTML = selectedPartsHtml;
+                packageTotalElement.textContent = `¥${totalPrice.toLocaleString()}/天`;
+                
+                // 存储选中的配件信息（用于表单提交）
+                localStorage.setItem('selectedParts', JSON.stringify(selectedParts));
+            }
+            
+            // 滚动到表单区域并带上套餐信息
+            window.scrollToFormWithPackage = function() {
+                scrollToForm();
+                
+                // 模拟填充表单中的相关信息
+                setTimeout(() => {
+                    const selectedPartsInput = document.createElement('input');
+                    selectedPartsInput.type = 'hidden';
+                    selectedPartsInput.name = 'selectedParts';
+                    selectedPartsInput.id = 'selectedPartsInput';
+                    
+                    // 检查是否已存在此输入框，如果存在则更新值
+                    const existingInput = document.getElementById('selectedPartsInput');
+                    if (existingInput) {
+                        existingInput.value = localStorage.getItem('selectedParts');
+                    } else {
+                        selectedPartsInput.value = localStorage.getItem('selectedParts');
+                        document.getElementById('rentalForm').appendChild(selectedPartsInput);
+                    }
+                }, 500);
+            }
         });
     </script>
 

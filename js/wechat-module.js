@@ -1,20 +1,59 @@
 // 微信聊天模块 - 完全内联版本
 // 避免外部HTML文件依赖，解决路径问题
 
-// 定义全局微信模块对象
-window.WechatModule = {
-    version: '1.0.0',
-    isInitialized: false,
-    createModule: createWechatModule
-};
+// 确保全局微信模块对象只被定义一次
+if (!window.WechatModule) {
+    window.WechatModule = {
+        version: '1.0.0',
+        isInitialized: false,
+        createModule: createWechatModule
+    };
+}
 
-document.addEventListener('DOMContentLoaded', function() {
-    // 直接创建微信模块HTML结构，不依赖外部文件
+// 防止重复创建的函数
+function initializeWechatModule() {
+    // 检查是否已经初始化
+    if (window.WechatModule.isInitialized) {
+        console.log('微信聊天模块已经初始化，跳过创建');
+        return;
+    }
+    
+    // 检查页面上是否已经存在微信模块元素
+    const existingModule = document.querySelector('.wechat-module');
+    if (existingModule) {
+        console.log('页面上已存在微信聊天模块元素，标记为已初始化');
+        window.WechatModule.isInitialized = true;
+        return;
+    }
+    
+    // 创建新的微信模块
     createWechatModule();
-});
+}
+
+// 当DOM加载完成时初始化
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initializeWechatModule);
+} else {
+    // 如果DOM已经加载完成，直接初始化
+    initializeWechatModule();
+}
 
 // 创建微信聊天模块
 function createWechatModule() {
+    // 再次检查，防止重复创建
+    if (window.WechatModule && window.WechatModule.isInitialized) {
+        console.log('微信聊天模块已经初始化，跳过创建');
+        return;
+    }
+    
+    // 检查页面上是否已经存在微信模块元素
+    const existingModule = document.querySelector('.wechat-module');
+    if (existingModule) {
+        console.log('页面上已存在微信聊天模块元素，标记为已初始化');
+        window.WechatModule.isInitialized = true;
+        return;
+    }
+    
     console.log('创建微信聊天模块');
     
     // 创建微信模块容器

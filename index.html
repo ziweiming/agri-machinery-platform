@@ -7,7 +7,10 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/gold-card.css">
+    <link rel="stylesheet" href="css/common-responsive.css">
     <script src="/js/global.js"></script>
+    <script src="js/responsive-functions.js"></script>
 
     <!-- SEO Meta Tags -->
     <meta name="description" content="磐工金田，专业从事拖拉机、收割机、播种机等农业机械进出口贸易，提供报关、物流、售后等一站式服务。">
@@ -299,7 +302,13 @@
                     <li><a href="index.html" class="active">首页</a></li>
                     <li><a href="pages/products.html">农机设备</a></li>
                     <li><a href="pages/used-equipment.html">二手设备</a></li>
-                    <li><a href="pages/equipment-rental.html">农机租赁</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">农机租赁 ▼</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="pages/equipment-rental.html" class="dropdown-item">设备租赁</a></li>
+                            <li><a href="pages/parts-rental.html" class="dropdown-item">配件租赁</a></li>
+                        </ul>
+                    </li>
                     <li><a href="pages/services.html">代办业务</a></li>
                     <li><a href="pages/ai-services.html">AI智能服务</a></li>
                     <li><a href="pages/video_center.html">视频中心</a></li>
@@ -399,36 +408,36 @@
         <div class="container">
             <h2 class="section-title">平台优势</h2>
             <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">
+                <div class="gold-border-card">
+                    <div class="card-icon">
                         <i class="fas fa-globe"></i>
                     </div>
-                    <h3>全球网络</h3>
-                    <p>覆盖全球20多个国家和地区的合作伙伴网络</p>
+                    <h3 class="card-title">全球网络</h3>
+                    <p class="card-text">覆盖全球20多个国家和地区的合作伙伴网络</p>
                 </div>
                 
-                <div class="feature-card">
-                    <div class="feature-icon">
+                <div class="gold-border-card">
+                    <div class="card-icon">
                         <i class="fas fa-handshake"></i>
                     </div>
-                    <h3>优质合作</h3>
-                    <p>与国内知名农业机械制造商建立长期合作关系</p>
+                    <h3 class="card-title">优质合作</h3>
+                    <p class="card-text">与国内知名农业机械制造商建立长期合作关系</p>
                 </div>
                 
-                <div class="feature-card">
-                    <div class="feature-icon">
+                <div class="gold-border-card">
+                    <div class="card-icon">
                         <i class="fas fa-users"></i>
                     </div>
-                    <h3>专业团队</h3>
-                    <p>农业机械专家和国际贸易专业人士组成的团队</p>
+                    <h3 class="card-title">专业团队</h3>
+                    <p class="card-text">农业机械专家和国际贸易专业人士组成的团队</p>
                 </div>
                 
-                <div class="feature-card">
-                    <div class="feature-icon">
+                <div class="gold-border-card">
+                    <div class="card-icon">
                         <i class="fas fa-headset"></i>
                     </div>
-                    <h3>完善服务</h3>
-                    <p>提供从选型到售后的全流程服务</p>
+                    <h3 class="card-title">完善服务</h3>
+                    <p class="card-text">提供从选型到售后的全流程服务</p>
                 </div>
             </div>
         </div>
@@ -547,7 +556,6 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <script src="/js/global.js"></script>
     
     <script>
         // 平滑滚动

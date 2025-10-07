@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>配件租赁 - 磐工金田</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/gold-card.css">
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="磐工金田提供专业的农业机械配件租赁服务，包括各类农机配件的租赁解决方案。">
+    <meta name="keywords" content="农业机械配件租赁,农机配件租赁,配件租赁,农业设备配件">
+    <meta name="author" content="磐工金田">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="配件租赁 - 磐工金田">
+    <meta property="og:description" content="专业的农业机械配件租赁服务平台">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.agrimachinery.com/pages/parts-rental.html">
+    <meta property="og:image" content="https://www.agrimachinery.com/images/parts-rental.jpg">
+    
+    <!-- Twitter Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="配件租赁 - 磐工金田">
+    <meta name="twitter:description" content="农业机械配件租赁服务，满足您的农业生产需求">
+    <meta name="twitter:image" content="https://www.agrimachinery.com/images/parts-rental.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.agrimachinery.com/pages/parts-rental.html">
+    
+    <style>
+        /* 页面特定样式 */
+        .btn {
+            display: inline-block;
+            background: #D3AF58;
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: #C19A36;
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            display: inline-block;
+            background: transparent;
+            color: #4CAF50;
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            border: 2px solid #4CAF50;
+        }
+        
+        .btn-outline:hover {
+            background: #4CAF50;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* 配件卡片样式 */
+        .parts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .part-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* 配件状态标识样式 */
+        .part-status {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            color: white;
+            z-index: 10;
+        }
+        
+        .part-status.in-stock {
+            background-color: #4CAF50;
+        }
+        
+        .part-status.out-of-stock {
+            background-color: #f44336;
+        }
+        
+        .part-status.pre-order {
+            background-color: #FF9800;
+        }
+        
+        .part-image {
+            position: relative;
+        }
+        
+        .part-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+        
+        .part-image {
+            height: 200px;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .part-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+        
+        .part-card:hover .part-image img {
+            transform: scale(1.05);
+        }
+        
+        .part-content {
+            padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .part-name {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #333;
+            line-height: 1.4;
+        }
+        
+        .part-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .tag {
+            background: #e8f5e9;
+            color: #2E7D32;
+            padding: 0.2rem 0.6rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+        }
+        
+        .part-price {
+            font-size: 1.4rem;
+            color: #D3AF58;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .price-unit {
+            font-size: 0.9rem;
+            color: #666;
+            font-weight: normal;
+        }
+        
+        .part-description {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+        
+        .part-actions {
+            display: flex;
+            gap: 0.8rem;
+            margin-top: auto;
+        }
+        
+        .btn-sm {
+            flex: 1;
+            padding: 0.6rem 1rem;
+            font-size: 0.9rem;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: #4CAF50;
+            color: white;
+            border: none;
+        }
+        
+        .btn-primary:hover {
+            background: #45a049;
+            color: white;
+        }
+        
+        /* 分页样式 */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5rem;
+            margin-top: 3rem;
+        }
+        
+        .page-item {
+            padding: 0.5rem 1rem;
+            border: 1px solid #e0e0e0;
+            border-radius: 6px;
+            color: #333;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .page-item:hover:not(.disabled) {
+            border-color: #4CAF50;
+            color: #4CAF50;
+        }
+        
+        .page-item.active {
+            background: #4CAF50;
+            color: white;
+            border-color: #4CAF50;
+        }
+        
+        .page-item.disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+        
+        .prev, .next {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* 筛选器样式 */
+        .filter-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .filter-item {
+            flex: 1 1 200px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .filter-label {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+        
+        .filter-select, .filter-input {
+            padding: 0.8rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+        
+        .filter-select:focus, .filter-input:focus {
+            border-color: #4CAF50;
+        }
+        
+        .filter-actions {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-end;
+        }
+        
+        .filter-btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .apply-filter {
+            background: #4CAF50;
+            color: white;
+        }
+        
+        .apply-filter:hover {
+            background: #45a049;
+        }
+        
+        .reset-filter {
+            background: #f0f0f0;
+            color: #666;
+        }
+        
+        .reset-filter:hover {
+            background: #e0e0e0;
+        }
+        
+        /* 配件分类 */
+        .parts-categories {
+            background: #f9f9f9;
+            padding: 3rem 0;
+            margin-bottom: 3rem;
+        }
+        
+        .categories-title {
+            text-align: center;
+            font-size: 2rem;
+            color: #2E7D32;
+            margin-bottom: 2rem;
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+        
+        .category-item {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-align: center;
+            padding: 2rem 1.5rem;
+        }
+        
+        .category-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+        }
+        
+        .category-icon {
+            width: 80px;
+            height: 80px;
+            background: #e8f5e9;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: #4CAF50;
+        }
+        
+        .category-title {
+            font-size: 1.3rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        
+        .category-desc {
+            font-size: 0.95rem;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        /* 租赁优势 */
+        .rental-advantages {
+            padding: 4rem 0;
+            background: #f9f9f9;
+        }
+        
+        .advantages-title {
+            text-align: center;
+            font-size: 2rem;
+            color: #2E7D32;
+            margin-bottom: 2rem;
+        }
+        
+        .advantages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        /* 搜索和筛选区域 */
+        .search-filter-section {
+            padding: 2rem 0;
+            background: #f9f9f9;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .search-container {
+            margin-bottom: 2rem;
+        }
+        
+        .search-input-wrapper {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            height: 48px;
+        }
+        
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            color: #999;
+            font-size: 1.2rem;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 0.8rem 1rem 0.8rem 3rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px 0 0 8px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s ease;
+        }
+        
+        .search-input:focus {
+            border-color: #4CAF50;
+        }
+        
+        .search-btn {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 0 8px 8px 0;
+            font-size: 0.9rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            height: 48px;
+            box-sizing: border-box;
+            margin-left: -2px;
+            writing-mode: horizontal-tb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 0.8rem 1rem 0.8rem 3rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px 0 0 8px;
+            font-size: 1rem;
+            outline: none;
+            transition: border-color 0.3s ease;
+            height: 48px;
+            box-sizing: border-box;
+        }
+        
+        .search-btn:hover {
+            background: #45a049;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        /* 筛选按钮样式 */
+        .filter-btn {
+            padding: 0.8rem 1.5rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-left: 1rem;
+        }
+        
+        .apply-filter {
+            background: #2E7D32;
+            color: white;
+        }
+        
+        .apply-filter:hover {
+            background: #256b29;
+            transform: translateY(-1px);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .reset-filter {
+            background: #f0f0f0;
+            color: #333;
+            border: 1px solid #ddd;
+        }
+        
+        .reset-filter:hover {
+            background: #e0e0e0;
+        }
+        
+        .filter-actions {
+            display: flex;
+            align-items: center;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"></script>
+
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <!-- Logo -->
+                <div class="logo">
+                    <img src="../images/logo.png" alt="磐工金田logo" style="height: 50px;">
+                </div>
+                
+                <!-- 移动端菜单按钮 -->
+                <button class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <!-- 导航菜单 -->
+                <ul class="nav-menu">
+                    <li><a href="../index.html">首页</a></li>
+                    <li><a href="products.html">农机设备</a></li>
+                    <li><a href="used-equipment.html">二手设备</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle active">农机租赁 ▼</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="equipment-rental.html" class="dropdown-item">设备租赁</a></li>
+                            <li><a href="parts-rental.html" class="dropdown-item active">配件租赁</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="services.html">代办业务</a></li>
+                    <li><a href="ai-services.html">AI智能服务</a></li>
+                    <li><a href="video_center.html">视频中心</a></li>
+                    
+                    <!-- 登录注册按钮 -->
+                    <li><a href="login.html" class="auth-btn">登录</a></li>
+                    <li><a href="register.html" class="auth-btn auth-btn-outline">注册</a></li>
+                </ul>
+                
+                <!-- 语言选择器 (独立容器) -->
+                <div class="language-container">
+                    <div class="language-selector">
+                        <button class="language-btn" onclick="toggleLanguageMenu()">
+                            <i class="fas fa-globe"></i> 中文
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <section class="page-header">
+        <div class="container">
+            <h1>配件租赁</h1>
+            <p>专业的农业机械配件租赁方案，满足您的临时或季节性需求</p>
+        </div>
+    </section>
+
+    <!-- 视频播放版块 -->
+    <section class="video-section">
+        <div class="container">
+            <h2 style="text-align: center; color: #2E7D32; margin-bottom: 2rem; font-size: 2rem;">配件展示</h2>
+            <div class="video-container">
+                <div class="video-player">
+                    <div class="play-icon">
+                        <span><i class="fas fa-play"></i></span>
+                    </div>
+                    <p>点击播放视频，了解我们的配件</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 租赁服务介绍 -->
+    <section class="rental-intro">
+        <div class="container">
+            <div class="intro-content">
+                <h2 class="intro-title">为什么选择磐工金田配件租赁？</h2>
+                <div class="intro-text">
+                    <p>磐工金田提供专业的农业机械配件租赁服务，为您提供灵活、经济、高效的农业生产解决方案。无论您是需要短期租赁应对季节性需求，还是临时租赁解决设备故障，我们都能为您提供合适的方案。</p>
+                    <p>我们拥有各类先进的农业机械配件，包括发动机配件、液压系统配件、传动系统配件、电气系统配件等，所有配件均经过严格检查和维护，确保在租赁期间性能稳定可靠。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 租赁优势 -->
+    <section class="rental-advantages">
+        <div class="container">
+            <h2 class="advantages-title">租赁优势</h2>
+            <div class="advantages-grid">
+                <div class="gold-border-card">
+                    <div class="card-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3 class="card-title">降低成本</h3>
+                    <p class="card-text">无需大量资金投入购买配件，降低设备维护成本和资金压力</p>
+                </div>
+                <div class="gold-border-card">
+                    <div class="card-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3 class="card-title">灵活选择</h3>
+                    <p class="card-text">根据实际需求选择租赁时间和配件类型，灵活应对不同维修场景</p>
+                </div>
+                <div class="gold-border-card">
+                    <div class="card-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="card-title">专业维护</h3>
+                    <p class="card-text">所有租赁配件均由专业人员定期维护，确保配件性能稳定可靠</p>
+                </div>
+                <div class="gold-border-card">
+                    <div class="card-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3 class="card-title">快速响应</h3>
+                    <p class="card-text">提供快速的配件更换服务，减少设备停机时间，提高生产效率</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 搜索和筛选 -->
+    <section class="search-filter-section">
+        <div class="container">
+            <!-- 设备租赁按钮 -->
+            <div class="rental-buttons-container" style="text-align: center; margin-bottom: 2.5rem;">
+                <button id="parts-section" class="rental-type-btn active">配件租赁</button>
+            </div>
+            
+            <style>
+                .rental-type-btn {
+                    display: inline-block;
+                    background-color: #2E7D32;
+                    color: white;
+                    border: none;
+                    padding: 0.8rem 2rem;
+                    border-radius: 6px;
+                    font-size: 1.2rem;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    position: relative;
+                    overflow: hidden;
+                    white-space: nowrap;
+                }
+                
+                .rental-type-btn:hover {
+                    background-color: #45a049;
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+                }
+                
+                .rental-type-btn:active {
+                    transform: translateY(0);
+                    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                }
+                
+                /* 两个按钮颜色已保持一致，不需要额外的active样式 */
+            </style>
+            
+            <!-- 搜索框 -->
+            <div class="search-container">
+                <div class="search-input-wrapper">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" placeholder="搜索配件名称、品牌或型号..." class="search-input">
+                    <button class="search-btn">搜索</button>
+                </div>
+            </div>
+            
+            <!-- 筛选功能 -->
+            <div class="filter-container">
+                <div class="filter-row">
+                    <!-- 配件类型筛选 -->
+                    <div class="filter-item">
+                        <label for="parts-type">配件类型</label>
+                        <select id="parts-type" class="filter-select">
+                            <option value="all">全部类型</option>
+                            <option value="engine">发动机配件</option>
+                            <option value="transmission">传动系统配件</option>
+                            <option value="hydraulic">液压系统配件</option>
+                            <option value="electrical">电气系统配件</option>
+                            <option value="suspension">悬挂系统配件</option>
+                        </select>
+                    </div>
+                    
+                    <!-- 品牌筛选 -->
+                    <div class="filter-item">
+                        <label for="brand">品牌</label>
+                        <select id="brand" class="filter-select">
+                            <option value="all">全部品牌</option>
+                            <option value="dongfanghong">东方红</option>
+                            <option value="lovol">雷沃</option>
+                            <option value="sany">三一重工</option>
+                            <option value="yituo">中国一拖</option>
+                            <option value="other">其他品牌</option>
+                        </select>
+                    </div>
+                    
+                    <!-- 适配机型筛选 -->
+                    <div class="filter-item">
+                        <label for="machine-type">适配机型</label>
+                        <select id="machine-type" class="filter-select">
+                            <option value="all">全部机型</option>
+                            <option value="tractor">拖拉机</option>
+                            <option value="combine">联合收割机</option>
+                            <option value="seeder">播种机</option>
+                            <option value="sprayer">喷雾机</option>
+                            <option value="plow">犁</option>
+                        </select>
+                    </div>
+                    
+                    <!-- 价格范围筛选 -->
+                    <div class="filter-item">
+                        <label for="price-range">价格范围</label>
+                        <select id="price-range" class="filter-select">
+                            <option value="all">全部价格</option>
+                            <option value="0-500">￥0-500</option>
+                            <option value="500-1000">￥500-1000</option>
+                            <option value="1000-2000">￥1000-2000</option>
+                            <option value="2000+">￥2000+</option>
+                        </select>
+                    </div>
+                    
+                    <!-- 筛选按钮 -->
+                    <div class="filter-actions">
+                        <button class="filter-btn btn">应用筛选</button>
+                        <button class="reset-btn btn btn-outline">重置</button>
+                    </div>
+                </div>
+            </div>
+            
+            <style>
+                .filter-container {
+                    margin-top: 20px;
+                }
+                
+                .filter-row {
+                    display: flex;
+                    align-items: center;
+                    gap: 20px;
+                    flex-wrap: wrap;
+                }
+                
+                .filter-item {
+                    display: flex;
+                    flex-direction: column;
+                    min-width: 180px;
+                }
+                
+                .filter-item label {
+                    font-weight: 500;
+                    margin-bottom: 5px;
+                    color: #333;
+                }
+                
+                .filter-select {
+                    padding: 8px 12px;
+                    border: 1px solid #ddd;
+                    border-radius: 4px;
+                    font-size: 14px;
+                    background-color: white;
+                    cursor: pointer;
+                }
+                
+                .filter-actions {
+                    display: flex;
+                    gap: 10px;
+                    margin-left: auto;
+                }
+                
+                .btn {
+                    padding: 8px 16px;
+                    border: none;
+                    border-radius: 4px;
+                    font-size: 14px;
+                    cursor: pointer;
+                    transition: background-color 0.3s;
+                }
+                
+                .filter-btn.btn {
+                    background-color: #2E7D32;
+                    color: white;
+                }
+                
+                .filter-btn.btn:hover {
+                    background-color: #45a049;
+                }
+                
+                .reset-btn.btn.btn-outline {
+                    background-color: white;
+                    color: #2E7D32;
+                    border: 1px solid #2E7D32;
+                }
+                
+                .reset-btn.btn.btn-outline:hover {
+                    background-color: #f5f5f5;
+                }
+            </style>
+            </div>
+        </div>
+    </section>
+
+    <!-- 热门配件分类 -->
+    <section class="parts-categories">
+        <div class="container">
+            <h2 class="categories-title">热门配件分类</h2>
+            <div class="categories-grid">
+                <div class="category-item">
+                    <div class="category-icon">
+                        <i class="fas fa-cog"></i>
+                    </div>
+                    <h3 class="category-title">发动机配件</h3>
+                    <p class="category-desc">高品质发动机配件，确保您的农机高效运行</p>
+                </div>
+                
+                <div class="category-item">
+                    <div class="category-icon">
+                        <i class="fas fa-link"></i>
+                    </div>
+                    <h3 class="category-title">传动系统</h3>
+                    <p class="category-desc">专业的传动系统配件，提供可靠的动力传输</p>
+                </div>
+                
+                <div class="category-item">
+                    <div class="category-icon">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <h3 class="category-title">液压配件</h3>
+                    <p class="category-desc">高性能液压配件，确保液压系统稳定运行</p>
+                </div>
+                
+                <div class="category-item">
+                    <div class="category-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="category-title">电气配件</h3>
+                    <p class="category-desc">优质电气配件，保证农机电气系统的可靠性</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 配件列表 -->
+    <section class="parts-section">
+        <div class="container">
+            <h2 class="categories-title">配件租赁列表</h2>
+            
+            <!-- 配件网格 -->
+            <div class="parts-grid">
+                <!-- 配件卡片1 -->
+                <div class="part-card">
+                    <div class="part-image">
+                        <img src="../images/part_placeholder.svg" alt="发动机配件">
+                        <div class="part-status in-stock">有货</div>
+                    </div>
+                    <div class="part-content">
+                        <h3 class="part-name">东方红拖拉机发动机滤芯</h3>
+                        <div class="part-tags">
+                            <span class="tag">发动机配件</span>
+                            <span class="tag">东方红</span>
+                            <span class="tag">拖拉机</span>
+                        </div>
+                        <p class="part-price">¥120<span class="price-unit">/天</span></p>
+                        <p class="part-description">高品质发动机滤芯，适配东方红LX系列拖拉机，提供优质的过滤效果，保护发动机免受杂质损害。</p>
+                        <div class="part-actions">
+                            <a href="parts-detail.html" class="btn-sm btn-primary">查看详情</a>
+                            <a href="#" class="btn-sm btn-outline">立即租赁</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 配件卡片2 -->
+                <div class="part-card">
+                    <div class="part-image">
+                        <img src="../images/part_placeholder.svg" alt="液压泵">
+                        <div class="part-status in-stock">有货</div>
+                    </div>
+                    <div class="part-content">
+                        <h3 class="part-name">雷沃液压泵总成</h3>
+                        <div class="part-tags">
+                            <span class="tag">液压配件</span>
+                            <span class="tag">雷沃</span>
+                            <span class="tag">收割机</span>
+                        </div>
+                        <p class="part-price">¥280<span class="price-unit">/天</span></p>
+                        <p class="part-description">专业液压泵总成，适配雷沃谷神系列联合收割机，提供稳定的液压动力输出。</p>
+                        <div class="part-actions">
+                            <a href="parts-detail.html" class="btn-sm btn-primary">查看详情</a>
+                            <a href="#" class="btn-sm btn-outline">立即租赁</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 配件卡片3 -->
+                <div class="part-card">
+                    <div class="part-image">
+                        <img src="../images/part_placeholder.svg" alt="电气控制器">
+                        <div class="part-status out-of-stock">缺货</div>
+                    </div>
+                    <div class="part-content">
+                        <h3 class="part-name">智能电子控制单元</h3>
+                        <div class="part-tags">
+                            <span class="tag">电气配件</span>
+                            <span class="tag">智能系统</span>
+                            <span class="tag">多种机型</span>
+                        </div>
+                        <p class="part-price">¥350<span class="price-unit">/天</span></p>
+                        <p class="part-description">先进的电子控制单元，支持多种农机型号，提供精确的电子控制和监测功能。</p>
+                        <div class="part-actions">
+                            <a href="parts-detail.html" class="btn-sm btn-primary">查看详情</a>
+                            <a href="#" class="btn-sm btn-outline">立即租赁</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 配件卡片4 -->
+                <div class="part-card">
+                    <div class="part-image">
+                        <img src="../images/part_placeholder.svg" alt="传动齿轮">
+                        <div class="part-status pre-order">预订中</div>
+                    </div>
+                    <div class="part-content">
+                        <h3 class="part-name">高强度传动齿轮组</h3>
+                        <div class="part-tags">
+                            <span class="tag">传动配件</span>
+                            <span class="tag">高强度</span>
+                            <span class="tag">拖拉机</span>
+                        </div>
+                        <p class="part-price">¥220<span class="price-unit">/天</span></p>
+                        <p class="part-description">高强度合金传动齿轮组，适用于多种拖拉机型号，提供可靠的动力传输。</p>
+                        <div class="part-actions">
+                            <a href="parts-detail.html" class="btn-sm btn-primary">查看详情</a>
+                            <a href="#" class="btn-sm btn-outline">立即租赁</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 配件卡片5 -->
+                <div class="part-card">
+                    <div class="part-image">
+                        <img src="../images/part_placeholder.svg" alt="液压油缸">
+                        <div class="part-status in-stock">有货</div>
+                    </div>
+                    <div class="part-content">
+                        <h3 class="part-name">大型液压油缸</h3>
+                        <div class="part-tags">
+                            <span class="tag">液压配件</span>
+                            <span class="tag">大型设备</span>
+                            <span class="tag">挖掘机</span>
+                        </div>
+                        <p class="part-price">¥450<span class="price-unit">/天</span></p>
+                        <p class="part-description">大型液压油缸，适用于农业挖掘机和装载机，提供强大的液压动力和精确控制。</p>
+                        <div class="part-actions">
+                            <a href="parts-detail.html" class="btn-sm btn-primary">查看详情</a>
+                            <a href="#" class="btn-sm btn-outline">立即租赁</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 配件卡片6 -->
+                <div class="part-card">
+                    <div class="part-image">
+                        <img src="../images/part_placeholder.svg" alt="传感器">
+                        <div class="part-status pre-order">预订中</div>
+                    </div>
+                    <div class="part-content">
+                        <h3 class="part-name">智能农业传感器套件</h3>
+                        <div class="part-tags">
+                            <span class="tag">电气配件</span>
+                            <span class="tag">智能农业</span>
+                            <span class="tag">监测系统</span>
+                        </div>
+                        <p class="part-price">¥180<span class="price-unit">/天</span></p>
+                        <p class="part-description">智能农业传感器套件，包括土壤湿度、温度、pH值等多种传感器，助力精准农业。</p>
+                        <div class="part-actions">
+                            <a href="part-detail.html" class="btn-sm btn-primary">查看详情</a>
+                            <a href="#" class="btn-sm btn-outline">立即租赁</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 分页 -->
+            <div class="pagination">
+                <a href="#" class="page-item prev disabled">上一页</a>
+                <a href="#" class="page-item active">1</a>
+                <a href="#" class="page-item">2</a>
+                <a href="#" class="page-item">3</a>
+                <a href="#" class="page-item">4</a>
+                <a href="#" class="page-item">5</a>
+                <a href="#" class="page-item next">下一页</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 租赁流程 -->
+    <section class="rental-process" style="padding: 4rem 0; background-color: #f9f9f9;">
+        <div class="container">
+            <h2 class="process-title" style="text-align: center; color: #2E7D32; font-size: 2.2rem; margin-bottom: 3rem;">配件租赁流程</h2>
+            
+            <div class="process-steps" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
+                <!-- 步骤1 -->
+                <div class="process-step" style="flex: 1; min-width: 220px; max-width: 220px; position: relative; text-align: center; transition: transform 0.3s ease;">
+                    <div class="step-content" style="background: white; border-radius: 12px; padding: 2rem 1.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: all 0.3s ease; height: 100%; display: flex; flex-direction: column; align-items: center;">
+                        <div class="step-icon" style="width: 80px; height: 80px; background: #e8f5e9; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; font-size: 2rem; color: #4CAF50; transition: all 0.3s ease;">
+                            <i class="fas fa-search"></i>
+                        </div>
+                        <div class="step-number" style="position: absolute; top: -10px; right: 20px; width: 36px; height: 36px; background: #2E7D32; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem;">1</div>
+                        <h3 class="step-title" style="font-size: 1.3rem; color: #333; margin-bottom: 1rem;">浏览选择</h3>
+                        <p style="color: #666; font-size: 0.95rem; line-height: 1.6;">浏览我们的配件库，选择适合您需求的配件</p>
+                    </div>
+                    <!-- 连接线 -->
+                    <div class="step-connector" style="position: absolute; top: 50%; left: calc(100% + 0.5rem); width: 30px; height: 2px; background: #ddd; display: none;"></div>
+                </div>
+                
+                <!-- 步骤2 -->
+                <div class="process-step" style="flex: 1; min-width: 220px; max-width: 220px; position: relative; text-align: center; transition: transform 0.3s ease;">
+                    <div class="step-content" style="background: white; border-radius: 12px; padding: 2rem 1.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: all 0.3s ease; height: 100%; display: flex; flex-direction: column; align-items: center;">
+                        <div class="step-icon" style="width: 80px; height: 80px; background: #e8f5e9; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; font-size: 2rem; color: #4CAF50; transition: all 0.3s ease;">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <div class="step-number" style="position: absolute; top: -10px; right: 20px; width: 36px; height: 36px; background: #2E7D32; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem;">2</div>
+                        <h3 class="step-title" style="font-size: 1.3rem; color: #333; margin-bottom: 1rem;">提交申请</h3>
+                        <p style="color: #666; font-size: 0.95rem; line-height: 1.6;">填写租赁申请表，提供必要的信息</p>
+                    </div>
+                    <!-- 连接线 -->
+                    <div class="step-connector" style="position: absolute; top: 50%; left: calc(100% + 0.5rem); width: 30px; height: 2px; background: #ddd; display: none;"></div>
+                </div>
+                
+                <!-- 步骤3 -->
+                <div class="process-step" style="flex: 1; min-width: 220px; max-width: 220px; position: relative; text-align: center; transition: transform 0.3s ease;">
+                    <div class="step-content" style="background: white; border-radius: 12px; padding: 2rem 1.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: all 0.3s ease; height: 100%; display: flex; flex-direction: column; align-items: center;">
+                        <div class="step-icon" style="width: 80px; height: 80px; background: #e8f5e9; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; font-size: 2rem; color: #4CAF50; transition: all 0.3s ease;">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <div class="step-number" style="position: absolute; top: -10px; right: 20px; width: 36px; height: 36px; background: #2E7D32; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem;">3</div>
+                        <h3 class="step-title" style="font-size: 1.3rem; color: #333; margin-bottom: 1rem;">审核确认</h3>
+                        <p style="color: #666; font-size: 0.95rem; line-height: 1.6;">我们将审核您的申请并确认租赁细节</p>
+                    </div>
+                    <!-- 连接线 -->
+                    <div class="step-connector" style="position: absolute; top: 50%; left: calc(100% + 0.5rem); width: 30px; height: 2px; background: #ddd; display: none;"></div>
+                </div>
+                
+                <!-- 步骤4 -->
+                <div class="process-step" style="flex: 1; min-width: 220px; max-width: 220px; position: relative; text-align: center; transition: transform 0.3s ease;">
+                    <div class="step-content" style="background: white; border-radius: 12px; padding: 2rem 1.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: all 0.3s ease; height: 100%; display: flex; flex-direction: column; align-items: center;">
+                        <div class="step-icon" style="width: 80px; height: 80px; background: #e8f5e9; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; font-size: 2rem; color: #4CAF50; transition: all 0.3s ease;">
+                            <i class="fas fa-box"></i>
+                        </div>
+                        <div class="step-number" style="position: absolute; top: -10px; right: 20px; width: 36px; height: 36px; background: #2E7D32; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem;">4</div>
+                        <h3 class="step-title" style="font-size: 1.3rem; color: #333; margin-bottom: 1rem;">配件交付</h3>
+                        <p style="color: #666; font-size: 0.95rem; line-height: 1.6;">选择自提或配送，获取您租赁的配件</p>
+                    </div>
+                    <!-- 连接线 -->
+                    <div class="step-connector" style="position: absolute; top: 50%; left: calc(100% + 0.5rem); width: 30px; height: 2px; background: #ddd; display: none;"></div>
+                </div>
+                
+                <!-- 步骤5 -->
+                <div class="process-step" style="flex: 1; min-width: 220px; max-width: 220px; position: relative; text-align: center; transition: transform 0.3s ease;">
+                    <div class="step-content" style="background: white; border-radius: 12px; padding: 2rem 1.5rem; box-shadow: 0 4px 15px rgba(0,0,0,0.08); transition: all 0.3s ease; height: 100%; display: flex; flex-direction: column; align-items: center;">
+                        <div class="step-icon" style="width: 80px; height: 80px; background: #e8f5e9; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; font-size: 2rem; color: #4CAF50; transition: all 0.3s ease;">
+                            <i class="fas fa-undo-alt"></i>
+                        </div>
+                        <div class="step-number" style="position: absolute; top: -10px; right: 20px; width: 36px; height: 36px; background: #2E7D32; color: white; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.2rem;">5</div>
+                        <h3 class="step-title" style="font-size: 1.3rem; color: #333; margin-bottom: 1rem;">使用归还</h3>
+                        <p style="color: #666; font-size: 0.95rem; line-height: 1.6;">使用完毕后，按约定时间归还配件</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <style>
+            /* 桌面端连接线显示 */
+            @media (min-width: 1024px) {
+                .step-connector {
+                    display: block !important;
+                }
+                
+                /* 连接线动画 */
+                .process-steps::after {
+                    content: '';
+                    position: absolute;
+                    top: 50%;
+                    left: 0;
+                    width: 100%;
+                    height: 2px;
+                    background: linear-gradient(90deg, #ddd 50%, transparent 50%);
+                    background-size: 20px 2px;
+                    background-repeat: repeat-x;
+                    z-index: -1;
+                    animation: move 2s linear infinite;
+                }
+                
+                @keyframes move {
+                    0% {
+                        background-position: 0 0;
+                    }
+                    100% {
+                        background-position: 20px 0;
+                    }
+                }
+            }
+            
+            /* 悬停效果 */
+            .process-step:hover {
+                transform: translateY(-5px);
+            }
+            
+            .process-step:hover .step-content {
+                box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+            }
+            
+            .process-step:hover .step-icon {
+                background: #4CAF50;
+                color: white;
+                transform: scale(1.1);
+            }
+            
+            /* 移动设备适配 */
+            @media (max-width: 768px) {
+                .process-steps {
+                    flex-direction: column;
+                    align-items: center;
+                }
+                
+                .process-step {
+                    margin-bottom: 1.5rem;
+                    max-width: 90%;
+                }
+                
+                .process-title {
+                    font-size: 1.8rem !important;
+                }
+            }
+        </style>
+        
+        <script>
+            // 页面加载完成后，为流程步骤添加渐入动画
+            document.addEventListener('DOMContentLoaded', function() {
+                const processSteps = document.querySelectorAll('.process-step');
+                
+                // 检查元素是否在视口中
+                function isInViewport(element) {
+                    const rect = element.getBoundingClientRect();
+                    return (
+                        rect.top >= 0 &&
+                        rect.left >= 0 &&
+                        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
+                    );
+                }
+                
+                // 为每个步骤添加渐入动画
+                function animateSteps() {
+                    processSteps.forEach((step, index) => {
+                        if (isInViewport(step)) {
+                            setTimeout(() => {
+                                step.style.opacity = '1';
+                                step.style.transform = 'translateY(0)';
+                            }, index * 150);
+                        }
+                    });
+                }
+                
+                // 初始设置
+                processSteps.forEach(step => {
+                    step.style.opacity = '0';
+                    step.style.transform = 'translateY(20px)';
+                    step.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                });
+                
+                // 立即检查并在滚动时检查
+                animateSteps();
+                window.addEventListener('scroll', animateSteps);
+            });
+        </script>
+    </section>
+
+    <!-- 联系咨询 -->
+    <section class="contact-section" style="background: linear-gradient(135deg, #f8f9fa 0%, #e8f5e9 100%); padding: 4rem 0; margin-top: 3rem; border-radius: 8px; box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
+        <div class="container">
+            <div class="contact-content" style="max-width: 800px; margin: 0 auto; text-align: center; opacity: 0; transform: translateY(20px); transition: opacity 0.8s ease, transform 0.8s ease;">
+                <h2 class="contact-title" style="color: #2E7D32; font-size: 2rem; font-weight: 700; margin-bottom: 1.5rem; position: relative; display: inline-block;">
+                    有疑问？立即联系我们
+                    <span style="position: absolute; bottom: -8px; left: 50%; transform: translateX(-50%); width: 80px; height: 3px; background: #4CAF50;"></span>
+                </h2>
+                <p class="contact-description" style="color: #555; font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem; padding: 0 1rem;">
+                    如需了解更多配件租赁信息，请随时联系我们，我们的专业团队将为您提供详细的咨询服务。
+                </p>
+                <a href="contact.html" class="btn contact-btn" style="display: inline-block; background: #4CAF50; color: white; padding: 0.8rem 2.5rem; border-radius: 50px; font-size: 1.1rem; font-weight: 600; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3); position: relative; overflow: hidden;">
+                    <span style="position: relative; z-index: 2;">联系我们</span>
+                    <span style="position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: rgba(255,255,255,0.2); transition: left 0.3s ease;"></span>
+                </a>
+            </div>
+        </div>
+        
+        <style>
+            /* 联系按钮悬停效果 */
+            .contact-btn:hover {
+                transform: translateY(-2px);
+                box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
+            }
+            
+            .contact-btn:hover span:last-child {
+                left: 100%;
+            }
+            
+            /* 响应式设计 */
+            @media (max-width: 768px) {
+                .contact-section {
+                    padding: 3rem 1rem;
+                }
+                
+                .contact-title {
+                    font-size: 1.8rem !important;
+                }
+                
+                .contact-description {
+                    font-size: 1rem !important;
+                }
+                
+                .contact-btn {
+                    padding: 0.7rem 1.8rem !important;
+                    font-size: 1rem !important;
+                }
+            }
+        </style>
+        
+        <script>
+            // 为联系咨询版块添加滚动渐入动画
+            document.addEventListener('DOMContentLoaded', function() {
+                const contactSection = document.querySelector('.contact-content');
+                
+                function isInViewport(element) {
+                    const rect = element.getBoundingClientRect();
+                    return (
+                        rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8
+                    );
+                }
+                
+                function animateContactSection() {
+                    if (isInViewport(contactSection)) {
+                        contactSection.style.opacity = '1';
+                        contactSection.style.transform = 'translateY(0)';
+                        window.removeEventListener('scroll', animateContactSection);
+                    }
+                }
+                
+                // 立即检查并在滚动时检查
+                animateContactSection();
+                window.addEventListener('scroll', animateContactSection);
+            });
+        </script>
+    </section>
+
+    <!-- 页脚样式 -->
+    <style>
+        footer {
+            background: #1B5E20;
+            color: white;
+            padding: 3rem 0;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-logo i {
+            margin-right: 10px;
+            font-size: 1.8rem;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #D3AF58;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-col ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-col ul li a:hover {
+            color: #D3AF58;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+    </style>
+    
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <i class="fas fa-tractor"></i>
+                        <span>磐工金田</span>
+                    </div>
+                    <p>专业的农业机械进出口贸易服务平台，为全球客户提供高品质的农业机械设备和服务。</p>
+                </div>
+                <div class="footer-col">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="../index.html">首页</a></li>
+                        <li><a href="products.html">农机设备</a></li>
+                        <li><a href="used-equipment.html">二手设备</a></li>
+                        <li><a href="equipment-rental.html">农机租赁</a></li>
+                        <li><a href="parts-rental.html">配件租赁</a></li>
+                        <li><a href="services.html">代办业务</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>联系我们</h3>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> 400-888-9999</li>
+                        <li><i class="fas fa-envelope"></i> info@agrimachinery.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 北京市朝阳区国贸大厦</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>关注我们</h3>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-weixin"></i> 微信公众号</a></li>
+                        <li><a href="#"><i class="fab fa-weibo"></i> 新浪微博</a></li>
+                        <li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 磐工金田. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button id="back-to-top" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script src="../js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"></script>
+    <script src="../js/wechat-module.js?v=1.0"></script>
+</body>
+</html>

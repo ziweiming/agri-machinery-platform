@@ -185,55 +185,121 @@ html {
     to { width: 100%; left: 0; }
 }
 
-/* 登录注册按钮样式 */
+/* 下拉菜单样式 */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    min-width: 150px;
+    z-index: 1000;
+    animation: fadeInDown 0.3s ease-out;
+}
+
+/* 为JavaScript控制的下拉菜单添加样式 */
+.dropdown-menu.show {
+    display: block;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-item {
+    color: #333 !important;
+    padding: 0 20px !important;
+    height: 40px;
+    line-height: 40px;
+    display: block !important;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    font-weight: normal !important;
+}
+
+.dropdown-item:hover {
+    background-color: #f5f5f5;
+    color: #2e7d32 !important;
+    transform: none !important;
+}
+
+.dropdown-item.active {
+    background-color: #f5f5f5;
+    color: #2e7d32 !important;
+    font-weight: bold !important;
+}
+
+.dropdown-item.active::after {
+    display: none;
+}
+
+/* 登录注册按钮样式 - 修改为普通文字链接 */
 .auth-btn {
     display: inline-block;
-    background: #D3AF58;
+    background: transparent;
     color: white;
-    padding: 0.5rem 1.2rem;
-    border-radius: 30px;
+    padding: 0.8rem 0;
+    border-radius: 0;
     text-decoration: none;
-    font-weight: bold;
+    font-weight: normal;
     transition: all 0.3s ease;
-    margin: 0 0.5rem;
+    margin: 0 1rem;
     border: none;
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: 1rem;
     position: relative;
     overflow: hidden;
 }
 
 .auth-btn:hover {
-    background: #C29A47;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+    background: transparent;
+    color: #F0C14B;
+    transform: translateY(-2px) scale(1.05);
+    box-shadow: none;
 }
 
 .auth-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
-    transition: left 0.5s ease;
-}
-
-.auth-btn:hover::before {
-    left: 100%;
+    display: none;
 }
 
 .auth-btn-outline {
     background: transparent;
-    border: 2px solid white;
+    border: none;
     color: white;
 }
 
 .auth-btn-outline:hover {
-    background: white;
-    color: #2E7D32;
-    border-color: #D3AF58;
+    background: transparent;
+    color: #F0C14B;
+    border-color: transparent;
 }
 
 /* 语言选择器样式 - 旧版用于保留兼容性 */
@@ -521,6 +587,58 @@ html {
         background-color: #D3AF58;
         animation: slideIn 0.3s ease-out;
     }
+    
+    /* 移动端下拉菜单调整为平级菜单 */
+    .dropdown {
+        width: 100%;
+    }
+    
+    .dropdown-menu {
+        position: static;
+        display: none;
+        box-shadow: none;
+        border: none;
+        margin-top: 0.5rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 8px;
+        padding: 0.5rem 0;
+    }
+    
+    .dropdown:hover .dropdown-menu {
+        display: none;
+    }
+    
+    .dropdown.active .dropdown-menu {
+        display: block;
+    }
+    
+    .dropdown-item {
+        text-align: center;
+        padding: 0.8rem 0 !important;
+        height: auto;
+        line-height: normal;
+        color: white !important;
+        font-size: 1rem;
+    }
+    
+    .dropdown-item:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        color: #F0C14B !important;
+    }
+    
+    .dropdown-item.active {
+        background-color: rgba(255, 255, 255, 0.2);
+        color: #F0C14B !important;
+    }
+    
+    /* 确保下拉菜单中的项目有动画效果 */
+    .dropdown-menu li {
+        opacity: 0;
+        animation: fadeInUp 0.3s ease-out forwards;
+    }
+    
+    .dropdown-menu li:nth-child(1) { animation-delay: 0.1s; }
+    .dropdown-menu li:nth-child(2) { animation-delay: 0.2s; }
 }
 
 /* 响应式设计 - 手机设备 */
@@ -574,6 +692,233 @@ html {
     .language-container {
         display: none;
     }
+}
+
+/* Banner和页面标题样式 */
+.page-header {
+    background: linear-gradient(135deg, #2E7D32, #388E3C);
+    color: white;
+    padding: 3rem 0;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.page-header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.page-header .container {
+    position: relative;
+    z-index: 2;
+}
+
+.page-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    animation: fadeIn 0.5s ease-out;
+}
+
+.page-header p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    opacity: 0.9;
+    animation: fadeIn 0.5s ease-out 0.2s both;
+}
+
+/* 视频播放版块样式 */
+.video-section {
+    background-color: white;
+    padding: 3rem 0;
+    text-align: center;
+}
+
+.video-container {
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.video-player {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 Aspect Ratio */
+    background-color: #f0f0f0;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.video-player:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+}
+
+.video-player::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.4));
+    z-index: 1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.video-player:hover::before {
+    opacity: 1;
+}
+
+.play-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background-color: rgba(46, 125, 50, 0.8);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 2rem;
+    z-index: 2;
+    transition: all 0.3s ease;
+}
+
+.video-player:hover .play-icon {
+    background-color: rgba(46, 125, 50, 1);
+    transform: translate(-50%, -50%) scale(1.1);
+}
+
+.video-player p {
+    position: absolute;
+    bottom: 1.5rem;
+    left: 0;
+    right: 0;
+    color: white;
+    font-size: 1.2rem;
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.video-player:hover p {
+    opacity: 1;
+}
+
+/* 租赁服务介绍样式 */
+.rental-intro {
+    background-color: #f8f9fa;
+    padding: 3rem 0;
+}
+
+.intro-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.intro-title {
+    font-size: 2rem;
+    color: #2E7D32;
+    margin-bottom: 1.5rem;
+    font-weight: bold;
+}
+
+.intro-text {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #666;
+}
+
+.intro-text p {
+    margin-bottom: 1rem;
+}
+
+/* 租赁优势样式 */
+.rental-advantages {
+    background-color: white;
+    padding: 3rem 0;
+}
+
+.advantages-title {
+    font-size: 2rem;
+    color: #2E7D32;
+    text-align: center;
+    margin-bottom: 2.5rem;
+    font-weight: bold;
+}
+
+.advantages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.gold-border-card {
+    background-color: white;
+    border: 2px solid #D3AF58;
+    border-radius: 10px;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    height: 100%;
+}
+
+.gold-border-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    border-color: #C29A47;
+}
+
+.card-icon {
+    width: 80px;
+    height: 80px;
+    background-color: #f0f0f0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 2rem;
+    color: #2E7D32;
+    transition: all 0.3s ease;
+}
+
+.gold-border-card:hover .card-icon {
+    background-color: #2E7D32;
+    color: white;
+    transform: scale(1.1);
+}
+
+.card-title {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 1rem;
+    font-weight: bold;
+}
+
+.card-text {
+    font-size: 1.05rem;
+    color: #666;
+    line-height: 1.6;
 }
 
 /* 微信聊天模块样式 */
@@ -1083,6 +1428,97 @@ html {
     transform: scale(1.2);
 }
 
+/* 配件网格和卡片样式 */
+.parts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.part-card {
+    background-color: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.part-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.part-image {
+    height: 150px;
+    background-color: #f8f9fa;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.part-info {
+    padding: 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.part-category {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    width: fit-content;
+}
+
+.part-name {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #2c3e50;
+    margin-bottom: 8px;
+}
+
+.part-description {
+    font-size: 0.95rem;
+    color: #6c757d;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.part-rating {
+    color: #FFC107;
+    margin-bottom: 12px;
+}
+
+.part-rating span {
+    color: #6c757d;
+    font-size: 0.85rem;
+    margin-left: 5px;
+}
+
+.part-price {
+    margin-bottom: 15px;
+}
+
+.price-label {
+    font-size: 0.95rem;
+    color: #6c757d;
+}
+
+.price-value {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #4CAF50;
+    margin-left: 5px;
+}
+
 /* 响应式卡片和表单 */
 @media (max-width: 768px) {
     .feature-card {
@@ -1110,6 +1546,10 @@ html {
     
     .form-group {
         margin-bottom: 1.2rem;
+    }
+    
+    .parts-grid {
+        grid-template-columns: 1fr;
     }
 }
 

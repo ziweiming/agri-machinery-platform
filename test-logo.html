@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logo测试页面</title>
+    <style>
+        .navbar-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .navbar-logo {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+            max-height: 50px;
+        }
+        .test-logo {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+            max-height: 50px;
+            border: 1px solid red;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Logo测试</h1>
+        
+        <!-- 测试1：直接使用logo文件 -->
+        <div>
+            <h2>测试1：直接使用logo文件</h2>
+            <img src="images/logo.png" alt="测试1" class="test-logo">
+        </div>
+        
+        <!-- 测试2：添加查询参数防止缓存 -->
+        <div style="margin-top: 20px;">
+            <h2>测试2：添加查询参数防止缓存</h2>
+            <img src="images/logo.png?v=2" alt="测试2" class="test-logo">
+        </div>
+        
+        <!-- 测试3：导航栏样式 -->
+        <div style="margin-top: 20px;">
+            <h2>测试3：导航栏样式</h2>
+            <a class="navbar-brand" href="#">
+                <img src="images/logo.png?v=3" alt="农业机械共享平台" class="navbar-logo">
+                <span class="navbar-brand-text">农业机械共享平台</span>
+            </a>
+        </div>
+        
+        <!-- 测试4：直接设置尺寸 -->
+        <div style="margin-top: 20px;">
+            <h2>测试4：直接设置尺寸</h2>
+            <img src="images/logo.png?v=4" alt="测试4" style="height: 50px; width: auto;">
+        </div>
+        
+        <!-- 测试5：限制最大宽度 -->
+        <div style="margin-top: 20px;">
+            <h2>测试5：限制最大宽度</h2>
+            <img src="images/logo.png?v=5" alt="测试5" style="height: auto; max-width: 200px; max-height: 50px;">
+        </div>
+    </div>
+</body>
+</html>

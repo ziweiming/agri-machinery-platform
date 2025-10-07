@@ -248,6 +248,13 @@ function setupSmoothScroll() {
             e.preventDefault();
             
             const targetId = this.getAttribute('href');
+            
+            // 处理href属性值为'#'的情况
+            if (targetId === '#') {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+                return;
+            }
+            
             const targetElement = document.querySelector(targetId);
             
             if (targetElement) {
@@ -317,6 +324,59 @@ function setupLanguageToggle() {
     }
 }
 
+// 下拉菜单功能
+function setupDropdownMenus() {
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
+    
+    dropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            // 关闭其他所有下拉菜单
+            document.querySelectorAll('.dropdown-menu').forEach(menu => {
+                if (menu !== this.nextElementSibling) {
+                    menu.classList.remove('show');
+                }
+            });
+            
+            // 切换当前下拉菜单的显示状态
+            const dropdownMenu = this.nextElementSibling;
+            if (dropdownMenu && dropdownMenu.classList.contains('dropdown-menu')) {
+                dropdownMenu.classList.toggle('show');
+            }
+        });
+    });
+    
+    // 点击页面其他区域关闭下拉菜单
+    document.addEventListener('click', function() {
+        document.querySelectorAll('.dropdown-menu.show').forEach(menu => {
+            menu.classList.remove('show');
+        });
+    });
+    
+    // 移动端点击下拉菜单项后关闭菜单
+    if (window.innerWidth <= 768) {
+        const dropdownItems = document.querySelectorAll('.dropdown-item');
+        dropdownItems.forEach(item => {
+            item.addEventListener('click', function() {
+                document.querySelectorAll('.dropdown-menu.show').forEach(menu => {
+                    menu.classList.remove('show');
+                });
+                
+                // 同时关闭移动菜单
+                const navMenu = document.querySelector('.nav-menu');
+                const menuToggle = document.querySelector('.menu-toggle');
+                if (navMenu && menuToggle && navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                    menuToggle.classList.remove('active');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+    }
+}
+
 // "查看更多设备"按钮事件监听
 function setupViewMoreDevicesButton() {
     const viewMoreBtn = document.querySelector('#viewMoreDevices');
@@ -350,4 +410,5 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     setupLanguageToggle();
     setupViewMoreDevicesButton();
+    setupDropdownMenus();
 });

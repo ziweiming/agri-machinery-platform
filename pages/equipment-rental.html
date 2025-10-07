@@ -7,6 +7,7 @@
     
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/gold-card.css">
 
     <!-- SEO Meta Tags -->
     <meta name="description" content="磐工金田提供专业的农业机械租赁服务，包括拖拉机、收割机、播种机等各类农业设备租赁。">
@@ -31,7 +32,36 @@
     <link rel="canonical" href="https://www.agrimachinery.com/pages/equipment-rental.html">
     
     <style>
-        /* 页面特定样式 */
+            /* 设备状态标识样式 */
+            .equipment-status {
+                position: absolute;
+                top: 10px;
+                right: 10px;
+                padding: 5px 12px;
+                border-radius: 15px;
+                font-size: 0.85rem;
+                font-weight: bold;
+                color: white;
+                z-index: 10;
+            }
+            
+            .equipment-status.available {
+                background-color: #4CAF50;
+            }
+            
+            .equipment-status.rented {
+                background-color: #f44336;
+            }
+            
+            .equipment-status.maintenance {
+                background-color: #FF9800;
+            }
+            
+            .equipment-image {
+                position: relative;
+            }
+            
+            /* 页面特定样式 */
         .btn {
             display: inline-block;
             background: #D3AF58;
@@ -167,37 +197,6 @@
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 2rem;
             margin-top: 2rem;
-        }
-        
-        .advantage-card {
-            background: white;
-            padding: 2rem;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        
-        .advantage-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
-        }
-        
-        .advantage-icon {
-            font-size: 2.5rem;
-            color: #4CAF50;
-            margin-bottom: 1rem;
-        }
-        
-        .advantage-title {
-            font-size: 1.2rem;
-            margin-bottom: 0.8rem;
-            color: #333;
-        }
-        
-        .advantage-text {
-            color: #666;
-            line-height: 1.6;
         }
         
         /* 搜索和筛选区域 */
@@ -368,17 +367,21 @@
         
         .list-header {
             display: flex;
-            justify-content: space-between;
+            flex-direction: column;
             align-items: center;
             margin-bottom: 2rem;
-            flex-wrap: wrap;
             gap: 1rem;
         }
         
+        .list-header .sort-options {
+            align-self: flex-end;
+        }
+        
         .list-title {
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: #2E7D32;
             margin: 0;
+            text-align: center;
         }
         
         .sort-options {
@@ -973,6 +976,53 @@
             cursor: pointer;
         }
         
+        /* 下拉菜单样式 */
+        .dropdown {
+            position: relative;
+        }
+        
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 4px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            min-width: 140px;
+            z-index: 1000;
+        }
+        
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+        
+        .dropdown-item {
+            display: block;
+            padding: 0 20px;
+            height: 40px;
+            line-height: 40px;
+            color: #333;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            white-space: nowrap;
+        }
+        
+        .dropdown-item:hover {
+            background-color: #f5f5f5;
+            color: #2e7d32;
+        }
+        
+        /* 当前选中项样式 */
+        .dropdown-item.active {
+            background-color: #f5f5f5;
+            color: #2e7d32;
+        }
+        
         @media (max-width: 768px) {
             .menu-toggle {
                 display: block;
@@ -988,6 +1038,14 @@
             
             .nav-menu.active {
                 display: flex;
+            }
+            
+            /* 移动端下拉菜单调整 */
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                border: none;
+                margin-top: 0;
             }
         }
     </style>
@@ -1012,7 +1070,13 @@
                     <li><a href="../index.html">首页</a></li>
                     <li><a href="products.html">农机设备</a></li>
                     <li><a href="used-equipment.html">二手设备</a></li>
-                    <li><a href="equipment-rental.html" class="active">农机租赁</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle active">农机租赁 ▼</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="equipment-rental.html" class="dropdown-item active">设备租赁</a></li>
+                            <li><a href="parts-rental.html" class="dropdown-item">配件租赁</a></li>
+                        </ul>
+                    </li>
                     <li><a href="services.html">代办业务</a></li>
                     <li><a href="ai-services.html">AI智能服务</a></li>
                     <li><a href="video_center.html">视频中心</a></li>
@@ -1058,8 +1122,94 @@
     </section>
 
     <!-- 搜索和筛选区域 -->
+    <!-- 租赁服务介绍 -->
+    <section class="rental-intro">
+        <div class="container">
+            <div class="intro-content">
+                <h2 class="intro-title">为什么选择磐工金田农机租赁？</h2>
+                <div class="intro-text">
+                    <p>磐工金田提供专业的农业机械租赁服务，为您提供灵活、经济、高效的农业生产解决方案。无论您是需要短期租赁应对季节性需求，还是长期租赁降低设备采购成本，我们都能为您提供合适的方案。</p>
+                    <p>我们拥有各类先进的农业机械设备，包括拖拉机、收割机、播种机、喷雾机等，所有设备均经过严格检查和维护，确保在租赁期间性能稳定可靠。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 租赁优势 -->
+    <section class="rental-advantages">
+        <div class="container">
+            <h2 class="advantages-title">租赁优势</h2>
+            <div class="advantages-grid">
+                <div class="gold-border-card">
+                    <div class="card-icon">
+                        <i class="fas fa-money-bill-wave"></i>
+                    </div>
+                    <h3 class="card-title">降低成本</h3>
+                    <p class="card-text">无需大量资金投入购买设备，降低前期投资风险和资金压力</p>
+                </div>
+                <div class="gold-border-card">
+                    <div class="card-icon">
+                        <i class="fas fa-calendar-alt"></i>
+                    </div>
+                    <h3 class="card-title">灵活选择</h3>
+                    <p class="card-text">根据实际需求选择租赁时间和设备类型，灵活应对不同作业场景</p>
+                </div>
+                <div class="gold-border-card">
+                    <div class="card-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3 class="card-title">专业维护</h3>
+                    <p class="card-text">所有租赁设备均由专业人员定期维护，确保设备性能稳定可靠</p>
+                </div>
+                <div class="gold-border-card">
+                    <div class="card-icon">
+                        <i class="fas fa-sync-alt"></i>
+                    </div>
+                    <h3 class="card-title">设备更新</h3>
+                    <p class="card-text">随时使用最新款农业机械设备，享受技术进步带来的效益提升</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 设备租赁搜索筛选区域 -->
     <section class="search-filter-section">
         <div class="container">
+            <!-- 设备租赁按钮 -->
+            <div class="rental-buttons-container" style="text-align: center; margin-bottom: 2.5rem;">
+                <button id="equipment-section" class="rental-type-btn active">设备租赁</button>
+            </div>
+            
+            <style>
+                .rental-type-btn {
+                    display: inline-block;
+                    background-color: #2E7D32;
+                    color: white;
+                    border: none;
+                    padding: 0.8rem 2rem;
+                    border-radius: 6px;
+                    font-size: 1.2rem;
+                    cursor: pointer;
+                    transition: all 0.3s ease;
+                    position: relative;
+                    overflow: hidden;
+                    white-space: nowrap;
+                }
+                
+                .rental-type-btn:hover {
+                    background-color: #45a049;
+                    transform: translateY(-2px);
+                    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
+                }
+                
+                .rental-type-btn:active {
+                    transform: translateY(0);
+                    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+                }
+                
+                /* 两个按钮颜色已保持一致，不需要额外的active样式 */
+            </style>
+            
             <!-- 搜索框 -->
             <div class="search-container">
                 <div class="search-input-wrapper">
@@ -1137,61 +1287,11 @@
         </div>
     </section>
 
-    <!-- 租赁服务介绍 -->
-    <section class="rental-intro">
-        <div class="container">
-            <div class="intro-content">
-                <h2 class="intro-title">为什么选择磐工金田农机租赁？</h2>
-                <div class="intro-text">
-                    <p>磐工金田提供专业的农业机械租赁服务，为您提供灵活、经济、高效的农业生产解决方案。无论您是需要短期租赁应对季节性需求，还是长期租赁降低设备采购成本，我们都能为您提供合适的方案。</p>
-                    <p>我们拥有各类先进的农业机械设备，包括拖拉机、收割机、播种机、喷雾机等，所有设备均经过严格检查和维护，确保在租赁期间性能稳定可靠。</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- 租赁优势 -->
-    <section class="rental-advantages">
-        <div class="container">
-            <h2 class="advantages-title">租赁优势</h2>
-            <div class="advantages-grid">
-                <div class="advantage-card">
-                    <div class="advantage-icon">
-                        <i class="fas fa-money-bill-wave"></i>
-                    </div>
-                    <h3 class="advantage-title">降低成本</h3>
-                    <p class="advantage-text">无需大量资金投入购买设备，降低前期投资风险和资金压力</p>
-                </div>
-                <div class="advantage-card">
-                    <div class="advantage-icon">
-                        <i class="fas fa-calendar-alt"></i>
-                    </div>
-                    <h3 class="advantage-title">灵活选择</h3>
-                    <p class="advantage-text">根据实际需求选择租赁时间和设备类型，灵活应对不同作业场景</p>
-                </div>
-                <div class="advantage-card">
-                    <div class="advantage-icon">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <h3 class="advantage-title">专业维护</h3>
-                    <p class="advantage-text">所有租赁设备均由专业人员定期维护，确保设备性能稳定可靠</p>
-                </div>
-                <div class="advantage-card">
-                    <div class="advantage-icon">
-                        <i class="fas fa-sync-alt"></i>
-                    </div>
-                    <h3 class="advantage-title">设备更新</h3>
-                    <p class="advantage-text">随时使用最新款农业机械设备，享受技术进步带来的效益提升</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- 设备列表 -->
     <section class="equipment-list">
         <div class="container">
             <div class="list-header">
-                <h2 class="list-title">农机设备列表</h2>
+                <h2 class="list-title">设备租赁列表</h2>
                 <div class="sort-options">
                     <span>排序方式：</span>
                     <select class="sort-select">
@@ -1209,6 +1309,7 @@
                 <div class="equipment-card">
                     <div class="equipment-image">
                         <img src="../images/equipment/tractor1.jpg" alt="东方红LX1804拖拉机" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22100%25%22%20height%3D%22100%25%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22%23f0f0f0%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20font-family%3D%22Arial%22%20font-size%3D%2224%22%20text-anchor%3D%22middle%22%20fill%3D%22%23dddddd%22%20dy%3D%22.3em%22%3E%E6%8B%96%E6%8B%89%E6%9C%BA%3C%2Ftext%3E%3C%2Fsvg%3E';">
+                        <div class="equipment-status available">可租</div>
                     </div>
                     <div class="equipment-content">
                         <h3 class="equipment-name">东方红LX1804拖拉机</h3>
@@ -1239,6 +1340,7 @@
                 <div class="equipment-card">
                     <div class="equipment-image">
                         <img src="../images/equipment/harvester1.jpg" alt="久保田PRO106Y收割机" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22100%25%22%20height%3D%22100%25%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22%23f0f0f0%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20font-family%3D%22Arial%22%20font-size%3D%2224%22%20text-anchor%3D%22middle%22%20fill%3D%22%23dddddd%22%20dy%3D%22.3em%22%3E%E6%94%B6%E8%8E%B7%E6%9C%BA%3C%2Ftext%3E%3C%2Fsvg%3E';">
+                        <div class="equipment-status rented">已租</div>
                     </div>
                     <div class="equipment-content">
                         <h3 class="equipment-name">久保田PRO106Y联合收割机</h3>
@@ -1269,6 +1371,7 @@
                 <div class="equipment-card">
                     <div class="equipment-image">
                         <img src="../images/equipment/seeder1.jpg" alt="约翰迪尔12行播种机" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22100%25%22%20height%3D%22100%25%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22%23f0f0f0%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20font-family%3D%22Arial%22%20font-size%3D%2224%22%20text-anchor%3D%22middle%22%20fill%3D%22%23dddddd%22%20dy%3D%22.3em%22%3E%E6%92%AD%E7%A7%8D%E6%9C%BA%3C%2Ftext%3E%3C%2Fsvg%3E';">
+                        <div class="equipment-status available">可租</div>
                     </div>
                     <div class="equipment-content">
                         <h3 class="equipment-name">约翰迪尔12行玉米播种机</h3>
@@ -1299,6 +1402,7 @@
                 <div class="equipment-card">
                     <div class="equipment-image">
                         <img src="../images/equipment/drone1.jpg" alt="大疆T30植保无人机" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22100%25%22%20height%3D%22100%25%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22%23f0f0f0%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20font-family%3D%22Arial%22%20font-size%3D%2224%22%20text-anchor%3D%22middle%22%20fill%3D%22%23dddddd%22%20dy%3D%22.3em%22%3E%E6%A4%8D%E4%BF%9D%E6%97%A0%E4%BA%BA%E6%9C%BA%3C%2Ftext%3E%3C%2Fsvg%3E';">
+                        <div class="equipment-status maintenance">维护中</div>
                     </div>
                     <div class="equipment-content">
                         <h3 class="equipment-name">大疆T30植保无人机</h3>
@@ -1329,6 +1433,7 @@
                 <div class="equipment-card">
                     <div class="equipment-image">
                         <img src="../images/equipment/sprayer1.jpg" alt="雷沃大型喷雾机" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22100%25%22%20height%3D%22100%25%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22%23f0f0f0%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20font-family%3D%22Arial%22%20font-size%3D%2224%22%20text-anchor%3D%22middle%22%20fill%3D%22%23dddddd%22%20dy%3D%22.3em%22%3E%E5%96%B7%E9%9B%B7%E6%9C%BA%3C%2Ftext%3E%3C%2Fsvg%3E';">
+                        <div class="equipment-status available">可租</div>
                     </div>
                     <div class="equipment-content">
                         <h3 class="equipment-name">雷沃3WP-500大型喷雾机</h3>
@@ -1359,6 +1464,7 @@
                 <div class="equipment-card">
                     <div class="equipment-image">
                         <img src="../images/equipment/tractor2.jpg" alt="久保田M954拖拉机" onerror="this.src='data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22100%25%22%20height%3D%22100%25%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Crect%20width%3D%22100%25%22%20height%3D%22100%25%22%20fill%3D%22%23f0f0f0%22%2F%3E%3Ctext%20x%3D%2250%25%22%20y%3D%2250%25%22%20font-family%3D%22Arial%22%20font-size%3D%2224%22%20text-anchor%3D%22middle%22%20fill%3D%22%23dddddd%22%20dy%3D%22.3em%22%3E%E6%8B%96%E6%8B%89%E6%9C%BA%3C%2Ftext%3E%3C%2Fsvg%3E';">
+                        <div class="equipment-status rented">已租</div>
                     </div>
                     <div class="equipment-content">
                         <h3 class="equipment-name">久保田M954KQ拖拉机</h3>
@@ -1490,9 +1596,10 @@
                     <h3>快速链接</h3>
                     <ul>
                         <li><a href="../index.html">首页</a></li>
-                        <li><a href="products.html">产品展示</a></li>
+                        <li><a href="products.html">农机设备</a></li>
                         <li><a href="used-equipment.html">二手设备</a></li>
                         <li><a href="equipment-rental.html">农机租赁</a></li>
+                        <li><a href="parts-rental.html">配件租赁</a></li>
                         <li><a href="services.html">代办业务</a></li>
                     </ul>
                 </div>
@@ -1838,7 +1945,154 @@
     <script src="/js/main.js?v=1.1"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"></script>
     <script src="/js/wechat-module.js?v=1.0"></script>
+    
+    <!-- 下拉菜单交互脚本 -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // 农机租赁下拉菜单功能
+            const dropdownToggle = document.querySelector('.dropdown-toggle');
+            const dropdownMenu = document.querySelector('.dropdown-menu');
+            
+            if (dropdownToggle && dropdownMenu) {
+                // 鼠标悬停时显示下拉菜单
+                dropdownToggle.addEventListener('mouseenter', function() {
+                    dropdownMenu.style.display = 'block';
+                    // 添加动画效果
+                    dropdownMenu.style.opacity = '0';
+                    dropdownMenu.style.transform = 'translateY(-10px)';
+                    dropdownMenu.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                    
+                    // 触发回流以应用动画
+                    void dropdownMenu.offsetWidth;
+                    
+                    dropdownMenu.style.opacity = '1';
+                    dropdownMenu.style.transform = 'translateY(0)';
+                });
+                
+                // 鼠标离开下拉菜单区域时隐藏
+                const dropdown = document.querySelector('.dropdown');
+                if (dropdown) {
+                    dropdown.addEventListener('mouseleave', function() {
+                        dropdownMenu.style.opacity = '0';
+                        dropdownMenu.style.transform = 'translateY(-10px)';
+                        
+                        // 等待动画完成后隐藏
+                        setTimeout(() => {
+                            dropdownMenu.style.display = 'none';
+                        }, 300);
+                    });
+                }
+            }
+            
+            // 平滑滚动到设备租赁模块
+            const equipmentLink = document.querySelector('.equipment-link');
+            if (equipmentLink) {
+                equipmentLink.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    // 获取设备租赁模块
+                    const equipmentSection = document.getElementById('equipment-section');
+                    if (equipmentSection) {
+                        // 平滑滚动到目标位置
+                        equipmentSection.scrollIntoView({ behavior: 'smooth' });
+                        
+                        // 更新URL哈希值
+                        history.pushState(null, null, '#equipment');
+                        
+                        // 收起下拉菜单
+                        const dropdownMenu = this.closest('.dropdown-menu');
+                        if (dropdownMenu) {
+                            dropdownMenu.style.display = 'none';
+                        }
+                    }
+                });
+            }
+            
 
+            
+            // 点击页面其他地方关闭下拉菜单
+            document.addEventListener('click', function(e) {
+                const dropdowns = document.querySelectorAll('.dropdown-menu');
+                dropdowns.forEach(dropdown => {
+                    if (!dropdown.closest('.dropdown').contains(e.target)) {
+                        dropdown.style.display = 'none';
+                    }
+                });
+            });
+            
+            // 键盘导航支持
+            let activeIndex = -1;
+            const dropdownItems = document.querySelectorAll('.dropdown-item');
+            
+            document.addEventListener('keydown', function(e) {
+                const dropdownMenu = document.querySelector('.dropdown-menu');
+                if (!dropdownMenu || dropdownMenu.style.display !== 'block') {
+                    return;
+                }
+                
+                // 下箭头
+                if (e.key === 'ArrowDown') {
+                    e.preventDefault();
+                    activeIndex = (activeIndex + 1) % dropdownItems.length;
+                    highlightMenuItem();
+                }
+                // 上箭头
+                else if (e.key === 'ArrowUp') {
+                    e.preventDefault();
+                    activeIndex = (activeIndex - 1 + dropdownItems.length) % dropdownItems.length;
+                    highlightMenuItem();
+                }
+                // 回车键
+                else if (e.key === 'Enter' && activeIndex >= 0) {
+                    e.preventDefault();
+                    dropdownItems[activeIndex].click();
+                    activeIndex = -1;
+                }
+                // ESC键
+                else if (e.key === 'Escape') {
+                    dropdownMenu.style.display = 'none';
+                    activeIndex = -1;
+                }
+            });
+            
+            // 高亮当前选中的菜单项
+            function highlightMenuItem() {
+                dropdownItems.forEach((item, index) => {
+                    if (index === activeIndex) {
+                        item.classList.add('active');
+                        item.focus();
+                    } else {
+                        item.classList.remove('active');
+                    }
+                });
+            }
+            
+            // 当URL哈希值变化时，高亮对应菜单项
+            window.addEventListener('hashchange', function() {
+                const hash = window.location.hash;
+                dropdownItems.forEach(item => {
+                    item.classList.remove('active');
+                    if (item.getAttribute('href') === hash) {
+                        item.classList.add('active');
+                    }
+                });
+            });
+            
+            // 初始化时检查URL哈希值
+            const hash = window.location.hash;
+            if (hash) {
+                dropdownItems.forEach(item => {
+                    if (item.getAttribute('href') === hash) {
+                        item.classList.add('active');
+                    }
+                });
+            }
+        });
+    </script>
+    
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
 </body>
 </html>

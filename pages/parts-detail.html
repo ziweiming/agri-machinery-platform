@@ -1,0 +1,1224 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>配件详情 - 磐工金田</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/common-responsive.css">
+    <script src="../js/global.js"></script>
+    <script src="../js/responsive-functions.js"></script>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="详细了解磐工金田提供的农业机械配件，包括技术参数、适用机型、租赁价格等信息。">
+    <meta name="keywords" content="农机配件详情,配件技术参数,配件租赁价格,配件适用机型">
+    <meta name="author" content="磐工金田">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="配件详情 - 磐工金田">
+    <meta property="og:description" content="专业的农业机械配件租赁服务平台">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.agrimachinery.com/pages/parts-detail.html">
+    <meta property="og:image" content="https://www.agrimachinery.com/images/part-detail.jpg">
+    
+    <!-- Twitter Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="配件详情 - 磐工金田">
+    <meta name="twitter:description" content="农业机械配件租赁服务，满足您的农业生产需求">
+    <meta name="twitter:image" content="https://www.agrimachinery.com/images/part-detail.jpg">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.agrimachinery.com/pages/parts-detail.html">
+    
+    <style>
+        /* 页面特定样式 */
+        .btn {
+            display: inline-block;
+            background: #D3AF58;
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background: #C19A36;
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            display: inline-block;
+            background: transparent;
+            color: #4CAF50;
+            padding: 0.5rem 1.2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            font-weight: bold;
+            border: 2px solid #4CAF50;
+        }
+        
+        .btn-outline:hover {
+            background: #4CAF50;
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        /* 页面标题 */
+        .page-header {
+            background: linear-gradient(135deg, #2E7D32, #388E3C);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        
+        .page-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        /* 配件详情内容 */
+        .part-detail {
+            padding: 2rem 0;
+            background: white;
+        }
+        
+        .detail-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        /* 配件图片区域 */
+        .part-images {
+            background: #f9f9f9;
+            border-radius: 12px;
+            padding: 1.5rem;
+            overflow: hidden;
+        }
+        
+        .main-image {
+            width: 100%;
+            height: 400px;
+            background: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .main-image i {
+            font-size: 5rem;
+            color: #ccc;
+        }
+        
+        .image-thumbs {
+            display: flex;
+            gap: 0.5rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+        }
+        
+        .image-thumb {
+            width: 80px;
+            height: 80px;
+            background: #e0e0e0;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .image-thumb:hover,
+        .image-thumb.active {
+            border: 2px solid #4CAF50;
+        }
+        
+        .image-thumb i {
+            font-size: 1.5rem;
+            color: #aaa;
+        }
+        
+        /* 360度查看按钮 */
+        .view-360-btn {
+            position: absolute;
+            bottom: 1rem;
+            right: 1rem;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .view-360-btn:hover {
+            background: rgba(0,0,0,0.8);
+            transform: translateY(-2px);
+        }
+        
+        /* 配件信息区域 */
+        .part-info {
+            padding: 1rem;
+        }
+        
+        .part-name {
+            font-size: 1.8rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        
+        .part-rating {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            color: #D3AF58;
+        }
+        
+        .part-rating i {
+            margin-right: 0.2rem;
+        }
+        
+        .part-rating span {
+            margin-left: 0.5rem;
+            color: #666;
+        }
+        
+        .part-category {
+            display: inline-block;
+            background: #e8f5e9;
+            color: #2E7D32;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .part-description {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #666;
+            margin-bottom: 2rem;
+        }
+        
+        /* 租赁价格 */
+        .rental-pricing {
+            background: #f9f9f9;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .pricing-title {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        
+        .pricing-options {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .pricing-option {
+            flex: 1;
+            padding: 0.8rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+        
+        .pricing-option:hover,
+        .pricing-option.active {
+            border-color: #4CAF50;
+            background: #e8f5e9;
+        }
+        
+        .pricing-option .price {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #D3AF58;
+        }
+        
+        .pricing-option .unit {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        /* 租赁时间选择 */
+        .rental-duration {
+            margin-bottom: 2rem;
+        }
+        
+        .duration-title {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        
+        .date-picker {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .date-group {
+            flex: 1;
+        }
+        
+        .date-group label {
+            display: block;
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 0.5rem;
+        }
+        
+        .date-group input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+        
+        .duration-summary {
+            background: #e8f5e9;
+            padding: 1rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: #2E7D32;
+        }
+        
+        /* 配送方式 */
+        .delivery-options {
+            margin-bottom: 2rem;
+        }
+        
+        .delivery-title {
+            font-size: 1.2rem;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+        
+        .delivery-option {
+            display: flex;
+            align-items: center;
+            padding: 1rem;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            margin-bottom: 0.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .delivery-option:hover,
+        .delivery-option.active {
+            border-color: #4CAF50;
+            background: #e8f5e9;
+        }
+        
+        .delivery-option input[type="radio"] {
+            margin-right: 1rem;
+            transform: scale(1.2);
+        }
+        
+        .delivery-option .option-info {
+            flex: 1;
+        }
+        
+        .delivery-option .option-title {
+            font-weight: bold;
+            margin-bottom: 0.3rem;
+        }
+        
+        .delivery-option .option-desc {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        .delivery-option .option-price {
+            color: #D3AF58;
+            font-weight: bold;
+        }
+        
+        /* 操作按钮 */
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .action-buttons .btn {
+            flex: 1;
+            text-align: center;
+        }
+        
+        /* 技术参数 */
+        .technical-params {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
+        }
+        
+        .params-title {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+        
+        .params-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .params-table tr {
+            border-bottom: 1px solid #eee;
+        }
+        
+        .params-table td {
+            padding: 1rem;
+        }
+        
+        .params-table .param-name {
+            font-weight: bold;
+            color: #666;
+            width: 30%;
+        }
+        
+        .params-table .param-value {
+            color: #333;
+        }
+        
+        /* 适用机型 */
+        .compatible-models {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
+        }
+        
+        .models-title {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+        
+        .models-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        
+        .model-item {
+            padding: 1rem;
+            background: #f9f9f9;
+            border-radius: 8px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .model-item:hover {
+            background: #e8f5e9;
+            transform: translateY(-2px);
+        }
+        
+        /* 相关配件推荐 */
+        .related-parts {
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #eee;
+        }
+        
+        .related-title {
+            font-size: 1.5rem;
+            color: #333;
+            margin-bottom: 1.5rem;
+        }
+        
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+        
+        .related-part {
+            background: #f9f9f9;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        
+        .related-part:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+        }
+        
+        .related-part-image {
+            height: 150px;
+            background: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .related-part-image i {
+            font-size: 2rem;
+            color: #aaa;
+        }
+        
+        .related-part-info {
+            padding: 1rem;
+        }
+        
+        .related-part-name {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+        
+        .related-part-price {
+            color: #D3AF58;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        /* 订单确认模态框 */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            max-width: 600px;
+            width: 90%;
+            max-height: 80vh;
+            overflow-y: auto;
+        }
+        
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .modal-title {
+            font-size: 1.5rem;
+            color: #333;
+        }
+        
+        .close-modal {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+        }
+        
+        .order-summary {
+            margin-bottom: 2rem;
+        }
+        
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.8rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            padding: 1rem 0;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #D3AF58;
+        }
+        
+        .modal-actions {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .modal-actions .btn {
+            flex: 1;
+        }
+        
+        /* 响应式设计 */
+        @media (max-width: 992px) {
+            .detail-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .main-image {
+                height: 300px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .date-picker {
+                flex-direction: column;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+            
+            .pricing-options {
+                flex-direction: column;
+            }
+        }
+        
+        /* 库存状态样式 */
+        .part-stock-status {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+        }
+        
+        .part-stock-status.in-stock {
+            background: #e8f5e9;
+            color: #2E7D32;
+        }
+        
+        .part-stock-status.out-of-stock {
+            background: #ffebee;
+            color: #C62828;
+        }
+        
+        .part-stock-status.pre-order {
+            background: #fff3e0;
+            color: #E65100;
+        }
+        
+        /* 页脚样式 */
+        footer {
+            background-color: #2E7D32;
+            color: white;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .footer-logo i {
+            margin-right: 10px;
+            font-size: 1.8rem;
+        }
+        
+        .footer-col h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: #D3AF58;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-col ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-col ul li a:hover {
+            color: #D3AF58;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.1);
+        }
+        
+        /* 返回顶部按钮 */
+        .back-to-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background-color: #D3AF58;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            opacity: 0;
+            transition: opacity 0.3s ease, transform 0.3s ease;
+            z-index: 1000;
+            border: none;
+        }
+        
+        .back-to-top.visible {
+            opacity: 1;
+        }
+        
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            background-color: #C19A36;
+        }
+    </style>
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="navbar-content">
+                <!-- Logo -->
+                <div class="logo">
+                    <img src="../images/logo.png" alt="磐工金田logo" style="height: 50px;">
+                </div>
+                
+                <!-- 移动端菜单按钮 -->
+                <button class="menu-toggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+                
+                <!-- 导航菜单 -->
+                <ul class="nav-menu">
+                    <li><a href="../index.html">首页</a></li>
+                    <li><a href="products.html">农机设备</a></li>
+                    <li><a href="used-equipment.html">二手设备</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle">农机租赁 ▼</a>
+                        <ul class="dropdown-menu">
+                            <li><a href="equipment-rental.html" class="dropdown-item">设备租赁</a></li>
+                            <li><a href="parts-rental.html" class="dropdown-item">配件租赁</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="services.html">代办业务</a></li>
+                    <li><a href="ai-services.html">AI智能服务</a></li>
+                    <li><a href="video_center.html">视频中心</a></li>
+                    
+                    <!-- 登录注册按钮 -->
+                    <li><a href="login.html" class="auth-btn">
+                        登录
+                    </a></li>
+                    <li><a href="register.html" class="auth-btn auth-btn-outline">
+                        <i class="fas fa-user-plus"></i> 注册
+                    </a></li>
+                    
+                    <!-- 语言选择器 -->
+                    <li class="language-selector">
+                        <button class="language-btn" onclick="toggleLanguageMenu()">
+                            <i class="fas fa-globe"></i> 
+                            中文
+                        </button>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <section class="page-header">
+        <h1>配件详情</h1>
+        <p>详细了解配件信息，选择最适合您需求的租赁方案</p>
+    </section>
+
+    <!-- 配件详情内容 -->
+    <section class="part-detail">
+        <div class="container">
+            <div class="detail-container">
+                <!-- 配件图片区域 -->
+                <div class="part-images">
+                    <div class="main-image">
+                        <i class="fas fa-plow"></i>
+                        <button class="view-360-btn" onclick="show360View()">
+                            <i class="fas fa-sync-alt"></i> 360°查看
+                        </button>
+                    </div>
+                    <div class="image-thumbs">
+                        <div class="image-thumb active"><i class="fas fa-plow"></i></div>
+                        <div class="image-thumb"><i class="fas fa-plow"></i></div>
+                        <div class="image-thumb"><i class="fas fa-plow"></i></div>
+                        <div class="image-thumb"><i class="fas fa-plow"></i></div>
+                        <div class="image-thumb"><i class="fas fa-plow"></i></div>
+                    </div>
+                </div>
+                
+                <!-- 配件信息区域 -->
+                <div class="part-info">
+                    <h2 class="part-name" id="partName">重型深耕犁</h2>
+                    <div class="part-rating">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                        <span>(24条评价)</span>
+                    </div>
+                    <div class="part-category">耕作类配件</div>
+                    <div class="part-stock-status in-stock">
+                        <i class="fas fa-check-circle"></i> 有货（库存：3件）
+                    </div>
+                    <p class="part-description">
+                        重型深耕犁是一款专为各种土壤类型设计的高品质耕作配件，能够有效提高土壤透气性和肥力，为作物生长创造良好条件。采用高强度钢材制造，耐磨耐用，适用于大规模农田作业。
+                    </p>
+                    
+                    <!-- 租赁价格 -->
+                    <div class="rental-pricing">
+                        <h3 class="pricing-title">租赁价格</h3>
+                        <div class="pricing-options">
+                            <div class="pricing-option active" data-price="200" data-unit="天">
+                                <div class="price">¥200</div>
+                                <div class="unit">/天</div>
+                            </div>
+                            <div class="pricing-option" data-price="1200" data-unit="周">
+                                <div class="price">¥1200</div>
+                                <div class="unit">/周</div>
+                            </div>
+                            <div class="pricing-option" data-price="4000" data-unit="月">
+                                <div class="price">¥4000</div>
+                                <div class="unit">/月</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 租赁时间选择 -->
+                    <div class="rental-duration">
+                        <h3 class="duration-title">选择租赁时间</h3>
+                        <div class="date-picker">
+                            <div class="date-group">
+                                <label for="startDate">开始日期</label>
+                                <input type="date" id="startDate" min="">
+                            </div>
+                            <div class="date-group">
+                                <label for="endDate">结束日期</label>
+                                <input type="date" id="endDate" min="">
+                            </div>
+                        </div>
+                        <div class="duration-summary">
+                            <i class="fas fa-info-circle"></i>
+                            <span>租赁时间：<span id="durationText">请选择日期</span></span>
+                            <span id="seasonalNote" style="display: none;"> (当前为旺季，价格上浮10%)</span>
+                        </div>
+                    </div>
+                    
+                    <!-- 配送方式 -->
+                    <div class="delivery-options">
+                        <h3 class="delivery-title">配送方式</h3>
+                        <div class="delivery-option active">
+                            <input type="radio" name="delivery" id="delivery1" value="delivery" checked>
+                            <div class="option-info">
+                                <div class="option-title">配送上门</div>
+                                <div class="option-desc">我们将配件送到您指定的地点（限市区及周边50公里）</div>
+                            </div>
+                            <div class="option-price">+¥50</div>
+                        </div>
+                        <div class="delivery-option">
+                            <input type="radio" name="delivery" id="delivery2" value="pickup">
+                            <div class="option-info">
+                                <div class="option-title">自行取货</div>
+                                <div class="option-desc">到我们的服务中心自行提取配件</div>
+                            </div>
+                            <div class="option-price">免费</div>
+                        </div>
+                    </div>
+                    
+                    <!-- 操作按钮 -->
+                    <div class="action-buttons">
+                        <button class="btn-outline" onclick="addFavorite()">
+                            <i class="far fa-heart"></i> 收藏
+                        </button>
+                        <button class="btn" onclick="showOrderModal()">
+                            <i class="fas fa-shopping-cart"></i> 立即租赁
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 技术参数 -->
+            <div class="technical-params">
+                <h3 class="params-title">技术参数</h3>
+                <table class="params-table">
+                    <tr>
+                        <td class="param-name">型号</td>
+                        <td class="param-value">DP-1200</td>
+                    </tr>
+                    <tr>
+                        <td class="param-name">重量</td>
+                        <td class="param-value">850kg</td>
+                    </tr>
+                    <tr>
+                        <td class="param-name">耕作深度</td>
+                        <td class="param-value">20-40cm</td>
+                    </tr>
+                    <tr>
+                        <td class="param-name">耕幅宽度</td>
+                        <td class="param-value">120cm</td>
+                    </tr>
+                    <tr>
+                        <td class="param-name">犁体数量</td>
+                        <td class="param-value">3个</td>
+                    </tr>
+                    <tr>
+                        <td class="param-name">材质</td>
+                        <td class="param-value">高强度合金钢</td>
+                    </tr>
+                    <tr>
+                        <td class="param-name">适配动力</td>
+                        <td class="param-value">80-120马力</td>
+                    </tr>
+                    <tr>
+                        <td class="param-name">连接方式</td>
+                        <td class="param-value">三点悬挂</td>
+                    </tr>
+                </table>
+            </div>
+            
+            <!-- 适用机型 -->
+            <div class="compatible-models">
+                <h3 class="models-title">适用机型</h3>
+                <div class="models-list">
+                    <div class="model-item">约翰迪尔 5E系列</div>
+                    <div class="model-item">东方红 LR系列</div>
+                    <div class="model-item">福田雷沃 M系列</div>
+                    <div class="model-item">久保田 M954</div>
+                    <div class="model-item">道依茨法尔 C系列</div>
+                    <div class="model-item">凯斯 PUMA系列</div>
+                </div>
+            </div>
+            
+            <!-- 相关配件推荐 -->
+            <div class="related-parts">
+                <h3 class="related-title">相关配件推荐</h3>
+                <div class="related-grid">
+                    <a href="parts-detail.html?id=7" class="related-part">
+                        <div class="related-part-image"><i class="fas fa-seedling"></i></div>
+                        <div class="related-part-info">
+                            <div class="related-part-name">精密播种器</div>
+                            <div class="related-part-price">¥150/天</div>
+                            <div class="btn-outline">查看详情</div>
+                        </div>
+                    </a>
+                    <a href="parts-detail.html?id=8" class="related-part">
+                        <div class="related-part-image"><i class="fas fa-tractor"></i></div>
+                        <div class="related-part-info">
+                            <div class="related-part-name">旋耕机</div>
+                            <div class="related-part-price">¥180/天</div>
+                            <div class="btn-outline">查看详情</div>
+                        </div>
+                    </a>
+                    <a href="parts-detail.html?id=9" class="related-part">
+                        <div class="related-part-image"><i class="fas fa-cog"></i></div>
+                        <div class="related-part-info">
+                            <div class="related-part-name">液压翻转犁</div>
+                            <div class="related-part-price">¥220/天</div>
+                            <div class="btn-outline">查看详情</div>
+                        </div>
+                    </a>
+                    <a href="parts-detail.html?id=10" class="related-part">
+                        <div class="related-part-image"><i class="fas fa-wrench"></i></div>
+                        <div class="related-part-info">
+                            <div class="related-part-name">犁刀套装</div>
+                            <div class="related-part-price">¥60/天</div>
+                            <div class="btn-outline">查看详情</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 订单确认模态框 -->
+    <div class="modal" id="orderModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">确认订单</h3>
+                <button class="close-modal" onclick="closeOrderModal()">&times;</button>
+            </div>
+            <div class="order-summary">
+                <div class="summary-item">
+                    <span>配件名称</span>
+                    <span id="summaryPartName">重型深耕犁</span>
+                </div>
+                <div class="summary-item">
+                    <span>租赁方式</span>
+                    <span id="summaryRentalType">按天租赁 ¥200/天</span>
+                </div>
+                <div class="summary-item">
+                    <span>租赁时间</span>
+                    <span id="summaryDuration">请选择日期</span>
+                </div>
+                <div class="summary-item">
+                    <span>配送方式</span>
+                    <span id="summaryDelivery">配送上门 +¥50</span>
+                </div>
+                <div class="summary-item">
+                    <span>押金</span>
+                    <span>¥2000</span>
+                </div>
+                <div class="summary-total">
+                    <span>总计金额</span>
+                    <span id="summaryTotal">¥0</span>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button class="btn-outline" onclick="closeOrderModal()">取消</button>
+                <button class="btn" onclick="submitOrder()">提交订单</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 页脚 -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <i class="fas fa-tractor"></i>
+                        <span>磐工金田</span>
+                    </div>
+                    <p>专业的农业机械进出口贸易服务平台，为全球客户提供高品质的农业机械设备和服务。</p>
+                </div>
+                <div class="footer-col">
+                    <h3>快速链接</h3>
+                    <ul>
+                        <li><a href="../index.html">首页</a></li>
+                        <li><a href="products.html">农机设备</a></li>
+                        <li><a href="used-equipment.html">二手设备</a></li>
+                        <li><a href="equipment-rental.html">农机租赁</a></li>
+                        <li><a href="parts-rental.html">配件租赁</a></li>
+                        <li><a href="services.html">代办业务</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>联系我们</h3>
+                    <ul>
+                        <li><i class="fas fa-phone"></i> 400-888-9999</li>
+                        <li><i class="fas fa-envelope"></i> info@agrimachinery.com</li>
+                        <li><i class="fas fa-map-marker-alt"></i> 北京市朝阳区国贸大厦</li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>关注我们</h3>
+                    <ul>
+                        <li><a href="#"><i class="fab fa-weixin"></i> 微信公众号</a></li>
+                        <li><a href="#"><i class="fab fa-weibo"></i> 新浪微博</a></li>
+                        <li><a href="#"><i class="fab fa-youtube"></i> YouTube</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 磐工金田. 保留所有权利.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button id="back-to-top" class="back-to-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/js/all.min.js"></script>
+    <script src="../js/main.js"></script>
+    <script src="../js/wechat-module.js?v=1.0"></script>
+    <script>
+        // 页面加载完成后执行
+        document.addEventListener('DOMContentLoaded', function() {
+            // 初始化配件详情页面
+            if (window.partsRental && typeof window.partsRental.initDetailPage === 'function') {
+                // 获取URL中的配件ID
+                const urlParams = new URLSearchParams(window.location.search);
+                const partId = urlParams.get('id') || 1; // 默认显示第一个配件
+                
+                window.partsRental.initDetailPage(partId);
+            }
+        });
+        
+        // 监听配件数据加载完成事件
+        document.addEventListener('partDetailLoaded', function(event) {
+            const part = event.detail.part;
+            
+            // 更新页面标题
+            document.title = `${part.name} - 配件详情 - 磐工金田`;
+            
+            // 更新配件名称
+            document.getElementById('partName').textContent = part.name;
+            
+            // 更新配件描述
+            document.querySelector('.part-description').textContent = part.description || '';
+            
+            // 更新库存状态
+            updateStockStatus(part.stockStatus, part.stockQuantity);
+            
+            // 渲染技术参数
+            renderTechSpecs(part.specifications);
+            
+            // 渲染适用机型
+            renderCompatibleMachines(part.compatibleMachines);
+            
+            // 渲染相关配件
+            renderRelatedParts(part.relatedParts || []);
+        });
+        
+        // 更新库存状态
+        function updateStockStatus(stockStatus, quantity) {
+            const stockElement = document.querySelector('.part-stock-status');
+            if (!stockElement) return;
+            
+            // 移除所有状态类
+            stockElement.classList.remove('in-stock', 'out-of-stock', 'pre-order');
+            
+            // 设置库存状态
+            if (stockStatus === 'out-of-stock') {
+                stockElement.classList.add('out-of-stock');
+                stockElement.innerHTML = '<i class="fas fa-times-circle"></i> 缺货（预计7天后到货）';
+            } else if (stockStatus === 'pre-order') {
+                stockElement.classList.add('pre-order');
+                stockElement.innerHTML = '<i class="fas fa-clock"></i> 预订中（需支付30%定金）';
+            } else {
+                stockElement.classList.add('in-stock');
+                stockElement.innerHTML = `<i class="fas fa-check-circle"></i> 有货（库存：${quantity || 3}件）`;
+            }
+        }
+        
+        // 渲染技术参数
+        function renderTechSpecs(specs) {
+            const paramsTable = document.querySelector('.params-table');
+            if (!paramsTable) return;
+            
+            let specsHtml = '';
+            
+            Object.keys(specs).forEach(key => {
+                specsHtml += `
+                    <tr>
+                        <td class="param-name">${key}</td>
+                        <td class="param-value">${specs[key]}</td>
+                    </tr>
+                `;
+            });
+            
+            paramsTable.innerHTML = specsHtml;
+        }
+        
+        // 渲染适用机型
+        function renderCompatibleMachines(machines) {
+            const modelsList = document.querySelector('.models-list');
+            if (!modelsList) return;
+            
+            let machinesHtml = '';
+            
+            machines.forEach(machine => {
+                machinesHtml += `
+                    <div class="model-item">${machine.name}</div>
+                `;
+            });
+            
+            modelsList.innerHTML = machinesHtml;
+        }
+        
+        // 渲染相关配件
+        function renderRelatedParts(relatedParts) {
+            const relatedGrid = document.querySelector('.related-grid');
+            if (!relatedGrid) return;
+            
+            let relatedHtml = '';
+            
+            relatedParts.forEach(part => {
+                relatedHtml += `
+                    <a href="parts-detail.html?id=${part.id}" class="related-part">
+                        <div class="related-part-image"><i class="fas fa-cog"></i></div>
+                        <div class="related-part-info">
+                            <div class="related-part-name">${part.name}</div>
+                            <div class="related-part-price">¥${part.rentalPrices.day}/天</div>
+                            <div class="btn-outline">查看详情</div>
+                        </div>
+                    </a>
+                `;
+            });
+            
+            relatedGrid.innerHTML = relatedHtml;
+        }
+        
+        // 生成星级HTML
+        function generateRatingHtml(rating) {
+            let html = '';
+            const fullStars = Math.floor(rating);
+            const hasHalfStar = rating % 1 >= 0.5;
+            
+            for (let i = 0; i < fullStars; i++) {
+                html += '<i class="fas fa-star"></i>';
+            }
+            
+            if (hasHalfStar) {
+                html += '<i class="fas fa-star-half-alt"></i>';
+            }
+            
+            const emptyStars = 5 - fullStars - (hasHalfStar ? 1 : 0);
+            for (let i = 0; i < emptyStars; i++) {
+                html += '<i class="far fa-star"></i>';
+            }
+            
+            return html;
+        }
+    </script>
+    
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+</body>
+</html>
